@@ -2,30 +2,29 @@ package dto;
 
 public class UserDto {
 
-
 	private int num;
 	private String id;
-	private String pw;
+	private String password;
 	private String name;
 	private String email;
 	private int mobile;
 	private String address;
 
 	public UserDto() {}
-
-	public UserDto(String id, String pw, String name, String email, int mobile, String address) {
+	
+	public UserDto(String id, String password, String name, String email, int mobile, String address) {
 		this.id = id;
-		this.pw = pw;
+		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
 	}
 
-	public UserDto(int num, String id, String pw, String name, String email, int mobile, String address) {
+	public UserDto(int num, String id, String password, String name, String email, int mobile, String address) {
 		this.num = num;
 		this.id = id;
-		this.pw = pw;
+		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.mobile = mobile;
@@ -48,12 +47,12 @@ public class UserDto {
 		this.id = id;
 	}
 
-	public String getPw() {
-		return pw;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {
@@ -90,10 +89,10 @@ public class UserDto {
 
 	@Override
 	public String toString() {
-		return "UserDto [num = " + num + ", id = " + id + ", pw = " + pw + ", name = " + name + ", email = " + email + ", mobile = "
-				+ mobile + ", address = " + address + "]";
+		return "UserDto [num=" + num + ", id=" + id + ", password=" + password + ", name=" + name + ", email=" + email
+				+ ", mobile=" + mobile + ", address=" + address + "]";
 	}
 
 	
-
+	
 }

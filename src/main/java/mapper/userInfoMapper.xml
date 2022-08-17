@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userInfoMapper">
+	<resultMap id="userInfoMap" type="dao.UserInfoDto">
+		<result property="num" column="num" />
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="mobile" column="mobile" />
+		<result property="address" column="address" />
+	</resultMap>
+	
+	<select id="user" parameterType="dao.UserInfoDto" resultMap="userInfoMap">
+		SELECT * FROM WorkOutUser WHERE id=#{id}
+	</select>
+	
+	<insert id="insert" parameterType="dao.UserInfoDto" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO WorkOutUser (id, password, name, email, mobile, address)
+			VALUES(#{id}, #{password}, #{name}, #{email}, #{mobile}, #{address});
+	</insert>	
+	
+	<delete id="delete" parameterType="dao.UserInfoDto">
+		DELETE FROM WorkOutUser WHERE id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="dao.UserInfoDto">
+		UPDATE WorkOutUser
+			SET
+				password=#{password}
+				name=#{name}
+				email=#{email}
+				mobile=#{mobile}
+				address=#{address}
+	</update>
+	
+</mapper>
