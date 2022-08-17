@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+* { box-sizing: border-box; font-family: 'Nanum Gothic', sans-serif; outline: none; color: #212121; }
+
+html {font-size: 13px;}
+body {margin: 0;}
+a {text-decoration: none;}
+ul ol {list-style: none; margin: 0; padding: 0;}
+dl, dt, dd {margin: 0; padding: 0;}
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="number"] { border: 1px solid #d5d5d5; height: 40px; padding: 0 10px; border-radius: 3px; width: 100%; }
+main{ min-height: 600px; padding: 10px; }
+.dn{ display: none !important; }
+
+/** 여백*/
+.mr{ margin-right: 50px;}
+.mt10{ margin-top: 10px; }
+.mt20{ margin-top: 20px; }
+.mb10{ margin-bottom: 10px; }
+.mb20{ margin-bottom: 20px; }
+/** 여백*/
+
+/** 테스트 */
+.join-menu { background-color: #d5d5d5; height: 100%;}
+/** 테스트 */
+
+/** 회원가입, 로그인 */
+header .join-menu > div { text-align: right; padding: 10px; }
+header .join-menu > div a { margin-left: 10px; }
+/** 회원가입, 로그인 */
+
+/** 로고 */
+.logo{ text-align: center; padding-top: 50px; padding-bottom: 50px; font-size: 50px; border-top: solid 1px black; border-bottom: solid 1px black;}
+/** 로고 */
+
+/** 푸터 */
+footer .footer{ text-align: center; border-top: solid 1px black; font-size: 25px; padding-top:50px; padding-bottom: 50px; font-size: 15px; }
+/** 푸터 */
+
