@@ -7,12 +7,12 @@ public class UserDto {
 	private String password;
 	private String name;
 	private String email;
-	private int mobile;
+	private String mobile;
 	private String address;
 
 	public UserDto() {}
 	
-	public UserDto(String id, String password, String name, String email, int mobile, String address) {
+	public UserDto(String id, String password, String name, String email, String mobile, String address) {
 		this.id = id;
 		this.password = password;
 		this.name = name;
@@ -21,7 +21,7 @@ public class UserDto {
 		this.address = address;
 	}
 
-	public UserDto(int num, String id, String password, String name, String email, int mobile, String address) {
+	public UserDto(int num, String id, String password, String name, String email, String mobile, String address) {
 		this.num = num;
 		this.id = id;
 		this.password = password;
@@ -71,11 +71,11 @@ public class UserDto {
 		this.email = email;
 	}
 
-	public int getMobile() {
+	public String getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(int mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 

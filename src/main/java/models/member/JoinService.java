@@ -1,12 +1,17 @@
 package models.member;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mindrot.bcrypt.BCrypt;
+
 import commons.Validator;
 import dto.UserDto;
+import exception.BadException;
+import models.member.UserValidator;
 
 public class JoinService {
 
@@ -43,18 +48,44 @@ public class JoinService {
 		String password = request.getParameter("pw");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		int mobile = Integer.parseInt(request.getParameter("mobile"));
+		String mobile = request.getParameter("mobile");
 		String address = request.getParameter("address");
 		
-		UserDto dto = new UserDto(id, password, name, email, mobile, address);
 		
 		
 		validator.overlapUser(id);
 		/** 중복 회원 체크 끝 */
 		
 		/** 아이디 체크 시작 */
-		
+		validator.checkUserId(id);
 		/** 아이디 체크 끝 */
+		
+		/** 전화번호 유효성 검사 시작 */
+		if(mobile != null || !mobile.isBlank()) {
+			mobile = mobile.replaceAll("[^0-9]", "");
+			if(!validator.checkMobile(mobile)) {
+				throw new BadException("전화번호 형식이 아닙니다. 숫자만 입력해 주세요.");
+			}
+		}
+		/** 전화번호 유효성 검사 끝 */
+		
+		/** 비밀번호 암호화 (Bcrypt) 시작 */
+		String hash = BCrypt.hashpw(mobile, BCrypt.gensalt(10));
+		UserDto dto = new UserDto();
+		
+		dto.setId(id);
+		dto.setPassword(hash);
+		dto.setName(name);
+		dto.setEmail(email);
+		dto.setMobile(mobile);
+		dto.setAddress(address);
+		
+		
+		/** 비밀번호 암호화 (Bcrypt) 끝 */
+		
+		
+		
+		
 	}
 	
 }
