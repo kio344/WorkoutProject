@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="WorkoutMapper">
+
+<resultMap type="dto.recordDto.AbsDto" id="AbsMap">
+<result property="absId" column="absId" />
+<result property="Crunch" column="Crunch" />
+<result property="HangingLegRays" column="HangingLegRays" />
+<result property="LegRays" column="LegRays" />
+<result property="SitUp" column="SitUp" />
+</resultMap>
+
+
+
+
+<resultMap type="dto.recordDto.CardioDto" id="CardioMap">
+<result property="cardioId" column="cardioId" />
+<result property="Cycle" column="Cycle" />
+<result property="Walking" column="Walking" />
+<result property="Running" column="Running" />
+<result property="Treadmill" column="Treadmill" />
+<result property="RowingMachine" column="RowingMachine" />
+</resultMap>
+
+
+
+
+<resultMap type="dto.recordDto.WorkoutDtDto" id="WorkoutDtMap">
+<result property="workoutDtId" column="workoutDtId" />
+<result property="regDate" column="regDate" />
+<result property="workoutTime" column="workoutTime" />
+</resultMap>
+
+<select id="workoutDt" parameterType="dto.recordDto.WorkoutDtDto" resultMap="WorkoutDtMap">
+SELECT * FROM workoutDt;
+</select>
+
+<insert id="workoutDtinsert" parameterType="dto.recordDto.WorkoutDtDto" useGeneratedKeys="true" keyProperty="workoutDtId">
+INSERT INTO workoutDt (workoutDtId, regDate, workoutTime)
+VALUES(#{workoutDtId}, #{regDate}, #{workoutTime});
+</insert>
+
+<delete id="workoutDtdelete" parameterType="dto.recordDto.WorkoutDtDto">
+DELETE FROM workoutDt WHERE workoutDtId=#{workoutDtId}; 
+</delete>
+
+
+
+
+
+<resultMap type="dto.recordDto.RecordDto" id="RecordMap">
+<result property="recordId" column="recordId" />
+<result property="set" column="set" />
+<result property="count" column="count" />
+<result property="memo" column="memo" />
+</resultMap>
+
+<select id="recordId" parameterType="dto.recordDto.RecordDto" resultMap="RecordMap">
+SELECT * FROM record;
+</select>
+
+<insert id="recordinsert" parameterType="dto.recordDto.RecordDtDto" useGeneratedKeys="true" keyProperty="recordId">
+INSERT INTO record (recordId, set, count, memo)
+VALUES(#{recordId}, #{set}, #{count} #{memo});
+</insert>
+
+<delete id="recorddelete" parameterType="dto.recordDto.RecordDtDto">
+DELETE FROM record WHERE recordId=#{recordId}; 
+</delete>
+
+
+
+
+
+
+<resultMap type="dto.recordDto.ChestDto" id="ChsetMap">
+   <result property="chestId" column="chestId" />
+   <result property="BenchPress" column="BenchPress" />
+   <result property="DumbbellPress" column="DumbbellPress" />
+   <result property="InclineBenchPress" column="InclineBenchPress" />
+   <result property="DumbbellFly" column="DumbbellFly" />
+   <result property="Dips" column="Dips" />
+   <result property="CableCrossOver" column="CableCrossOver" />
+</resultMap>
+
+<select id="chest" parameterType="dto.recordDto.ChestDto" resultMap="AbsMap">
+SELECT * FROM chest;
+</select>
+
+<insert id="chestinsert" parameterType="dto.recordDto.ChestDto" useGeneratedKeys="true" keyProperty="chsetId">
+INSERT INTO chest (chestId, BenchPress, DumbbellPress, InclineBenchPress, DumbbellFly, Dips, CableCrossOver)
+VALUES(#{chestId}, #{BenchPress}, #{DumbbellPress}, #{InclineBenchPress}, #{DumbbellFly}, #{Dips} ,#{CableCrossOver});
+</insert>
+
+<delete id="chsetdelete" parameterType="dto.recordDto.ChestDto">
+DELETE FROM chest WHERE chestId=#{chestId}; 
+</delete>
+
+
+
+
+
+
+<resultMap type="dto.recordDto.LowerbodyDto" id="LowerbodyMap">
+   <result property="lowerbodyId" column="lowerbodyId" />
+   <result property="Squat" column="Squat" />
+   <result property="Legpress" column="Legpress" />
+   <result property="LegExtension" column="LegExtension" />
+   <result property="Legcurl" column="Legcurl" />
+   <result property="HipBridge" column="HipBridge" />
+   <result property="DunkKick" column="DunkKick" />
+   <result property="ConventionalDeadLift" column="ConventionalDeadLift" />
+</resultMap>
+
+
+
+
+
+
+<resultMap type="dto.recordDto.BackDto" id="BackMap">
+   <result property="backId" column="backId" />
+   <result property="Pullup" column="Pullup" />
+   <result property="LatPullDown" column="LatPullDown" />
+   <result property="SittedLow" column="SittedLow" />
+   <result property="BabelLow" column="BabelLow" />
+   <result property="OneArmLow" column="OneArmLow" />
+   <result property="RomanianDeadlift" column="RomanianDeadlift" />
+</resultMap>
+
+
+
+
+
+
+<resultMap type="dto.recordDto.ShoulderDto" id="ShoulderMap">
+   <result property="shoulderId" column="shoulderId" />
+   <result property="MilitaryPress" column="MilitaryPress" />
+   <result property="SideLiteralRays" column="SideLiteralRays" />
+   <result property="BentOverLiteralRays" column="BentOverLiteralRays" />
+   <result property="FrontLiteralRays" column="FrontLiteralRays" />
+   <result property="ShoulderDumbbellPress" column="ShoulderDumbbellPress" />
+   <result property="BackDeckFly" column="BackDeckFly" />
+   <result property="BehindNeckPress" column="BehindNeckPress" />
+   <result property="Facefall" column="Facefall" />
+</resultMap>
+
+</mapper>
