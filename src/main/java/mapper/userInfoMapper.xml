@@ -10,6 +10,10 @@
 		<result property="mobile" column="mobile" />
 		<result property="address" column="address" />
 	</resultMap>
+	<!-- 유무 체크 -->
+	<select id="check" parameterType="String" resultMap="userInfoMap">
+		SELECT * FROM WorkOutUser WHERE id=#{id}
+	</select>
 	<!-- 유저 아이디로 검색 -->
 	<select id="user" parameterType="dto.UserDto" resultMap="userInfoMap">
 		SELECT * FROM WorkOutUser WHERE id=#{id}

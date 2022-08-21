@@ -2,9 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 
-<layout:main>
+<layout:main title="회원가입">
 
-<form action="<c:url value="/join" />" method="post">
+<form target="ifrmProcess" action="<c:url value="/join" />" method="post">
 <div class="join_kmh">
 
 	아이디 : <input type="text" name="id" > <br>
@@ -15,8 +15,9 @@
 	핸드폰 번호 : <input type="number" name="mobile" ><br>
 	주소 : <input type="text" name="address" > <br>
 	<button>회원가입</button>
-
+	
 </div>
 </form>
+
 
 </layout:main>

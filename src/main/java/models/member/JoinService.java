@@ -1,5 +1,6 @@
 package models.member;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 import java.util.Map;
@@ -60,17 +61,16 @@ public class JoinService {
 		/** 아이디 체크 끝 */
 		
 		/** 전화번호 유효성 검사 시작 */
-//		if(mobile != null && !mobile.isBlank()) {
-//			mobile = mobile.replaceAll("[^0-9]", "");
-//			System.out.println(mobile);
-//			if(validator.checkMobile(mobile)) {
-//				throw new BadException("전화번호 형식이 아닙니다. 숫자만 입력해 주세요.");
-//			}
-//		}
+		if(mobile != null && !mobile.isBlank()) {
+			System.out.println(mobile);
+			if(!validator.checkMobile(mobile)) {
+				throw new BadException("전화번호 형식이 아닙니다. 숫자만 입력해 주세요.");
+			}
+		}
 		/** 전화번호 유효성 검사 끝 */
 		
 		/** 비밀번호 암호화 (Bcrypt) 시작 */
-		String hash = BCrypt.hashpw(mobile, BCrypt.gensalt(10));
+		String hash = BCrypt.hashpw(password, BCrypt.gensalt(10));
 		UserDto dto = new UserDto();
 		
 		dto.setId(id);
@@ -83,7 +83,7 @@ public class JoinService {
 		/** 비밀번호 암호화 (Bcrypt) 끝 */
 		
 		/** 회원 정보 저장 시작 */
-		System.out.println(dto);
+		
 		validator.insertUser(dto);
 		
 		/** 회원 정보 저장 끝 */
