@@ -10,16 +10,13 @@ import dto.UserDto;
 public class UserDao {
 	
 	private static UserDao instance = new UserDao();
-	
 	private UserDao() {}
-	
 	/**
 	 * 회원 등록
 	 */
 	public UserDto register(UserDto dto) {
 			
 		SqlSession sqlsession = mybatis.Connection.getSession();
-		
 		int affectedRows = sqlsession.insert("userInfoMapper.insert", dto);
 		
 		sqlsession.commit();
@@ -27,7 +24,6 @@ public class UserDao {
 		
 		if(affectedRows < 1)
 			return null;
-		
 		
 		return null;
 	}

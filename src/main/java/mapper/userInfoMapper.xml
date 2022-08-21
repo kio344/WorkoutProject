@@ -10,20 +10,20 @@
 		<result property="mobile" column="mobile" />
 		<result property="address" column="address" />
 	</resultMap>
-	
+	<!-- 유저 아이디로 검색 -->
 	<select id="user" parameterType="dao.UserInfoDto" resultMap="userInfoMap">
 		SELECT * FROM WorkOutUser WHERE id=#{id}
 	</select>
-	
+	<!-- 유저 정보 추가 -->
 	<insert id="insert" parameterType="dao.UserInfoDto" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO WorkOutUser (id, password, name, email, mobile, address)
 			VALUES(#{id}, #{password}, #{name}, #{email}, #{mobile}, #{address});
 	</insert>	
-	
+	<!-- 유저 id 검색 후 삭제 -->
 	<delete id="delete" parameterType="dao.UserInfoDto">
 		DELETE FROM WorkOutUser WHERE id=#{id}
 	</delete>
-	
+	<!-- 유저 정보 변경사항 업데이트 -->
 	<update id="update" parameterType="dao.UserInfoDto">
 		UPDATE WorkOutUser
 			SET
@@ -33,5 +33,5 @@
 				mobile=#{mobile}
 				address=#{address}
 	</update>
-	
+	<!-- 추가 기능  -->
 </mapper>
