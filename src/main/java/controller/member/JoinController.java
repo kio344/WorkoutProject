@@ -4,6 +4,7 @@ import java.io.IOException;
 
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import css_js.AddCss_Js;
 import models.member.JoinService;
 
 
+@WebServlet("/join")
 public class JoinController extends HttpServlet{
 	
 	@Override

@@ -6,8 +6,8 @@
   <properties>
 	  <property name="hostname" value="localhost" />
       <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-      <property name="url" value="jdbc:mysql://localhost:3306/jspBoard?characterEncoding=UTF8&amp;serverTimezone=UTC" />
-      <property name="username" value="root" />
+      <property name="url" value="jdbc:mysql://dsm.bmserver.org/WorkOut?characterEncoding=UTF8&amp;serverTimezone=UTC" />
+      <property name="username" value="Dev" />
       <property name="password" value="aA!123456" />
   </properties>
   <settings>
@@ -37,7 +37,6 @@
     </environment>
   </environments>
   <mappers>
-	<mapper resource="models/member/MemberMapper.xml" />
-	<mapper resource="models/files/FileMapper.xml" />
+	<mapper resource="mapper/userInfoMapper.xml" />
   </mappers>
 </configuration>

@@ -21,12 +21,12 @@ public class UserValidator implements Validator, MobileValidator{
 		
 		UserDto param = new UserDto();
 		param.setId(id);
-		
-		int count = sqlsession.selectOne("userInfoMapper.user", id);
+		System.out.println(param);
+		UserDto user = sqlsession.selectOne("userInfoMapper.user", param);
 		
 		sqlsession.close();
 		
-		if(count > 0 ) {
+		if(user != null ) {
 			throw new BadException("이미 등록된 회원입니다.");
 		}
 	}
