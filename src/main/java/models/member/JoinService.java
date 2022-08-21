@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.mindrot.bcrypt.BCrypt;
 
@@ -26,11 +27,11 @@ public class JoinService {
 	 * @param req
 	 */
 	
-	public void join(HttpServletRequest request) {
+	public void join(HttpServletRequest request, HttpServletResponse response) {
+		UserValidator validator = new UserValidator();
 		
 		/** 1. 필수 데이터 검증 시작 */
 		Map<String, String> check = new HashMap<>();
-		UserValidator validator = new UserValidator();
 		
 		check.put("id", "아이디를 입력해 주세요.");
 		check.put("pw", "비밀번호를 입력해 주세요.");
@@ -50,8 +51,6 @@ public class JoinService {
 		String email = request.getParameter("email");
 		String mobile = request.getParameter("mobile");
 		String address = request.getParameter("address");
-		
-		
 		
 		validator.overlapUser(id);
 		/** 중복 회원 체크 끝 */
@@ -80,10 +79,14 @@ public class JoinService {
 		dto.setEmail(email);
 		dto.setMobile(mobile);
 		dto.setAddress(address);
-		
+		System.out.println(hash);
 		/** 비밀번호 암호화 (Bcrypt) 끝 */
 		
+		/** 회원 정보 저장 시작 */
+		System.out.println(dto);
+		validator.insertUser(dto);
 		
+		/** 회원 정보 저장 끝 */
 		
 		
 	}

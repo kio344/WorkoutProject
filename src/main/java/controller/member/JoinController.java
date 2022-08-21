@@ -25,8 +25,9 @@ public class JoinController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		JoinService service = new JoinService();
-		
-		service.join(req);
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=utf-8");
+		service.join(req, resp);
 		
 		
 	}

@@ -25,7 +25,7 @@ public class UserDao {
 		if(affectedRows < 1)
 			return null;
 		
-		return null;
+		return dto;
 	}
 	
 	/**
