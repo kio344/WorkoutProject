@@ -44,6 +44,6 @@
 	<jsp:invoke fragment="footer" />
 	</body>
 	
-	<iframe name="ifrmProcess" width="100%" height="0" class="dn"></iframe>
+	<iframe name="ifrmProcess" width="100%" height="0px" class="dn"></iframe>
 	
 </html>
