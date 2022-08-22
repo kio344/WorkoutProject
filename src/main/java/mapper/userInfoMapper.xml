@@ -31,11 +31,12 @@
 	<update id="update" parameterType="dto.UserDto">
 		UPDATE WorkOutUser
 			SET
-				password=#{password}
-				name=#{name}
-				email=#{email}
-				mobile=#{mobile}
+				password=#{password},
+				name=#{name},
+				email=#{email},
+				mobile=#{mobile},
 				address=#{address}
+			WHERE id=#{id}
 	</update>
 	<!-- 추가 기능  -->
 </mapper>
