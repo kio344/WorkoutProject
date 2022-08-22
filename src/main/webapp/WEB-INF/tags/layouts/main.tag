@@ -10,12 +10,21 @@
 		<header>
 			<section class="join-menu" >
 				<div class="layout_width">
-					<a href="<c:url value="/member/join.jsp" /> " > 회원가입 </a>
-					<a href="<c:url value="/member/login.jsp" /> " class="mr"> 로그인 </a>
-
+					<c:if test="${empty member}" >
+						<a href="<c:url value="/member/join.jsp" /> " > 회원가입 </a>
+						<a href="<c:url value="/member/login.jsp" /> " class="mr"> 로그인 </a>
+					</c:if>
+					<c:if test="${!empty member }">
+						${member.name }님 환영합니다. 
+						<a href="<c:url value="/mypage" /> ">MyPage</a>
+						<a href="<c:url value="/withdrawal" />" onclick="return confirm('정말 탈퇴하시겠습니까?');">회원탈퇴</a>
+						<a href="<c:url value="/logout" /> ">로그아웃</a> 
+					</c:if>
 				</div>
 			</section>
-			<section class="logo">로고 부분</section>
+			<section class="logo">
+			<a href="<c:url value="/" /> ">로고 부분</a>
+			</section>
 		</header>
 	</jsp:attribute>
 	
