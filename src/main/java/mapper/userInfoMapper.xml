@@ -24,7 +24,7 @@
 			VALUES(#{id}, #{password}, #{name}, #{email}, #{mobile}, #{address});
 	</insert>	
 	<!-- 유저 id 검색 후 삭제 -->
-	<delete id="delete" parameterType="dto.UserDto">
+	<delete id="delete" parameterType="dto.UserDto" >
 		DELETE FROM WorkOutUser WHERE id=#{id}
 	</delete>
 	<!-- 유저 정보 변경사항 업데이트 -->

@@ -17,7 +17,7 @@
 					<c:if test="${!empty member }">
 						${member.name }님 환영합니다. 
 						<a href="<c:url value="/mypage" /> ">MyPage</a>
-						<a href="<c:url value="/withdrawal" />" onclick="return confirm('정말 탈퇴하시겠습니까?');">회원탈퇴</a>
+						<a href="<c:url value="/withdrawal" />" onclick="return confirm('탈퇴페이지로 이동하시겠습니까?');">회원탈퇴</a>
 						<a href="<c:url value="/logout" /> ">로그아웃</a> 
 					</c:if>
 				</div>

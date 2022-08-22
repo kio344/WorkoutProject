@@ -32,7 +32,7 @@ public class JoinController extends HttpServlet{
 		
 		try {
 			service.join(req, resp);
-			out.print("<script>alert('로그인 성공')</script> \n");
+			out.print("<script>alert('회원가입 성공')</script> \n");
 			out.print("<script>parent.location.replace('/WorkOutProject')</script>");
 			
 		}catch (BadException e) {
