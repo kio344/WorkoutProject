@@ -23,6 +23,7 @@ public class JoinService {
 	 *	2. 중복회원 체크
 	 *	3. 아이디 체크(알파벳 + 숫자), 복잡성 체크
 	 *	3-1. 휴대전화번호 유입시 형식체크, 형식 통일화(숫자로만 구성)
+	 *	3-2 이메일 유효성 검사
 	 *	4. 비밀번호 해시화(bcrypt)
 	 *	5. DB 저장 처리
 	 * @param req
@@ -45,7 +46,7 @@ public class JoinService {
 		validator.check(request, check);
 		/** 1. 필수 데이터 검증 끝 */
 		
-		/** 중복 회원 체크 시작 */
+		/** 2. 중복 회원 체크 시작 */
 		String id = request.getParameter("id");
 		String password = request.getParameter("pw");
 		String name = request.getParameter("name");
@@ -56,20 +57,23 @@ public class JoinService {
 		validator.overlapUser(id);
 		/** 중복 회원 체크 끝 */
 		
-		/** 아이디 체크 시작 */
+		/** 3. 아이디 체크 시작 */
 		validator.checkUserId(id);
 		/** 아이디 체크 끝 */
 		
-		/** 전화번호 유효성 검사 시작 */
+		/** 3-1.  전화번호 유효성 검사 시작 */
 		if(mobile != null && !mobile.isBlank()) {
-			System.out.println(mobile);
 			if(!validator.checkMobile(mobile)) {
 				throw new BadException("전화번호 형식이 아닙니다. 숫자만 입력해 주세요.");
 			}
 		}
 		/** 전화번호 유효성 검사 끝 */
+//		System.out.println(str.contains("h"));
+		/** 3-2 이메일 유효성 검사 시작 */
+		validator.emailCheck(request);
+		/** 이메일 유효성 검사 끝 */
 		
-		/** 비밀번호 암호화 (Bcrypt) 시작 */
+		/** 4. 비밀번호 암호화 (Bcrypt) 시작 */
 		String hash = BCrypt.hashpw(password, BCrypt.gensalt(10));
 		UserDto dto = new UserDto();
 		
@@ -82,7 +86,7 @@ public class JoinService {
 		System.out.println(hash);
 		/** 비밀번호 암호화 (Bcrypt) 끝 */
 		
-		/** 회원 정보 저장 시작 */
+		/** 5. 회원 정보 저장 시작 */
 		
 		validator.insertUser(dto);
 		
