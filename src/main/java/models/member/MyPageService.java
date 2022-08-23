@@ -15,9 +15,7 @@ public class MyPageService {
 	/**
 	 * 비밀번호 변경 체크
 	 */
-	
 	public void checkPw(HttpServletRequest request) {
-		
 		String repw = request.getParameter("repw");
 		String repwRe = request.getParameter("repwRe");
 		
@@ -34,6 +32,7 @@ public class MyPageService {
 		}
 		
 	}
+	
 	/**
 	 * 정보 변경사항 저장
 	 * @param request
@@ -51,14 +50,18 @@ public class MyPageService {
 		dto.setMobile(request.getParameter("mobileRe"));
 		dto.setAddress(request.getParameter("addressRe"));
 		
-		
 		sqlsession.update("userInfoMapper.update", dto);
 		
 		sqlsession.commit();
 		sqlsession.close();
-	
+		
 		session.setAttribute("member", dto);
+	}
+	public void emailCheck(HttpServletRequest request ) {
+		String emailRe = request.getParameter("emailRe");
 		
-		
+		if(emailRe == null || !(emailRe.contains("@") || !(emailRe.contains(".")))) {
+			throw new BadException("이메일 형식이 아닙니다.");
+		}
 	}
 }

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.mindrot.bcrypt.BCrypt;
 
+import commons.Validator;
 import dto.UserDto;
 import exception.BadException;
 
@@ -23,14 +24,13 @@ public class MyPageController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = req.getRequestDispatcher("/member/mypage.jsp");
 		rd.forward(req, resp);
-		
 	}
-
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html; charset=utf-8");
-		
+		UserValidator validator = new UserValidator();
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		HttpSession session = req.getSession();
@@ -43,6 +43,7 @@ public class MyPageController extends HttpServlet{
 			login.search(dto.getId(), pw);
 			service.checkPw(req);
 			service.update(req);
+			service.emailCheck(req);
 			
 			out.print("<script>alert('변경 완료 되었습니다.')</script>");
 			out.print("<script>parent.location.replace('/WorkOutProject')</script>");
