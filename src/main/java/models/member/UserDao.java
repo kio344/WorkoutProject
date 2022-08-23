@@ -44,6 +44,15 @@ public class UserDao {
 		
 		return member;
 	}
+	
+	public boolean bmiUpdate(UserDto dto) {
+		SqlSession sqlSession = mybatis.Connection.getSession();
+		int affectedRows = sqlSession.update("userInfoMapper.bmiUpdate", dto);
+		
+		sqlSession.commit();
+		sqlSession.close();
+		return affectedRows > 0;
+	}
 
 	/**
 	 * 싱글톤 패턴

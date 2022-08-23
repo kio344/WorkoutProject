@@ -9,6 +9,10 @@
 		<result property="email" column="email" />
 		<result property="mobile" column="mobile" />
 		<result property="address" column="address" />
+		<result property="height" column="height"/>
+		<result property="weight" column="weight"/>
+		<result property="age" column="age"/>
+		<result property="sex" column="sex"/>
 	</resultMap>
 	<!-- 유무 체크 -->
 	<select id="check" parameterType="String" resultMap="userInfoMap">
@@ -24,7 +28,7 @@
 			VALUES(#{id}, #{password}, #{name}, #{email}, #{mobile}, #{address});
 	</insert>	
 	<!-- 유저 id 검색 후 삭제 -->
-	<delete id="delete" parameterType="dto.UserDto">
+	<delete id="delete" parameterType="dto.UserDto" >
 		DELETE FROM WorkOutUser WHERE id=#{id}
 	</delete>
 	<!-- 유저 정보 변경사항 업데이트 -->
@@ -39,4 +43,15 @@
 			WHERE id=#{id}
 	</update>
 	<!-- 추가 기능  -->
+	
+	<!-- 유저 신체정보 업데이트 -->
+	<update id="bmiUpdate" parameterType="dto.UserDto">
+		UPDATE WorkOutUser
+			SET
+				height=#{height},
+				weight=#{weight},
+				age=#{age},
+				sex=#{sex}
+			WHERE id=#{id}
+	</update>
 </mapper>
