@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RequestProductMap">
+	<resultMap type="models.seller.ProductDto" id="productmap">
+		<result column="abnum" property="abnum"/>
+		<result column="serialnum" property="serialnum"/>
+		<result column="name" property="name"/>
+		<result column="price" property="price"/>
+		<result column="kategorie" property="kategorie"/>
+		<result column="company" property="company"/>
+		<result column="img" property="img"/>
+	</resultMap>
+
+<insert id="register"  parameterType="models.seller.ProductDto" useGeneratedKeys="true"
+        keyProperty="abnum" keyColumn="abnum">
+	INSERT RequestProduct ( serialnum, name, price, kategorie, company, img) 
+		VALUES (#{serialnum},#{name},#{price},#{kategorie},#{company},#{img})
+</insert>
+</mapper>

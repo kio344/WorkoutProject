@@ -38,5 +38,6 @@
   </environments>
   <mappers>
 	<mapper resource="mapper/userInfoMapper.xml" />
+	<mapper resource="models/seller/requestProductMapper.xml" />
   </mappers>
 </configuration>
