@@ -3,6 +3,8 @@ package models.member;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 
 import commons.Validator;
@@ -21,7 +23,6 @@ public class UserValidator implements Validator, MobileValidator{
 		
 		UserDto param = new UserDto();
 		param.setId(id);
-		System.out.println(param);
 		UserDto user = sqlsession.selectOne("userInfoMapper.user", param);
 		
 		sqlsession.close();
@@ -63,6 +64,18 @@ public class UserValidator implements Validator, MobileValidator{
 		
 		return dto;
 		
+	}
+	
+	/**
+	 * 이메일 형식 체크
+	 * @param request
+	 */
+	public void emailCheck(HttpServletRequest request) {
+		String email = request.getParameter("email");
+		
+		if(email == null || !(email.contains("@")) || !(email.contains("."))) {
+			throw new BadException("이메일을 다시 입력해 주세요");
+		}
 	}
 	
 }
