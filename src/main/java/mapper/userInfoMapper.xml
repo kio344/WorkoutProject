@@ -54,4 +54,11 @@
 				sex=#{sex}
 			WHERE id=#{id}
 	</update>
+	
+	<!-- 유저(판매자) 정보 추가 -->
+	<insert id="insertSeller" parameterType="dto.UserDto" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO WorkOutUser (id, password, name, email, mobile, address, userType)
+			VALUES(#{id}, #{password}, #{name}, #{email}, #{mobile}, #{address},'seller');
+	</insert>	
+	
 </mapper>

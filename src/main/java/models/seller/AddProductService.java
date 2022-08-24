@@ -1,7 +1,6 @@
 package models.seller;
 
 import javax.servlet.http.HttpServletRequest;
-import static jmsUtil.Utils.*;
 
 public class AddProductService {
 	public void addProduct(HttpServletRequest req) {

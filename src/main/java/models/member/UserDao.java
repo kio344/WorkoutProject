@@ -29,6 +29,25 @@ public class UserDao {
 	}
 	
 	/**
+	 * 유저(판매자) 정보 추가
+	 * @param user
+	 * @return
+	 * @author 정민상
+	 */
+	public UserDto insertSeller(UserDto user) {
+		SqlSession sqlsession = mybatis.Connection.getSession();
+		int affectedRows = sqlsession.insert("userInfoMapper.insertSeller", user);
+		
+		sqlsession.commit();
+		sqlsession.close();
+		
+		if(affectedRows < 1)
+			return null;
+		
+		return user;
+	}
+	
+	/**
 	 * 회원 조회
 	 */
 	
