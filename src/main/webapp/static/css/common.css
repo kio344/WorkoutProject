@@ -24,6 +24,7 @@ main{ min-height: 600px; padding: 10px; }
 
 /** 테스트 */
 .join-menu { background-color: #d5d5d5; height: 100%;}
+/**.layout_width { max-width: 1100px; width: 100%; margin: 0 auto; }*/
 /** 테스트 */
 
 /** 회원가입, 로그인 */
@@ -38,4 +39,8 @@ header .join-menu > div a { margin-left: 10px; }
 /** 푸터 */
 footer .footer{ text-align: center; border-top: solid 1px black; font-size: 25px; padding-top:50px; padding-bottom: 50px; font-size: 15px; }
 /** 푸터 */
+
+nav { background-color: #212121;  width: 100%; }
+nav > div { display: flex; width: 100%; justify-content: space-around; }
+nav a {  text-align: center; color: #fff; font-size: 1.5rem; padding: 15px 20px;  }
 
