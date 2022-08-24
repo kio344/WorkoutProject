@@ -11,8 +11,8 @@
 			<section class="join-menu" >
 				<div class="layout_width">
 					<c:if test="${empty member}" >
-						<a href="<c:url value="/member/join.jsp" /> " > 회원가입 </a>
-						<a href="<c:url value="/member/login.jsp" /> " class="mr"> 로그인 </a>
+						<a href="<c:url value="/join" /> " > 회원가입 </a>
+						<a href="<c:url value="/login" /> " class="mr"> 로그인 </a>
 					</c:if>
 					<c:if test="${!empty member }">
 						${member.name }님 환영합니다. 
