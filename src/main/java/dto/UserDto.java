@@ -13,9 +13,11 @@ public class UserDto {
 	private double weight;
 	private double age;
 	private String sex;
+	private String userType;
 
-	public UserDto() {}
-	
+	public UserDto() {
+	}
+
 	public UserDto(String id, String password, String name, String email, String mobile, String address) {
 		this.id = id;
 		this.password = password;
@@ -25,7 +27,8 @@ public class UserDto {
 		this.address = address;
 	}
 
-	public UserDto(int num, String id, String password, String name, String email, String mobile, String address) {
+	public UserDto(int num, String id, String password, String name, String email, String mobile, String address,
+			String userType) {
 		this.num = num;
 		this.id = id;
 		this.password = password;
@@ -33,9 +36,8 @@ public class UserDto {
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
+		this.userType = userType;
 	}
-	
-	
 
 	public UserDto(int num, String id, String password, String name, String email, String mobile, String address,
 			double height, double weight, double age, String sex) {
@@ -107,8 +109,6 @@ public class UserDto {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
 
 	public double getHeight() {
 		return height;
@@ -142,15 +142,19 @@ public class UserDto {
 		this.sex = sex;
 	}
 
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
 	@Override
 	public String toString() {
 		return "UserDto [num=" + num + ", id=" + id + ", password=" + password + ", name=" + name + ", email=" + email
 				+ ", mobile=" + mobile + ", address=" + address + ", height=" + height + ", weight=" + weight + ", age="
-				+ age + ", sex=" + sex + "]";
+				+ age + ", sex=" + sex + ", userType=" + userType + "]";
 	}
 
-	
-
-	
-	
 }

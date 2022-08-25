@@ -13,6 +13,7 @@
 		<result property="weight" column="weight"/>
 		<result property="age" column="age"/>
 		<result property="sex" column="sex"/>
+		<result property="userType" column="userType"/>
 	</resultMap>
 	<!-- 유무 체크 -->
 	<select id="check" parameterType="String" resultMap="userInfoMap">
