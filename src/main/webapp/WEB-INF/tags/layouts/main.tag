@@ -32,7 +32,7 @@
 			<nav>
 				<div class="layout_width">
 					<a href="#">운동 기록</a>
-					<a href="<c:url value="/purpose/purpose.jsp" /> ">추천 운동</a>
+					<a href="<c:url value="/purpose" /> ">추천 운동</a>
 					<a href="#">커뮤니티</a>
 					<a href="#">Sport Shop</a>
 				</div>
