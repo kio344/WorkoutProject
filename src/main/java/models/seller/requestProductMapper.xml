@@ -5,6 +5,7 @@
 <mapper namespace="RequestProductMap">
 	<resultMap type="models.seller.ProductDto" id="productmap">
 		<result column="abnum" property="abnum"/>
+		<result column="seller" property="seller" />
 		<result column="serialnum" property="serialnum"/>
 		<result column="name" property="name"/>
 		<result column="price" property="price"/>
