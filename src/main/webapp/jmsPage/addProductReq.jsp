@@ -1,9 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts/sellertag" %>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="<c:url value="/static/css/seller/addProductReq.css" />" />
+
 <layout:seller>
-	<link rel="stylesheet" href="<c:url value="/static/css/seller/addProductReq.css" />" />
-	
+	<div class="box">
 	<h1>제품 추가 요청페이지 </h1>
 	<form action="<c:url value="/seller/addProductReq" />" method="post" >
 	
@@ -29,4 +30,5 @@
 		</div>
 		
 	</form>
+	</div>
 </layout:seller>

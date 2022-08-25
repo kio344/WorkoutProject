@@ -7,16 +7,36 @@
 
 %>
 <layout:seller>
-	 <div class="center">
-		<div class="myinfo">
-			<span class="xi-user-o userlogo"></span>
-			<div class="usermenu">
-				<ul>
-					<a href=""><li>메세지</li></a>
-					<a href=""><li>판매 물품 추가 요청</li></a>
-					<a href=""><li>판매 물품</li></a>
-				</ul>			
+		<div class="test">
+			<div class="box userinfo">
+				<span class="xi-profile-o"></span>	
+					
+			</div>
+			<div class="box">
+				<span>이름 : ${member.name }</span>			
+				<span>이메일 : ${member.email }</span>				
+				<span>전화번호 : ${member.mobile }</span>				
+						
+
 			</div>
 		</div>
-	</div> 
+		
+		<div class="box productInfo">
+			<div class="reqCount">
+				<span>승인 대기중</span>
+				<span>24개</span>
+			
+			</div>
+			<div class="sellCount">
+				<span>판매 중</span>
+				<span>48개</span>
+			 </div>
+			 
+			 <div class="sellCount">
+				<span> 확인 안한 메세지</span>
+				<span>4건</span>
+			 </div>
+		</div>
+	
+
 </layout:seller>
