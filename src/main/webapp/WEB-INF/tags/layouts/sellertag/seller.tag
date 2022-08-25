@@ -7,34 +7,85 @@
 		<script src="<c:url value="/static/js/seller/common.js" />" ></script>
 		<link rel="stylesheet" href="<c:url value="/static/css/seller/common.css" />" ></link>
 		<header>
-			
-				<div>
-					<a class="xi-library" id="menubtn"></a>
-				</div>
-				<div>
-					<input id="search"><button id="searchbtn">검색</button>
-				</div>
-		
-		</header>
-		
-		<nav class="menu dn">
-			<ul >
-				<a href="<c:url value="/seller" />"><li>메인페이지</li></a>
-				<a><li>메세지</li></a>
-				<a href="<c:url value="/seller/addProductReq" />"><li>제품 판매 신청</li></a>
-				<a><li>신청 목록</li></a>
-				<a><li>판매 목록</li></a>
-			</ul>
+			<nav class="header_nav">
+				<c:if test="${!empty member }">
+				<ul>
+					<a href="<c:url value="/seller" />">
+						<li>
+							<div class="xi-profile-o header_icon" ></div>
+							<div class="info">${member.name } </div>
+						</li>
+					</a>
+				</c:if>
+				<c:if test="${empty member }">
+				<ul>
+					<a href="<c:url value="/seller/login" />">
+						<li>
+							<div class="xi-profile-o header_icon" ></div>
+							<div class="info">로그인 </div>
+						</li>
+					</a>
+				</c:if>
+				
+					<a href="<c:url value="/seller" />">
+						<li>
+							<div class="xi-home-o header_icon" ></div>
+							<div class="info">메인페이지</div>
+						</li>
+					</a>
+				
+					<a href="">
+						<li>
+							<div class="xi-message-o header_icon" ></div>
+							<div class="info">메세지</div>
+						</li>
+					</a>
 
-		</nav>
-		<div class="background dn">
-		
-		</div>
+					<a href="<c:url value="/seller/addProductReq" />" >
+						<li>
+							<div class="xi-cart-add header_icon" /></div>
+							<div class="info">상품 추가 요청</div>
+						</li>
+					</a>
+
+					<a href="">
+						<li>
+							<div class="xi-shop header_icon" /></div>
+							<div class="info">판매중인 상품</div>
+						</li>
+					</a>
+					
+					<c:if test="${!empty member }">
+				<ul>
+					<a href="<c:url value="/seller" />">
+						<li>
+							<div class="xi-log-out header_icon" ></div>
+							<div class="info">로그아웃 </div>
+						</li>
+					</a>
+				</c:if>
+				
+					<c:if test="${empty member }">
+				<ul>
+					<a href="<c:url value="/seller" />">
+						<li>
+							<div class="xi-log-out header_icon dn" ></div>
+							<div class="info dn">로그아웃 </div>
+						</li>
+					</a>
+				</c:if>
+
+				</ul>
+			</nav>
+		</header>
+	
 	</jsp:attribute>
 	
 	
 	
 	<jsp:body>
-		<jsp:doBody />
+		 <div class="layout">
+			<jsp:doBody />
+		 </div> 
 	</jsp:body>
 </layout:common>
