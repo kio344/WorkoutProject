@@ -19,6 +19,12 @@
 						<a href="<c:url value="/mypage" /> ">MyPage</a>
 						<a href="<c:url value="/withdrawal" />" onclick="return confirm('탈퇴페이지로 이동하시겠습니까?');">회원탈퇴</a>
 						<a href="<c:url value="/logout" /> ">로그아웃</a>
+						<c:if test="${member.userType eq 'admin'}">
+							<a href="<c:url value="/admin" /> " target="_blank"  >관리자 페이지</a>
+						</c:if>
+						<c:if test="${member.userType eq 'seller' or member.userType eq 'admin'}">
+							<a href="<c:url value="/seller" /> " target="_blank"  >판매자 페이지</a>
+						</c:if>
 					</c:if>
 				</div>
 			</section>
@@ -32,7 +38,7 @@
 			<nav>
 				<div class="layout_width">
 					<a href="#">운동 기록</a>
-					<a href="<c:url value="/purpose/purpose.jsp" /> ">추천 운동</a>
+					<a href="<c:url value="/purpose" /> ">추천 운동</a>
 					<a href="#">커뮤니티</a>
 					<a href="#">Sport Shop</a>
 				</div>
