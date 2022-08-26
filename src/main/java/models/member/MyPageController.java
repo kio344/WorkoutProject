@@ -42,8 +42,8 @@ public class MyPageController extends HttpServlet{
 		try {
 			login.search(dto.getId(), pw);
 			service.check(req);
-			service.update(req);
 			service.emailCheck(req);
+			service.update(req);
 			
 			out.print("<script>alert('변경 완료 되었습니다.')</script>");
 			out.print("<script>parent.location.replace('/WorkOutProject')</script>");
