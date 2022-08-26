@@ -1,67 +1,67 @@
 package models.member;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
+import javax.servlet.http.HttpServletRequest;
+
 import org.mindrot.bcrypt.BCrypt;
 
 import dto.UserDto;
-import exception.BadException;
-import mybatis.Connection;
 
-public class MyPageService {
-
-	/**
-	 * 비밀번호 변경 체크
+public class MypageService {
+	
+	/** 마이페이지 수정 기능
+	 *  
+	 * @return
 	 */
-	public void checkPw(HttpServletRequest request) {
-		String repw = request.getParameter("repw");
-		String repwRe = request.getParameter("repwRe");
+	public UserDto regMypage(HttpServletRequest request) {
+		UserValidator validator = new UserValidator();
 		
-		if(repw == null || repw.isBlank()) {
-			throw new BadException("변경할 비밀번호가 없습니다.");
-		}
+		// 필수 데이터 확인
+		Map<String, String> requiredField = new HashMap<>();
+		requiredField.put("name", "이름을 입력하세요.");
+		requiredField.put("email", "이메일을 입력하세요.");
+		requiredField.put("mobile", "전화번호를 입력하세요.");
+		requiredField.put("address", "주소를 입력하세요.");
+		requiredField.put("height", "키를 입력하세요.");
+		requiredField.put("weight", "몸무게를 입력하세요.");
+		requiredField.put("age", "나이를 입력하세요.");
+		requiredField.put("sex", "성별을 입력하세요.");
 		
-		if(repwRe == null || repwRe.isBlank()) {
-			throw new BadException("비밀번호 확인칸이 비어있습니다.");
-		}
+		validator.check(request, requiredField);
+		String id =request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");	
+		String email = request.getParameter("email");	
+		String mobile = request.getParameter("mobile");	
+		String address = request.getParameter("address");	
+		String height = request.getParameter("height");	
+		String weight = request.getParameter("weight");	
+		String age = request.getParameter("age");	
+		String sex = request.getParameter("sex");
 		
-		if(!(repw.equals(repwRe))) {
-			throw new BadException("비밀번호가 일치하지 일치하지 않습니다.");
-		}
+		//이메일 형식 확인
+		validator.emailCheck(request);
+		//전화번호 형식 확인
+		validator.checkMobile(mobile);
 		
+		
+		//수정 내용 저장
+		UserDto dto = new UserDto();
+		
+		dto.setId(id);
+		dto.setPassword(pw); // 비밀번호는 히든 걸려서 안보이고 있음
+		dto.setName(name);
+		dto.setEmail(email);
+		dto.setMobile(mobile);
+		dto.setAddress(address);
+		dto.setHeight((double)Integer.parseInt(height));
+		dto.setWeight((double)Integer.parseInt(weight));
+		dto.setAge((double)Integer.parseInt(age));
+		dto.setSex(sex);
+		
+		return validator.insertUser(dto);
 	}
 	
-	/**
-	 * 정보 변경사항 저장
-	 * @param request
-	 */
-	public void update(HttpServletRequest request) {
-		SqlSession sqlsession = Connection.getSession();
-		HttpSession session = request.getSession();
-		UserDto dto = (UserDto)session.getAttribute("member");
-		String repw = BCrypt.hashpw(request.getParameter("repw"), BCrypt.gensalt(10));
-		
-		dto.setId(dto.getId());
-		dto.setPassword(repw);
-		dto.setName(request.getParameter("nameRe"));
-		dto.setEmail(request.getParameter("emailRe"));
-		dto.setMobile(request.getParameter("mobileRe"));
-		dto.setAddress(request.getParameter("addressRe"));
-		
-		sqlsession.update("userInfoMapper.update", dto);
-		
-		sqlsession.commit();
-		sqlsession.close();
-		
-		session.setAttribute("member", dto);
-	}
-	public void emailCheck(HttpServletRequest request ) {
-		String emailRe = request.getParameter("emailRe");
-		
-		if(emailRe == null || !(emailRe.contains("@") || !(emailRe.contains(".")))) {
-			throw new BadException("이메일 형식이 아닙니다.");
-		}
-	}
 }

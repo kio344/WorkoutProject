@@ -1,20 +1,19 @@
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts"%>
+<layout:main title="마이페이지">
+<form method="post" action="<c:url value="/mypage" />" target="ifrmProcess">
 
-<layout:main>
+아이디 <input type="text" disabled name="id" value="${member.id}">
+	<input type="hidden" name="pw" value="${member.password}">
+이름 <input type="text" name="name" value="${member.name}">
+이메일 <input type="email" name="email" value="${member.email}">
+전화번호 <input type="text" name="mobile" value="${member.mobile}">
+주소 <input type="text" name="address" value="${member.address}">
+키 <input type="text" name="height" value="${member.height}">
+몸무게 <input type="text" name="weight" value="${member.weight}">
+나이 <input type="text" name="age" value="${member.age}">
+성별 <input type="text" name="sex" value="${member.sex}">
 
-<form target="ifrmProcess" action="<c:url value="/mypage" /> " method="post" >
-아이디 <input type="text" disabled value="${member.id }" name="id" >
-현재 비밀번호 <input type="password" name="pw" >
-비밀번호 변경 <input type="password" name="repw" >
-비밀번호 변경 확인 <input type="password" name="repwRe" >
-이름 변경 <input type="text" value="${member.name }" name="nameRe" >
-이메일 변경 <input type="text" value="${member.email }" name="emailRe" > 
-핸드폰 번호 변경 <input type="number" value="${member.mobile }" name="mobileRe" >
-주소 변경 <input type="text" value="${member.address }" name="addressRe" >
-
-<button>완료</button>
 </form>
-
 </layout:main>
