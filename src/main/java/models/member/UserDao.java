@@ -57,7 +57,7 @@ public class UserDao {
 		UserDto param = new UserDto();
 		param.setId(id);
 		
-		UserDto member = sqlsession.selectOne("userInfoDto.search", param);
+		UserDto member = sqlsession.selectOne("userInfoMapper.user", param);
 		
 		sqlsession.close();
 		
