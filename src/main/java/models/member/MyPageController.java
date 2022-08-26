@@ -41,7 +41,7 @@ public class MyPageController extends HttpServlet{
 		
 		try {
 			login.search(dto.getId(), pw);
-			service.checkPw(req);
+			service.check(req);
 			service.update(req);
 			service.emailCheck(req);
 			

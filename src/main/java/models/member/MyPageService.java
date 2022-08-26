@@ -15,9 +15,11 @@ public class MyPageService {
 	/**
 	 * 비밀번호 변경 체크
 	 */
-	public void checkPw(HttpServletRequest request) {
+	public void check(HttpServletRequest request) {
 		String repw = request.getParameter("repw");
 		String repwRe = request.getParameter("repwRe");
+		String nameRe = request.getParameter("nameRe");
+		String addressRe = request.getParameter("addressRe");
 		
 		if(repw == null || repw.isBlank()) {
 			throw new BadException("변경할 비밀번호가 없습니다.");
@@ -29,6 +31,14 @@ public class MyPageService {
 		
 		if(!(repw.equals(repwRe))) {
 			throw new BadException("비밀번호가 일치하지 일치하지 않습니다.");
+		}
+		
+		if(nameRe == null || nameRe.isBlank()) {
+			throw new BadException("이름이 비어있습니다.");
+		}
+		
+		if(addressRe == null || addressRe.isBlank()) {
+			throw new BadException("주소가 비어있습니다.");
 		}
 		
 	}
