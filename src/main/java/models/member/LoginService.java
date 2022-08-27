@@ -26,7 +26,6 @@ public class LoginService {
 		SqlSession sqlsession = Connection.getSession();
 		
 		UserDto login_user = sqlsession.selectOne("userInfoMapper.check", id);
-		
 		if(login_user == null) {
 			throw new BadException("없는 아이디입니다. 다시 시도해주세요");
 		}

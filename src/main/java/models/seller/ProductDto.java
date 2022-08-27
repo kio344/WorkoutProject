@@ -3,6 +3,7 @@ package models.seller;
 import java.time.LocalDateTime;
 
 public class ProductDto {
+
 	private int abnum;
 	private String seller;
 	private String serialnum;

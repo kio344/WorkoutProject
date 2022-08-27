@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.seller.LoginService;
+
+import static jmsUtil.Utils.*;
 @WebServlet("/seller/login")
 public class LoginController extends HttpServlet {
 	@Override
@@ -22,6 +25,17 @@ public class LoginController extends HttpServlet {
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		try {
+			LoginService service =new LoginService();
+			service.login(req);
+			showAlert(resp, "로그인 성공");
+			
+			replacePage(resp, req.getContextPath()+"/seller", "parent");
+
+
+		} catch (RuntimeException e) {
+			showAlertException(resp, e);
+			e.printStackTrace();
+		}
 	}
 }

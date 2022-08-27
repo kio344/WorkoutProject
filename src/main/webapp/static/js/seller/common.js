@@ -1,15 +1,13 @@
+
 window.addEventListener("DOMContentLoaded",function(){
-	const menubtnEl=document.getElementById("menubtn");
-	const menuEl=document.getElementsByClassName("menu")[0];
-	const menuBackEl=document.getElementsByClassName("background")[0];
+	const navEl =document.getElementsByTagName("header")[0];
+	const blurEl=document.getElementsByClassName("blur")[0];
 	
-	menubtnEl.addEventListener("click",function(){
-		menuEl.className="menu";
-		menuBackEl.className="background"
+	navEl.addEventListener("mouseover",function(){
+		blurEl.className="blur"
 	})
-	
-	menuBackEl.addEventListener("click",function(){
-		menuEl.className="menu dn";
-		menuBackEl.className="background dn"
+	navEl.addEventListener("mouseout",function(){
+				blurEl.className="blur dn"
+
 	})
 })

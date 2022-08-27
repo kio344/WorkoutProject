@@ -12,6 +12,9 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dto.UserDto;
 
 
 public class Utils {
@@ -163,6 +166,13 @@ public class Utils {
 		addCss(req, "common.css");
 		addJs(req, "common.js");
 		
+	}
+	
+	public static UserDto getLoginUser(HttpServletRequest req) {
+		HttpSession session=req.getSession();
+		UserDto user=(UserDto) session.getAttribute("member");
+		
+		return user;
 	}
 	
 	

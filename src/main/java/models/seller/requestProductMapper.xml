@@ -16,12 +16,28 @@
 		<result column="regDt" property="regDt"/>
 		<result column="modDt" property="modDt"/>
 	</resultMap>
-
+<!-- 판매물품 승인요청 seller(UserId)-->
 <insert id="register"  parameterType="models.seller.ProductDto" useGeneratedKeys="true"
         keyProperty="abnum" keyColumn="abnum">
-	INSERT RequestProduct ( serialnum, name, price, kategorie, company, img) 
-		VALUES (#{serialnum},#{name},#{price},#{kategorie},#{company},#{img})
+	INSERT RequestProduct ( serialnum,seller, name, price, kategorie, company, img) 
+		VALUES (#{serialnum},#{seller},#{name},#{price},#{kategorie},#{company},#{img})
 </insert>
+
+
+
+<!--
+	seller : 신청자(Userid) , status : 상태값(요청중(req),승인(ture),거부(false)) 조건으로 모든 상품 가져옴   
+	@author 5563a
+ -->
+<select id="getlist" parameterType="models.seller.ProductDto" resultMap="productmap">
+	SELECT * FROM RequestProduct WHERE seller=#{seller} AND status=#{status};
+</select>
+
+<!-- seller : 신청자(Userid) , status : 상태값(요청중(req),승인(ture),거부(false)) 조건으로 상품 갯수 가져옴 -->
+<select id="getlistCount" resultType="int">
+	SELECT COUNT(*) FROM RequestProduct WHERE seller=#{seller} AND status=#{status};
+</select>
+
 
 <!-- 미승인 상품 목록 불러오기 -->
 <select id="getReq" parameterType="models.seller.ProductDto" resultMap="productmap">
@@ -48,5 +64,6 @@
 				modDt=NOW()
 			WHERE abnum=#{abnum};
 </update>
+
 
 </mapper>
