@@ -55,7 +55,7 @@ public class SellerDao {
 	}
 	
 	
-
+/*
 	 * status 값에 따른 판매 신청 목록 불러오기
 	 * @param status
 	 * @return
