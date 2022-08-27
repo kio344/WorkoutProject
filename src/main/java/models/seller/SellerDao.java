@@ -39,6 +39,20 @@ public class SellerDao {
 		return list;
 	}
 	
+	/**
+	 * 신청자(Userid) , status : 상태값(요청중(req),승인(ture),거부(false)) 조건으로 상품 갯수 가져옴
+	 * @param product - seller status 만채워주면 됨
+	 * @return 해당 seller status 에 맞는 상품 갯수
+	 */
+	public int getlistCount(ProductDto product) {
+		SqlSession session=Connection.getSession();
+		int count =session.selectOne("RequestProductMap.getlistCount",product);
+		
+		session.close();
+		
+		return count;
+	}
+	
 	
 	public static SellerDao getInstance() {
 		if (instance==null) {

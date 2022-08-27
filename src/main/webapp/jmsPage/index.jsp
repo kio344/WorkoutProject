@@ -23,17 +23,17 @@
 		<div class="box productInfo">
 			<div class="reqCount">
 				<span>승인 대기중</span>
-				<span>24개</span>
+				<span>${reqCount }개</span>
 			
 			</div>
 			<div class="sellCount">
 				<span>판매 중</span>
-				<span>48개</span>
+				<span>${trueCount }개</span>
 			 </div>
 			 
 			 <div class="sellCount">
-				<span> 확인 안한 메세지</span>
-				<span>4건</span>
+				<span> 거부된 항목</span>
+				<span>${falseCount }건</span>
 			 </div>
 		</div>
 	
