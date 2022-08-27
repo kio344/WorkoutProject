@@ -1,11 +1,11 @@
 package models.member;
 
 import java.net.ConnectException;
-import java.sql.Connection;
 
 import org.apache.ibatis.session.SqlSession;
 
 import dto.UserDto;
+import mybatis.Connection;
 
 public class UserDao {
 	
@@ -26,6 +26,15 @@ public class UserDao {
 			return null;
 		
 		return dto;
+	}
+	
+	public void update(UserDto dto) {
+		SqlSession sqlSession = Connection.getSession();
+		
+		int param = sqlSession.update("userInfoMapper.update", dto);
+		
+		sqlSession.commit();
+		sqlSession.close();
 	}
 	
 	/**
@@ -83,8 +92,6 @@ public class UserDao {
 		}
 		return instance;
 	}
-	
-	
 	
 	
 }
