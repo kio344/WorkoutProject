@@ -30,8 +30,6 @@ public class MyPageController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html; charset=utf-8");
-		UserValidator validator = new UserValidator();
-		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		HttpSession session = req.getSession();
 		UserDto dto = (UserDto)session.getAttribute("member");
@@ -41,9 +39,9 @@ public class MyPageController extends HttpServlet{
 		
 		try {
 			login.search(dto.getId(), pw);
-			service.checkPw(req);
-			service.update(req);
+			service.check(req);
 			service.emailCheck(req);
+			service.update(req);
 			
 			out.print("<script>alert('변경 완료 되었습니다.')</script>");
 			out.print("<script>parent.location.replace('/WorkOutProject')</script>");

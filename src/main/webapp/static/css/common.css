@@ -43,4 +43,7 @@ footer .footer{ text-align: center; border-top: solid 1px black; font-size: 25px
 nav { background-color: #212121;  width: 100%; }
 nav > div { display: flex; width: 100%; justify-content: space-around; }
 nav a {  text-align: center; color: #fff; font-size: 1.5rem; padding: 15px 20px;  }
-
+nav .layout_width a:hover {
+	color: red;
+	background-color: gray;
+}

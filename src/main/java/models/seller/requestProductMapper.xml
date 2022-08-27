@@ -12,6 +12,9 @@
 		<result column="kategorie" property="kategorie"/>
 		<result column="company" property="company"/>
 		<result column="img" property="img"/>
+		<result column="status" property="status"/>
+		<result column="regDt" property="regDt"/>
+		<result column="modDt" property="modDt"/>
 	</resultMap>
 <!-- 판매물품 승인요청 seller(UserId)-->
 <insert id="register"  parameterType="models.seller.ProductDto" useGeneratedKeys="true"
@@ -19,6 +22,7 @@
 	INSERT RequestProduct ( serialnum,seller, name, price, kategorie, company, img) 
 		VALUES (#{serialnum},#{seller},#{name},#{price},#{kategorie},#{company},#{img})
 </insert>
+
 
 
 <!--
@@ -33,6 +37,33 @@
 <select id="getlistCount" resultType="int">
 	SELECT COUNT(*) FROM RequestProduct WHERE seller=#{seller} AND status=#{status};
 </select>
+
+
+<!-- 미승인 상품 목록 불러오기 -->
+<select id="getReq" parameterType="models.seller.ProductDto" resultMap="productmap">
+	SELECT * FROM RequestProduct WHERE status=#{status} ORDER BY abnum DESC;
+</select>
+
+<!-- 관리자 미승인 상품 목록 검색 -->
+<select id="searchReq" parameterType="models.seller.ProductDto" resultMap="productmap">
+	SELECT * FROM RequestProduct
+	<where>
+		<if test="seller != null">AND seller LIKE #{seller}</if>
+		<if test="name != null">AND name LIKE #{name}</if>
+		<if test="kategorie != null">AND kategorie LIKE #{kategorie}</if>
+		<if test="company != null">AND company LIKE #{company}</if>
+	</where>
+	ORDER BY abnum DESC;
+</select>
+
+<!-- 상품 status 상태 업데이트 -->
+<update id="statusUp" parameterType="models.seller.ProductDto" >
+	UPDATE RequestProduct
+			SET
+				status=#{status},
+				modDt=NOW()
+			WHERE abnum=#{abnum};
+</update>
 
 
 </mapper>
