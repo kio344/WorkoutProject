@@ -18,6 +18,9 @@ public class PurposeController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String[] addCss = { "purpose/style" };
+		req.setAttribute("addCss", addCss);
 
 		RequestDispatcher rd = req.getRequestDispatcher("/purpose/purpose.jsp");
 		rd.forward(req, resp);
