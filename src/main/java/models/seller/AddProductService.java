@@ -57,7 +57,7 @@ public class AddProductService {
 		String kategorie = paraMap.get("kategorie");
 		String company = paraMap.get("company");
 		System.out.println(paraMap.get(productImage) == null);
-		String img = paraMap.get(productImage) == null ? "true" : "false";
+		String img = productImage.getName();
 
 		ProductDto product = new ProductDto();
 		product.setSerialnum(serialnum);
