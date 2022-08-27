@@ -36,6 +36,12 @@ public class SellerDao {
 		return products;
 	}
 	
+	/**
+	 * 승인/미승인 status 업데이트
+	 * @param abnum
+	 * @param status
+	 * @return
+	 */
 	public boolean updateReq(int abnum, String status) {
 		SqlSession sqlSession = Connection.getSession();
 		ProductDto param = new ProductDto();
@@ -47,6 +53,27 @@ public class SellerDao {
 		sqlSession.commit();
 		sqlSession.close();
 		return affectedRows > 0;
+	}
+	
+	
+	public List<ProductDto> searchReq(String select, String str) {
+		SqlSession sqlSession = Connection.getSession();
+		ProductDto param = new ProductDto();
+		if(select.equals("seller")) {
+			param.setSeller("%" + str + "%");
+		} else if(select.equals("name")) {
+			param.setName("%" + str + "%");
+		} else if(select.equals("kategorie")) {
+			param.setKategorie("%" + str + "%");
+		} else if(select.equals("company")) {
+			param.setCompany("%" + str + "%");
+		}
+		
+		List<ProductDto> products = sqlSession.selectList("RequestProductMap.searchReq", param);
+		
+		
+		sqlSession.close();
+		return products;
 	}
 	
 	public static SellerDao getInstance() {

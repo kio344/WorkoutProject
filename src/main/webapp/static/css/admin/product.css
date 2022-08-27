@@ -19,5 +19,14 @@
 	border: 1px solid blue;
 	width: 100%;
 	text-align: center;
-	height: 50px;
+	height: auto;
+}
+.search_wrap form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.search_wrap form input {
+	width: 50%;
+	margin: 10px;
 }
