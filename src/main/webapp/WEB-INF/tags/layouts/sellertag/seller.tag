@@ -7,7 +7,7 @@
 		<script src="<c:url value="/static/js/seller/common.js" />" ></script>
 		<link rel="stylesheet" href="<c:url value="/static/css/seller/common.css" />" ></link>
 		<header>
-			<nav class="header_nav">
+			<nav class="header_nav" >
 				<c:if test="${!empty member }">
 				<ul>
 					<a href="<c:url value="/seller" />">
@@ -47,17 +47,32 @@
 							<div class="info">상품 추가 요청</div>
 						</li>
 					</a>
+					
+					<a href="<c:url value="/seller/myproduct?status=req" />" >
+						<li>
+							<div class="xi-projector header_icon" /></div>
+							<div class="info">승인 대기중 상품</div>
+						</li>
+					</a>
+					
+					<a href="<c:url value="/seller/myproduct?status=false" />" >
+						<li>
+							<div class="xi-lightning header_icon" /></div>
+							<div class="info">거절된 상품</div>
+						</li>
+					</a>
+					
 
-					<a href="">
+					<a href="<c:url value="/seller/myproduct?status=true" />">
 						<li>
 							<div class="xi-shop header_icon" /></div>
-							<div class="info">판매중인 상품</div>
+							<div class="info">승인된 상품</div>
 						</li>
 					</a>
 					
 					<c:if test="${!empty member }">
 				<ul>
-					<a href="<c:url value="/seller" />">
+					<a href="<c:url value="/seller/logout" />">
 						<li>
 							<div class="xi-log-out header_icon" ></div>
 							<div class="info">로그아웃 </div>
@@ -78,6 +93,11 @@
 				</ul>
 			</nav>
 		</header>
+				 <div class="blur dn"></div>
+		
+		
+		
+		
 	
 	</jsp:attribute>
 	

@@ -7,7 +7,8 @@
 
 %>
 <layout:seller>
-		<div class="test">
+	<div class="background"></div>
+		<div class="outerbox">
 			<div class="box userinfo">
 				<span class="xi-profile-o"></span>	
 					
@@ -16,8 +17,6 @@
 				<span>이름 : ${member.name }</span>			
 				<span>이메일 : ${member.email }</span>				
 				<span>전화번호 : ${member.mobile }</span>				
-						
-
 			</div>
 		</div>
 		

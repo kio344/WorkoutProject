@@ -1,0 +1,39 @@
+@charset "EUC-KR";
+
+
+.box{
+	height:800px;
+	width:1500px;
+	overflow: scroll;
+	
+}
+.box::-webkit-scrollbar{
+	display:none;
+}
+table{
+	border:10px solid #efefef;
+	font-size: 20px;
+}
+table thead{
+	font-size: 25px;
+	background-color: #d3e4e4;
+}
+
+td{
+			padding:20px;
+	
+}
+
+thead td {
+	
+		border-bottom: 1px solid black;
+}
+tbody tr:nth-child(odd) {
+	
+}
+
+tbody tr:nth-child(even) {
+			background-color: #dbdbdb;
+	
+
+}

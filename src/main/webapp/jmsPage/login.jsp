@@ -4,13 +4,13 @@
 <layout:common>
 <!-- 로그인 S -->
 	<div class="loginArea">
-	<form>
+	<form target="ifrmProcess" method="post" action="<c:url value="/seller/login" />">
 		<dl>
 			<a class="xi-user-o loginlogo"></a>
 			<dt class="message"><h2>Please sign in</h2></dt>
 			<dd class="input-grp" >
-				<input placeholder="User ID">
-				<input placeholder="Password">
+				<input placeholder="User ID" name="id">
+				<input placeholder="Password" name="password">
 			</dd>
 		</dl>
 		
