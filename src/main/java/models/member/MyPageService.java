@@ -176,6 +176,26 @@ public class MypageService {
 		if(sex == null || sex.isBlank()) {
 			throw new BadException("성별을 체크해주세요.");
 		}
+	}
+	
+	/**
+	 * 회원 탈퇴
+	 * @param req - 현재 비번 입력,
+	 * @param dto
+	 */
+	public void withdrawal(HttpServletRequest req, UserDto dto) {
+		
+		SqlSession sqlSession = Connection.getSession();
+		UserDto param = sqlSession.selectOne("userInfoMapper.user", dto.getId());
+		
+		//현재 비번과 입력 비번 비교
+		boolean equalPw = BCrypt.checkpw("pw", param.getPassword());
+		if(equalPw) {//일치하면
+ 			sqlSession.delete("userInfoMapper.delete", param);
+		}else {//비번이 일치하지 않으면
+			throw new BadException("비밀번호가 일치하지 않습니다.");
+			
+		}
 		
 	}
 	
