@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value="/static/css/common.css" /> ">
+	href="<c:url value="/static/css/common.css" />">
 
 <c:if test="${!empty addCss }">
 	<c:forEach var="css" items="${addCss }">
@@ -23,11 +23,10 @@
 	</c:forEach>
 </c:if>
 
-<script src="<c:url value="/static/js/common.js" /> "></script>
+<script src="<c:url value="/static/js/common.js" />" ></script>
 <c:if test="${!empty addJs}">
 	<c:forEach var="js" items="${addJs}">
-		<script src="<c:url value="/static/js/" />${js}.js">
-		</script>
+		<script src="<c:url value="/static/js/" />${js}.js"></script>
 	</c:forEach>
 </c:if>
 <title>${empty title ? "WorkOut" : title}</title>

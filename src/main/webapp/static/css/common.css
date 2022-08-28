@@ -47,3 +47,9 @@ nav .layout_width a:hover {
 	color: red;
 	background-color: gray;
 }
+
+/** 버튼 */
+.btn-grp { display: flex; width: 330px; margin: 10px auto; }
+.btn-grp button { flex-grow: 1; height: 45px; background-color: #212121; color: #fff; font-size: 1.2rem; font-weight: bold; border: 1px solid #212121; cursor: pointer; }
+.btn-grp button:last-of-type { background-color: #fff; color: #212121; margin-left: 2px; }
+.btn-grp button:first-of-type { margin-right: 2px; }
