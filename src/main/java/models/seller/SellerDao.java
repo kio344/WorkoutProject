@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import models.admin.MessageDto;
 import mybatis.Connection;
 
 public class SellerDao {
@@ -73,6 +74,7 @@ public class SellerDao {
 	
 	/**
 	 * 승인/미승인 status 업데이트
+	 * 승인/미승인에 관한 메세지 판매자에게 전송
 	 * @param abnum
 	 * @param status
 	 * @return
@@ -85,12 +87,35 @@ public class SellerDao {
 		
 		int affectedRows = sqlSession.update("RequestProductMap.statusUp", param);
 		
+		
+		ProductDto param1 = new ProductDto();
+		param1.setAbnum(abnum);
+		param1.setStatus(status);
+		
+		ProductDto product = sqlSession.selectOne("RequestProductMap.get", param1);
+		
+		MessageDto msg = new MessageDto();
+		
+		String str = (status.equals("true")) ? "승인" : "미승인";
+		String name = product.getName();
+		String m1 = "관리자가 " + name + " 상품을 " + str + " 했습니다.";
+		
+		msg.setRecipient(product.getSeller());
+		msg.setMessage(m1);
+		
+		int nums = sqlSession.insert("RequestProductMap.send", msg);
+		
 		sqlSession.commit();
 		sqlSession.close();
-		return affectedRows > 0;
+		return affectedRows > 0 && nums > 0;
 	}
 	
-	
+	/**
+	 * 상품 신청 목록 검색(승인/미승인 처리 안된 상품)
+	 * @param select
+	 * @param str
+	 * @return
+	 */
 	public List<ProductDto> searchReq(String select, String str) {
 		SqlSession sqlSession = Connection.getSession();
 		ProductDto param = new ProductDto();

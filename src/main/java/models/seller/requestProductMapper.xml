@@ -16,6 +16,14 @@
 		<result column="regDt" property="regDt"/>
 		<result column="modDt" property="modDt"/>
 	</resultMap>
+	
+	<resultMap type="models.admin.MessageDto" id="messageMap">
+		<result column="num" property="num" />
+		<result column="recipient" property="recipient" />
+		<result column="message" property="message" />
+		<result column="read" property="read" />
+	</resultMap>
+	
 <!-- 판매물품 승인요청 seller(UserId)-->
 <insert id="register"  parameterType="models.seller.ProductDto" useGeneratedKeys="true"
         keyProperty="abnum" keyColumn="abnum">
@@ -38,10 +46,9 @@
 	SELECT COUNT(*) FROM RequestProduct WHERE seller=#{seller} AND status=#{status};
 </select>
 
-
-<!-- 미승인 상품 목록 불러오기 -->
-<select id="getReq" parameterType="models.seller.ProductDto" resultMap="productmap">
-	SELECT * FROM RequestProduct WHERE status=#{status} ORDER BY abnum DESC;
+<!-- 상품 abnum 값으로 데이터 불러오기 -->
+<select id="get" parameterType="models.seller.ProductDto" resultMap="productmap">
+	SELECT * FROM RequestProduct WHERE abnum=#{abnum};
 </select>
 
 <!-- 관리자 미승인 상품 목록 검색 -->
@@ -52,6 +59,7 @@
 		<if test="name != null">AND name LIKE #{name}</if>
 		<if test="kategorie != null">AND kategorie LIKE #{kategorie}</if>
 		<if test="company != null">AND company LIKE #{company}</if>
+		AND status="req"
 	</where>
 	ORDER BY abnum DESC;
 </select>
@@ -65,5 +73,10 @@
 			WHERE abnum=#{abnum};
 </update>
 
+<!-- 상품 승인/미승인 메세지 보내기 -->
+<insert id="send" parameterType="models.admin.MessageDto" useGeneratedKeys="true" keyProperty="num" keyColumn="num">
+	INSERT Message (recipient, message)
+		VALUES (#{recipient}, #{message});
+</insert>
 
 </mapper>
