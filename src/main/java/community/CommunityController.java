@@ -16,7 +16,6 @@ public class CommunityController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = req.getRequestDispatcher("/community/index.jsp");
 		rd.forward(req, resp);
-		
 	}
 
 	@Override
