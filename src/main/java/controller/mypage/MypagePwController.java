@@ -1,6 +1,7 @@
 package controller.mypage;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dto.UserDto;
-import models.member.MypageService;
+import models.member.MyPageService;
 
 @WebServlet("/mypage/password")
 public class MypagePwController extends HttpServlet{
@@ -31,7 +32,7 @@ public class MypagePwController extends HttpServlet{
 		HttpSession session = req.getSession();
 		UserDto param = (UserDto)session.getAttribute("member");
 		
-		MypageService service = new MypageService();
+		MyPageService service = new MyPageService();
 		PrintWriter out = resp.getWriter();
 		
 		try {

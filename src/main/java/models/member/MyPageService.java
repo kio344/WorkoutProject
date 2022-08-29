@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.mindrot.bcrypt.BCrypt;
 
@@ -12,7 +13,7 @@ import dto.UserDto;
 import exception.BadException;
 import mybatis.Connection;
 
-public class MypageService {
+public class MyPageService {
 
 	UserValidator validator = new UserValidator();
 
@@ -21,16 +22,8 @@ public class MypageService {
 	 * @param req
 	 * @param param
 	 */
-<<<<<<< HEAD
 	
-	public void update(HttpServletRequest req, UserDto param) {
-=======
-	public void check(HttpServletRequest request) {
-		String repw = request.getParameter("repw");
-		String repwRe = request.getParameter("repwRe");
-		String nameRe = request.getParameter("nameRe");
-		String addressRe = request.getParameter("addressRe");
->>>>>>> b23242aa539c02da43c934f7918b9d13cda6c95a
+	public void update(HttpServletRequest req, UserDto dto) {
 		
 		check(req);
 		
@@ -42,15 +35,15 @@ public class MypageService {
 		//정보 수정 완료
 		HttpSession session = req.getSession();
 		
-		param.setName(name);
-		param.setEmail(email);
-		param.setMobile(mobile);
-		param.setAddress(address);
+		dto.setName(name);
+		dto.setEmail(email);
+		dto.setMobile(mobile);
+		dto.setAddress(address);
 		
 		UserDao dao = UserDao.getInstance();
-		dao.update(param);
+		dao.update(dto);
 		
-		session.setAttribute("member", param);
+		session.setAttribute("member", dto);
 		
 	}
 	
@@ -74,14 +67,6 @@ public class MypageService {
 			throw new BadException("주소가 없습니다.");
 		}
 		
-		if(nameRe == null || nameRe.isBlank()) {
-			throw new BadException("이름이 비어있습니다.");
-		}
-		
-		if(addressRe == null || addressRe.isBlank()) {
-			throw new BadException("주소가 비어있습니다.");
-		}
-		
 	}
 	
 
@@ -97,6 +82,7 @@ public class MypageService {
 		//session에는 비번이 비어 있어서 새로 정보를 끌고 온다.
 		SqlSession sqlSession = Connection.getSession();
 		UserDto dto = sqlSession.selectOne("userInfoMapper.user", param);
+		dto.setPassword(dto.getPassword());
 		sqlSession.close();
 		
 		//비밀번호 일치 확인
@@ -211,7 +197,7 @@ public class MypageService {
 			throw new BadException("비밀번호가 일치하지 않습니다.");
 			
 		}
-		
 	}
 	
 }
+	

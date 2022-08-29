@@ -2,6 +2,7 @@ package controller.member;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dto.UserDto;
-import models.member.MypageService;
+import models.member.MyPageService;
 
 @WebServlet("/wpc")
 public class WPCheckController extends HttpServlet{
@@ -28,7 +29,7 @@ public class WPCheckController extends HttpServlet{
 		HttpSession session = req.getSession();
 		UserDto dto = (UserDto)session.getAttribute("member");
 		
-		MypageService service = new MypageService();
+		MyPageService service = new MyPageService();
 		service.withdrawal(req, dto);
 		
 	}
