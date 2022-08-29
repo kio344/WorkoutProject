@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.session.SqlSession;
 import org.mindrot.bcrypt.BCrypt;
 
@@ -22,8 +21,16 @@ public class MypageService {
 	 * @param req
 	 * @param param
 	 */
+<<<<<<< HEAD
 	
 	public void update(HttpServletRequest req, UserDto param) {
+=======
+	public void check(HttpServletRequest request) {
+		String repw = request.getParameter("repw");
+		String repwRe = request.getParameter("repwRe");
+		String nameRe = request.getParameter("nameRe");
+		String addressRe = request.getParameter("addressRe");
+>>>>>>> b23242aa539c02da43c934f7918b9d13cda6c95a
 		
 		check(req);
 		
@@ -65,6 +72,14 @@ public class MypageService {
 		}
 		if(address == null || address.isBlank()) {
 			throw new BadException("주소가 없습니다.");
+		}
+		
+		if(nameRe == null || nameRe.isBlank()) {
+			throw new BadException("이름이 비어있습니다.");
+		}
+		
+		if(addressRe == null || addressRe.isBlank()) {
+			throw new BadException("주소가 비어있습니다.");
 		}
 		
 	}

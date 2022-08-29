@@ -23,11 +23,12 @@ public class AddProductReqController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
-		
 		try {
 			
 			AddProductService service=new AddProductService();
 			service.addProduct(req);
+			showAlert(resp, "상품요청이 이루어졌습니다.");
+			replacePage(resp, req.getContextPath()+"/seller", "parent");
 			
 		} catch (Exception e) {
 			showAlertException(resp, e);

@@ -1,0 +1,32 @@
+.list_title {
+	width: 100%;
+}
+.list_title .list_wrap {
+	display: flex;
+	width: 100%;
+	padding: 0;
+	flex-direction: column;
+	justify-content: space-between;
+	align-content: center;
+}
+.list_title .list_wrap .list_sub {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+}
+.list_title .list_wrap .list_sub div {
+	border: 1px solid blue;
+	width: 100%;
+	text-align: center;
+	height: auto;
+}
+.search_wrap form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.search_wrap form input {
+	width: 50%;
+	margin: 10px;
+}

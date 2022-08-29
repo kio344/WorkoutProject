@@ -1,47 +1,67 @@
 @charset "UTF-8";
-html, body{
-	overflow:hidden;
+
+html, body {
+	overflow: hidden;
 	height: 100%;
 }
 
-.userinfo > span{
+.userinfo>span {
 	font-size: 170px;
 }
 
-
-.productInfo{
+.productInfo {
 	display: flex;
 	flex-direction: column;
 }
 
-.test > div:last-child{
-	margin-top:10px;
-	height: 125px;
-	padding: 30px;
+.outerbox, .productInfo {
+	height: 450px;
+	padding: 0px;
+	margin: 0px;
+	
+}
+.outerbox{
+	margin-right: 10px;
+}
+.outerbox .box{
+	margin: 20px;
+	margin-right: 0px;
+}
+
+
+.outerbox > .box:first-child{
+
+	margin-top:0px;
+
+	height: 290px;
+
+}
+.outerbox > .box:last-child{
+
+	height: 141px;
+
+}
+
+.productInfo {
 	display: flex;
-	justify-content: center;
-	font-size: 15px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
 }
 
-.productInfo >div:first-child {
-	margin-bottom: 40px;
-}
-.productInfo >div:last-child {
-	margin-top: 40px;
-}
 
-.productInfo > div > span {
-	display:inline-block;
+.productInfo>div>span {
+	display: inline-block;
 	background-color: #d8d8d8;
 	padding: 30px;
 	border-radius: 5px;
 }
 
-.productInfo  div > span:first-of-type {
+.productInfo  div>span:first-of-type {
 	width: 200px;
 }
-.productInfo  div > span:last-child {
-	text-align:center;
+
+.productInfo  div>span:last-child {
+	text-align: center;
 	width: 100px;
 }
-

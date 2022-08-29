@@ -12,11 +12,71 @@
 		<result column="kategorie" property="kategorie"/>
 		<result column="company" property="company"/>
 		<result column="img" property="img"/>
+		<result column="status" property="status"/>
+		<result column="regDt" property="regDt"/>
+		<result column="modDt" property="modDt"/>
 	</resultMap>
-
+	
+	<resultMap type="models.admin.MessageDto" id="messageMap">
+		<result column="num" property="num" />
+		<result column="recipient" property="recipient" />
+		<result column="message" property="message" />
+		<result column="read" property="read" />
+	</resultMap>
+	
+<!-- 판매물품 승인요청 seller(UserId)-->
 <insert id="register"  parameterType="models.seller.ProductDto" useGeneratedKeys="true"
         keyProperty="abnum" keyColumn="abnum">
-	INSERT RequestProduct ( serialnum, name, price, kategorie, company, img) 
-		VALUES (#{serialnum},#{name},#{price},#{kategorie},#{company},#{img})
+	INSERT RequestProduct ( serialnum,seller, name, price, kategorie, company, img) 
+		VALUES (#{serialnum},#{seller},#{name},#{price},#{kategorie},#{company},#{img})
 </insert>
+
+
+
+<!--
+	seller : 신청자(Userid) , status : 상태값(요청중(req),승인(ture),거부(false)) 조건으로 모든 상품 가져옴   
+	@author 5563a
+ -->
+<select id="getlist" parameterType="models.seller.ProductDto" resultMap="productmap">
+	SELECT * FROM RequestProduct WHERE seller=#{seller} AND status=#{status};
+</select>
+
+<!-- seller : 신청자(Userid) , status : 상태값(요청중(req),승인(ture),거부(false)) 조건으로 상품 갯수 가져옴 -->
+<select id="getlistCount" resultType="int">
+	SELECT COUNT(*) FROM RequestProduct WHERE seller=#{seller} AND status=#{status};
+</select>
+
+<!-- 상품 abnum 값으로 데이터 불러오기 -->
+<select id="get" parameterType="models.seller.ProductDto" resultMap="productmap">
+	SELECT * FROM RequestProduct WHERE abnum=#{abnum};
+</select>
+
+<!-- 관리자 미승인 상품 목록 검색 -->
+<select id="searchReq" parameterType="models.seller.ProductDto" resultMap="productmap">
+	SELECT * FROM RequestProduct
+	<where>
+		<if test="seller != null">AND seller LIKE #{seller}</if>
+		<if test="name != null">AND name LIKE #{name}</if>
+		<if test="kategorie != null">AND kategorie LIKE #{kategorie}</if>
+		<if test="company != null">AND company LIKE #{company}</if>
+		AND status="req"
+	</where>
+	ORDER BY abnum DESC;
+</select>
+
+<!-- 상품 status 상태 업데이트 -->
+<update id="statusUp" parameterType="models.seller.ProductDto" >
+	UPDATE RequestProduct
+			SET
+				status=#{status},
+				modDt=NOW()
+			WHERE abnum=#{abnum};
+</update>
+
+<!-- 상품 승인/미승인 메세지 보내기 -->
+<insert id="send" parameterType="models.admin.MessageDto" useGeneratedKeys="true" keyProperty="num" keyColumn="num">
+	INSERT Message (recipient, message)
+		VALUES (#{recipient}, #{message});
+</insert>
+
 </mapper>

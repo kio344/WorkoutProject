@@ -4,9 +4,11 @@
 <link rel="stylesheet" href="<c:url value="/static/css/seller/addProductReq.css" />" />
 
 <layout:seller>
+	<div class="background"></div>
+
 	<div class="box">
 	<h1>제품 추가 요청페이지 </h1>
-	<form action="<c:url value="/seller/addProductReq" />" method="post" >
+	<form target="ifrmProcess" action="<c:url value="/seller/addProductReq" />" method="post"  enctype="multipart/form-data"  accept-charset="UTF-8" >
 	
 		<label for="serialnum">제품코드</label>
 		 	<input type="text" id="serialnum" name="serialnum" class=""  autocomplete="off">

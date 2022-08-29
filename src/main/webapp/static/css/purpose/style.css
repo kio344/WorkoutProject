@@ -1,0 +1,11 @@
+main { width: 1200px;}
+
+.maincontent { float: right; width: 900px; }
+.leftMenu { border: 1px solid #eee; float: left; width: 200px; text-align: center; height:300px; display: flex; flex-direction: column; position: fixed; background-color: #aaa; }
+.leftMenu ul li a { display: block; position:relative; padding: 17.5px 20px; font-weight: 300; height: auto; }
+.leftMenu ul li:hover {
+	color: #eee;
+	background-color: #444;
+}
+.bmiInfo { display: none; }
+.bmiInfo.active { display: block; }
