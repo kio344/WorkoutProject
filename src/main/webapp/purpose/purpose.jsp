@@ -40,7 +40,7 @@
 				<button type="submit" id="btn">검사하기</button>
 			</form>
 		</div>
-		<div class="bmi_info">
+		<div class="bmiInfo ${!empty bmiInfo ? 'active' : '' }">
 			<div>
 				<h3>당신의 기초대사량은 ${bmiInfo.base} 입니다.</h3>
 			</div>

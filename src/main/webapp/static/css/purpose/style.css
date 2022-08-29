@@ -7,3 +7,5 @@ main { width: 1200px;}
 	color: #eee;
 	background-color: #444;
 }
+.bmiInfo { display: none; }
+.bmiInfo.active { display: block; }
