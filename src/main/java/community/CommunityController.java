@@ -23,6 +23,6 @@ public class CommunityController extends HttpServlet{
 		
 	}
 	
-		
+	
 	
 }
