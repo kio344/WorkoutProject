@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts/admintag"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils"%>
 
 <layout:admin>
 	<h1>${test}</h1>
@@ -93,4 +94,6 @@
 			</c:forEach>
 		</ul>
 	</div>
+	
+	<util:pagination page="${page}" limit="${limit}" url="admin/product?select=${select}&str=${str}" total="${total}" pageCnt="5" />
 </layout:admin>

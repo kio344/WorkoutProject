@@ -1,7 +1,6 @@
 package controller.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +20,6 @@ public class ProductUpdateController extends HttpServlet{
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html; charset=utf-8");
 		
-		PrintWriter out = resp.getWriter();
 		try {
 			ProductUpdateService service = new ProductUpdateService();
 			service.update(req);
