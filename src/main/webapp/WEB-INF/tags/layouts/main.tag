@@ -11,8 +11,8 @@
 			<section class="join-menu" >
 				<div class="layout_width">
 					<c:if test="${empty member}" >
-						<a href="<c:url value="/join" /> " > 회원가입 </a>
-						<a href="<c:url value="/login" /> " class="mr"> 로그인 </a>
+						<a href="<c:url value="/join" /> " >회원가입</a>
+						<a href="<c:url value="/login" /> " class="mr">로그인</a>
 					</c:if>
 					<c:if test="${!empty member }">
 						${member.fakeName}님 환영합니다. 
@@ -34,7 +34,7 @@
 		</header>
 	</jsp:attribute>
 	<jsp:attribute name="menu">
-		<c:if test="${!empty member }">
+		<c:if test="${!empty member}">
 			<nav>
 				<div class="layout_width">
 					<a href="#">운동 기록</a>
