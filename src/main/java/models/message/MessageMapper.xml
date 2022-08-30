@@ -1,0 +1,34 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MessageMapper">
+    <resultMap type="models.admin.MessageDto" id="messageMap">
+		<result column="num" property="num" />
+		<result column="recipient" property="recipient" />
+		<result column="message" property="message" />
+		<result column="see" property="see" />
+	</resultMap>
+	
+	<insert id="sendMsg" parameterType="models.admin.MessageDto" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO Message (recipient,message) 
+			VALUES(#{recipient},#{message})
+	</insert>
+	
+	<select id="getsUserMsg" parameterType="models.admin.MessageDto" resultMap="messageMap">
+		SELECT * FROM Message
+		<where>
+		<if test="recipient !=null">AND WHERE recipient=#{recipient},</if>
+			<if test="read !=null">AND  WHERE see=#{see},</if>
+		</where>
+	</select>
+
+	<select id="getsUserMsgC" parameterType="models.admin.MessageDto" resultType="int">
+		SELECT COUNT(*) FROM Message
+		<where>
+		<if test="recipient !=null"> recipient=#{recipient}</if>
+			<if test="see !=null">AND see=#{see}</if>
+		</where>
+	</select>
+
+</mapper>
