@@ -3,7 +3,7 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 
 <layout:main title="커뮤니티">
-<a href="<c:url value="/write" /> ">글쓰기</a>
+<a href="<c:url value="/writeIndex" /> ">글쓰기</a>
 <a href="<c:url value="#" /> " >공지사항</a>
 <a href="<c:url value="customerService" /> " >고객센터</a>
 

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import community.dto.CommunityDto;
+
 @WebServlet("/writeIndex")
 public class WriteIndexController extends HttpServlet{
 
@@ -22,6 +24,7 @@ public class WriteIndexController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		
 	}
 	
