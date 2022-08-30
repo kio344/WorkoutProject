@@ -30,10 +30,8 @@ public class WPCheckController extends HttpServlet{
 		HttpSession session = req.getSession();
 		UserDto dto = (UserDto)session.getAttribute("member");
 		
-<<<<<<< HEAD
 		MyPageService service = new MyPageService();
 		service.withdrawal(req, dto);
-=======
 		MypageService service = new MypageService();
 		PrintWriter out = resp.getWriter();
 		try {
@@ -43,7 +41,6 @@ public class WPCheckController extends HttpServlet{
 		} catch (RuntimeException e) {
 			out.println("<script>alert('"+ e.getMessage() +"')</script>");
 		}
->>>>>>> 707f3ecc737d314a75b0b52545b67a606cf396e5
 		
 	}
 }

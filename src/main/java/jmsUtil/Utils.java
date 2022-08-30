@@ -34,9 +34,7 @@ public class Utils {
 			if (req.getParameter(key)==null||req.getParameter(key).isBlank()) {
 				throw new RuntimeException(value);
 			}
-			
 		};
-		
 	}
 
 	/**
@@ -51,10 +49,8 @@ public class Utils {
 		parakey.forEach(t -> {
 			if (req.getParameter((String) t) == null || req.getParameter((String) t).isBlank()) {
 				throw new RuntimeException(t + "값이 비어있습니다.");
-
 			}
 		});
-
 	}
 
 	/**
@@ -67,9 +63,7 @@ public class Utils {
 		Set parakey = req.getParameterMap().keySet();
 
 		parakey.forEach(t -> {
-
 			System.out.println(t + " : " + req.getParameter((String) t));
-
 		});
 	}
 

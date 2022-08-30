@@ -20,11 +20,8 @@ public class MyPageService {
 	 */
 	
 	public void update(HttpServletRequest req, UserDto dto) {
-<<<<<<< HEAD:src/main/java/models/member/MyPageService.java
 		
-=======
 		UserValidator validator = new UserValidator();
->>>>>>> 707f3ecc737d314a75b0b52545b67a606cf396e5:src/main/java/models/member/MypageService.java
 		check(req);
 		
 		String name = req.getParameter("nameRe");
@@ -54,7 +51,6 @@ public class MyPageService {
 		dto.setMobile(mobile);
 		dto.setAddress(address);
 		
-<<<<<<< HEAD:src/main/java/models/member/MyPageService.java
 		dto.setName(name);
 		dto.setEmail(email);
 		dto.setMobile(mobile);
@@ -65,7 +61,6 @@ public class MyPageService {
 		
 		session.setAttribute("member", dto);
 		
-=======
 		//정보 수정 완료
 		UserDao dao = UserDao.getInstance();
 		System.out.println(dto);
@@ -73,7 +68,6 @@ public class MyPageService {
 		System.out.println("업뎃 DB = "+dto);
 		session.setAttribute("member", dto);
 		System.out.println("session = " + session.getAttribute("member"));
->>>>>>> 707f3ecc737d314a75b0b52545b67a606cf396e5:src/main/java/models/member/MypageService.java
 	}
 	
 	
@@ -116,15 +110,12 @@ public class MyPageService {
 	public void passwordUpdate(HttpServletRequest req, UserDto dto) {
 		pwCheck(req);
 		
-<<<<<<< HEAD:src/main/java/models/member/MyPageService.java
 		//session에는 비번이 비어 있어서 새로 정보를 끌고 온다.
 		SqlSession sqlSession = Connection.getSession();
 		UserDto dto = sqlSession.selectOne("userInfoMapper.user", param);
 		dto.setPassword(dto.getPassword());
 		sqlSession.close();
 		
-=======
->>>>>>> 707f3ecc737d314a75b0b52545b67a606cf396e5:src/main/java/models/member/MypageService.java
 		//비밀번호 일치 확인
 		String pw = req.getParameter("pw");
 		if(!BCrypt.checkpw(pw, dto.getPassword())) {//일단 현재 페이지에서 만들었지만 추후 비밀번호 수정 버튼을 클릭시 체크 과정을 거치게 할거면 이동할 예정

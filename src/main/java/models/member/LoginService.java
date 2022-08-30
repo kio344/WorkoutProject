@@ -1,9 +1,6 @@
 package models.member;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mindrot.bcrypt.BCrypt;
@@ -23,15 +20,12 @@ public class LoginService {
 	public UserDto search(String id, String pw) {
 
 		SqlSession sqlsession = Connection.getSession();
-<<<<<<< HEAD
 
 		UserDto login_user = sqlsession.selectOne("userInfoMapper.check", id);
 		if (login_user == null) {
-=======
 		
 		UserDto login_user = sqlsession.selectOne("userInfoMapper.user", id);
 		if(login_user == null) {
->>>>>>> 707f3ecc737d314a75b0b52545b67a606cf396e5
 			throw new BadException("없는 아이디입니다. 다시 시도해주세요");
 		}
 
