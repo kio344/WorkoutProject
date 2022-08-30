@@ -36,12 +36,11 @@ public class LoginController extends HttpServlet{
 		
 		try{
 			UserDto dto = login.search(id, pw);
-			dto.setPassword("");
 			out.print("<script>alert('로그인 성공')</script> \n");
 			out.print("<script>parent.location.replace('/WorkOutProject')</script>");
 			HttpSession session = req.getSession();
 			session.setAttribute("member", dto);
-			
+			System.out.println(session.getAttribute("member"));
 		}catch (BadException e) {
 			out.print("<script>alert('" + e.getMessage() + "')</script>");
 		}
