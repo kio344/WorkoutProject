@@ -43,12 +43,33 @@
 					for="comment_0">미사용</label>
 			</dd>
 		</dl>
+
+		<dl>
+			<dt>이미지 첨부</dt>
+			<dd>
+				<button id="image_Only">이미지 첨부</button>
+				<ul id="image_Only">
+					
+				</ul>
+			</dd>
+		</dl>
 		
-		
+		<dl>
+			<dt>파일첨부</dt>
+			<dd>
+				<button id="attach_file">파일 첨부</button>
+				<ul id="attached_files">
+
+				</ul>
+			</dd>
+		</dl>
+
 		<div class="btn-grp">
 			<button>작성하기</button>
 			<button>취소하기</button>
-			<button type="button"><a href="<c:url value="/index.jsp" /> " > 처음으로 돌아가기</button>
+			<button type="button">
+				<a href="<c:url value="/index.jsp" /> "> 처음으로 돌아가기 
+			</button>
 		</div>
 	</form>
 </layout:main>

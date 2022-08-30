@@ -16,6 +16,10 @@ public class WriteIndexController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+		}catch (RuntimeException e) {
+			e.printStackTrace();
+		}
 		String [] addJs = {"ckeditor/ckeditor", "board/writeIndex"};
 		req.setAttribute("addJs", addJs);
 		RequestDispatcher rd = req.getRequestDispatcher("/community/writeIndex.jsp");
@@ -24,8 +28,12 @@ public class WriteIndexController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
+			String type = req.getParameter("type");
+			String poster = req.getParameter("poster");
+			
+			System.out.println(type);
+			
+			
+			
 	}
-	
 }
