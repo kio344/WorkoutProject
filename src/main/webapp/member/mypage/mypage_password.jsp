@@ -9,6 +9,7 @@
 
 <button type="reset">다시 입력</button>
 <button type="submit">변경 하기</button>
+<button ><a href="<c:url value="/member/mypage/mypage.jsp"/>">돌아가기</a></button>
 
 </form>
 </layout:main>

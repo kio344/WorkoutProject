@@ -1,6 +1,7 @@
 package controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 import javax.servlet.RequestDispatcher;
@@ -29,8 +30,20 @@ public class WPCheckController extends HttpServlet{
 		HttpSession session = req.getSession();
 		UserDto dto = (UserDto)session.getAttribute("member");
 		
+<<<<<<< HEAD
 		MyPageService service = new MyPageService();
 		service.withdrawal(req, dto);
+=======
+		MypageService service = new MypageService();
+		PrintWriter out = resp.getWriter();
+		try {
+			service.withdrawal(req, dto);
+			
+			out.println("<script>alert('삭제가 완료 되었습니다.')</script>");
+		} catch (RuntimeException e) {
+			out.println("<script>alert('"+ e.getMessage() +"')</script>");
+		}
+>>>>>>> 707f3ecc737d314a75b0b52545b67a606cf396e5
 		
 	}
 }
