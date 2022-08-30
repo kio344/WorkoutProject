@@ -12,8 +12,16 @@
 	비밀번호 확인 : <input type="password" name="pwre" > <br>
 	이메일 : <input type="text" name="email" > <br>
 	이름 : <input type="text" name="name" > <br>
+	사용할 별명 : <input type="text" name="fakeName" > <br>
 	핸드폰 번호 : <input type="number" name="mobile" ><br>
 	주소 : <input type="text" name="address" > <br>
+	<div>
+	성별 : <br>
+		<label for="man">남자</label>
+		<input type="radio" name="sex" value="남자" >
+		<label for="woman">여자</label>
+		<input type="radio" name="sex" value="여자">
+	</div>
 	<button>회원가입</button>
 	
 </div>

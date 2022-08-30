@@ -2,17 +2,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts"%>
 <layout:main title="마이페이지">
-<form method="post" action="<c:url value="/mypage" />" target="ifrmProcess">
+<form method="get" action="<c:url value="/mypage" /> " target="ifmProcess" >
+이름 <input type="text" disabled value="${member.name}">
+별명 <input type="text" value="${member.fakeName}">
+이메일 <input type="email" value="${member.email}">
 
-아이디 <input type="text" disabled name="idRe" value="${member.id}">
-이름 <input type="text" name="nameRe" value="${member.name}">
-이메일 <input type="email" name="emailRe" value="${member.email}">
-전화번호 <input type="number" name="mobileRe" value="${member.mobile}">
-주소 <input type="text" name="addressRe" value="${member.address}">
+<button><a href="<c:url value="/mypage/basics"/> " >인적사항 변경</a></button>
+<button><a href="<c:url value="/mypage/password"/> " >비밀번호 변경</a></button>
+<button><a href="<c:url value="/mypage/physical"/> " >신체정보 변경</a></button>
 
-
-<button type="reset">다시하기</button>
-<button type="submit">수정하기</button>
+<!-- 프로필 이미지 넣기 -->
 
 </form>
 </layout:main>
