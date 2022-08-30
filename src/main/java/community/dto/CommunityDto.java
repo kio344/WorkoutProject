@@ -8,18 +8,34 @@ public class CommunityDto {
 	private boolean comment; // 댓글 허용
 	private String type; // 게시글 타입
 	private String poster; // 글쓴이
-	private String memid; // 회원 ID
+	private String memId; // 회원 ID
 	private String content; // 글 내용
 	private String subject; // 글 제목
 	
 	public CommunityDto() {}
 	
-	public String getMemid() {
-		return memid;
+	
+	
+	public CommunityDto(String boardId, String boardName, boolean comment, String type, String poster, String content,
+			String subject, String memId) {
+		this.boardId = boardId;
+		this.type = type;
+		this.boardName = boardName;
+		this.poster = poster;
+		this.subject = subject;
+		this.content = content;
+		this.comment = comment;
+		this.memId = memId;
 	}
 
-	public void setMemid(String memid) {
-		this.memid = memid;
+
+
+	public String getMemid() {
+		return memId;
+	}
+
+	public void setMemid(String memId) {
+		this.memId = memId;
 	}
 
 	public int getId() {
@@ -89,7 +105,7 @@ public class CommunityDto {
 	@Override
 	public String toString() {
 		return "CommunityDto [id=" + id + ", boardId=" + boardId + ", boardName=" + boardName + ", comment=" + comment
-				+ ", type=" + type + ", poster=" + poster + ", memid=" + memid + ", content=" + content + ", subject="
+				+ ", type=" + type + ", poster=" + poster + ", memId=" + memId + ", content=" + content + ", subject="
 				+ subject + "]";
 	}
 	
