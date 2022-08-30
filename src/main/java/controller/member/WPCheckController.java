@@ -1,6 +1,7 @@
 package controller.member;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dto.UserDto;
-import models.member.MyPageService;
+import models.member.MypageService;
 
 @WebServlet("/wpc")
 public class WPCheckController extends HttpServlet{
@@ -30,9 +31,8 @@ public class WPCheckController extends HttpServlet{
 		HttpSession session = req.getSession();
 		UserDto dto = (UserDto)session.getAttribute("member");
 		
-		MyPageService service = new MyPageService();
-		service.withdrawal(req, dto);
 		MypageService service = new MypageService();
+		service.withdrawal(req, dto);
 		PrintWriter out = resp.getWriter();
 		try {
 			service.withdrawal(req, dto);

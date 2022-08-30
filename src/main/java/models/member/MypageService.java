@@ -10,7 +10,7 @@ import dto.UserDto;
 import exception.BadException;
 import mybatis.Connection;
 
-public class MyPageService {
+public class MypageService {
 
 
 	/**
@@ -20,7 +20,6 @@ public class MyPageService {
 	 */
 	
 	public void update(HttpServletRequest req, UserDto dto) {
-		
 		UserValidator validator = new UserValidator();
 		check(req);
 		
@@ -50,16 +49,6 @@ public class MyPageService {
 		dto.setEmail(email);
 		dto.setMobile(mobile);
 		dto.setAddress(address);
-		
-		dto.setName(name);
-		dto.setEmail(email);
-		dto.setMobile(mobile);
-		dto.setAddress(address);
-		
-		UserDao dao = UserDao.getInstance();
-		dao.update(dto);
-		
-		session.setAttribute("member", dto);
 		
 		//정보 수정 완료
 		UserDao dao = UserDao.getInstance();
@@ -94,10 +83,6 @@ public class MyPageService {
 		if(address == null || address.isBlank()) {
 			throw new BadException("주소가 없습니다.");
 		}
-<<<<<<< HEAD:src/main/java/models/member/MyPageService.java
-		
-=======
->>>>>>> 707f3ecc737d314a75b0b52545b67a606cf396e5:src/main/java/models/member/MypageService.java
 	}
 
 	
@@ -109,12 +94,6 @@ public class MyPageService {
 	 */
 	public void passwordUpdate(HttpServletRequest req, UserDto dto) {
 		pwCheck(req);
-		
-		//session에는 비번이 비어 있어서 새로 정보를 끌고 온다.
-		SqlSession sqlSession = Connection.getSession();
-		UserDto dto = sqlSession.selectOne("userInfoMapper.user", param);
-		dto.setPassword(dto.getPassword());
-		sqlSession.close();
 		
 		//비밀번호 일치 확인
 		String pw = req.getParameter("pw");
@@ -232,4 +211,3 @@ public class MyPageService {
 	}
 	
 }
-	

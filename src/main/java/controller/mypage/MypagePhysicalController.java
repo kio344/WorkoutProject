@@ -2,6 +2,7 @@ package controller.mypage;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dto.UserDto;
-import models.member.MyPageService;
+import models.member.MypageService;
 
 @WebServlet("/mypage/physical")
 public class MypagePhysicalController extends HttpServlet{
@@ -32,7 +33,7 @@ public class MypagePhysicalController extends HttpServlet{
 		PrintWriter out = resp.getWriter();
 		HttpSession session = req.getSession();
 		UserDto param = (UserDto)session.getAttribute("member");
-		MyPageService service = new MyPageService();
+		MypageService service = new MypageService();
 		
 		try {
 			service.physicalUpdate(req, param);
