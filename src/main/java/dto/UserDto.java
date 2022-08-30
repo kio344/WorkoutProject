@@ -2,34 +2,56 @@ package dto;
 
 public class UserDto {
 
-
 	private int num;
 	private String id;
-	private String pw;
+	private String password;
 	private String name;
 	private String email;
-	private int mobile;
+	private String mobile;
 	private String address;
+	private double height;
+	private double weight;
+	private double age;
+	private String sex;
+	private String userType;
 
-	public UserDto() {}
+	public UserDto() {
+	}
 
-	public UserDto(String id, String pw, String name, String email, int mobile, String address) {
+	public UserDto(String id, String password, String name, String email, String mobile, String address) {
 		this.id = id;
-		this.pw = pw;
+		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
 	}
 
-	public UserDto(int num, String id, String pw, String name, String email, int mobile, String address) {
+	public UserDto(int num, String id, String password, String name, String email, String mobile, String address,
+			String userType) {
 		this.num = num;
 		this.id = id;
-		this.pw = pw;
+		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
+		this.userType = userType;
+	}
+
+	public UserDto(int num, String id, String password, String name, String email, String mobile, String address,
+			double height, double weight, double age, String sex) {
+		this.num = num;
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+		this.mobile = mobile;
+		this.address = address;
+		this.height = height;
+		this.weight = weight;
+		this.age = age;
+		this.sex = sex;
 	}
 
 	public int getNum() {
@@ -48,12 +70,12 @@ public class UserDto {
 		this.id = id;
 	}
 
-	public String getPw() {
-		return pw;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {
@@ -72,11 +94,11 @@ public class UserDto {
 		this.email = email;
 	}
 
-	public int getMobile() {
+	public String getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(int mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 
@@ -88,12 +110,51 @@ public class UserDto {
 		this.address = address;
 	}
 
-	@Override
-	public String toString() {
-		return "UserDto [num = " + num + ", id = " + id + ", pw = " + pw + ", name = " + name + ", email = " + email + ", mobile = "
-				+ mobile + ", address = " + address + "]";
+	public double getHeight() {
+		return height;
 	}
 
-	
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	public double getAge() {
+		return age;
+	}
+
+	public void setAge(double age) {
+		this.age = age;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDto [num=" + num + ", id=" + id + ", password=" + password + ", name=" + name + ", email=" + email
+				+ ", mobile=" + mobile + ", address=" + address + ", height=" + height + ", weight=" + weight + ", age="
+				+ age + ", sex=" + sex + ", userType=" + userType + "]";
+	}
 
 }

@@ -1,0 +1,94 @@
+html{
+	height: 100%;
+}
+body {
+	background-color: #7eaeaf;
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.message{
+	text-align: center;
+	color: #898989;
+	
+}
+.message >h2{
+	margin-top: 20px;
+}
+.loginArea,.RegisterArea dl  {
+	text-align: center;
+}
+
+.loginlogo{
+	font-size: 50px;
+	background-color: #b7d1d2;
+	padding: 20px;
+		border-radius: 5px;
+	
+}
+
+.loginArea,.RegisterArea{
+	padding:50px;
+	background-color: white;
+	border-radius: 5px;
+	
+}
+.input-grp {
+	padding: 11px;
+}
+.input-grp > input{
+	display: flex;
+	width: 240px;
+	height: 50px;
+	border: 1px solid  #cfcfcf;
+	padding-left: 10px;
+	
+}
+
+.input-grp > input:first-of-type{
+	border-bottom: none;
+	border-radius: 5px 5px 0px 0px;
+}
+.input-grp > input:last-of-type {
+	border-radius: 0px 0px 5px 5px;
+}
+
+.chk-grp{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn-grp{
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+	flex-direction: column;
+	align-items: center;
+}
+.btn-grp > button{
+	width: 92%;
+	height: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #8db7b8;
+	border: none;
+	border-radius: 5px;
+	margin-top: 10px;
+
+}
+.btn-grp :last-of-type {
+		background-color: #568889;
+	
+}
+
+.input-outer{
+	display: flex;
+	flex-direction: row;
+}
+
+

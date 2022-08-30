@@ -10,25 +10,23 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 <link rel="stylesheet" type="text/css"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value="/static/css/common.css" /> ">
+	href="<c:url value="/static/css/common.css" />">
 
 <c:if test="${!empty addCss }">
 	<c:forEach var="css" items="${addCss }">
 		<link rel="stylesheet" type="text/css"
-			href="<c:url value="/static/css" /> ${css}.css ">
+			href="<c:url value="/static/css/" />${css}.css ">
 	</c:forEach>
 </c:if>
 
-<script src="<c:url value="/static/js/common.js" /> "></script>
+<script src="<c:url value="/static/js/common.js" />" ></script>
 <c:if test="${!empty addJs}">
 	<c:forEach var="js" items="${addJs}">
-		<script src="<c:url value="/static/js/" /> ${js}.js">
-		</script>
+		<script src="<c:url value="/static/js/" />${js}.js"></script>
 	</c:forEach>
 </c:if>
 <title>${empty title ? "WorkOut" : title}</title>
@@ -44,6 +42,6 @@
 	<jsp:invoke fragment="footer" />
 	</body>
 	
-	<iframe name="ifrmProcess" width="100%" height="0" class="dn"></iframe>
+	<iframe name="ifrmProcess" width="100%" height="0px" class="dn"></iframe>
 	
 </html>

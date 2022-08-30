@@ -1,0 +1,29 @@
+
+form{
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+}
+form >input{
+	padding: 10px;
+	margin: 5px;
+}
+
+.btn-grp{
+	display: flex;
+	margin: 30px;
+	justify-content:space-around;
+		
+}
+.btn-grp > button{
+	width: 230px;
+	height: 70px;	
+	
+	background-color: #7eaeaf;
+	border: 5px solid #dddddd;
+	
+	border-radius: 5px;
+	
+	
+	
+}

@@ -4,7 +4,7 @@
 html {font-size: 13px;}
 body {margin: 0;}
 a {text-decoration: none;}
-ul ol {list-style: none; margin: 0; padding: 0;}
+ul, ol {list-style: none; margin: 0; padding: 0;}
 dl, dt, dd {margin: 0; padding: 0;}
 
 input[type="text"], 
@@ -24,6 +24,7 @@ main{ min-height: 600px; padding: 10px; }
 
 /** 테스트 */
 .join-menu { background-color: #d5d5d5; height: 100%;}
+/**.layout_width { max-width: 1100px; width: 100%; margin: 0 auto; }*/
 /** 테스트 */
 
 /** 회원가입, 로그인 */
@@ -39,3 +40,16 @@ header .join-menu > div a { margin-left: 10px; }
 footer .footer{ text-align: center; border-top: solid 1px black; font-size: 25px; padding-top:50px; padding-bottom: 50px; font-size: 15px; }
 /** 푸터 */
 
+nav { background-color: #212121;  width: 100%; }
+nav > div { display: flex; width: 100%; justify-content: space-around; }
+nav a {  text-align: center; color: #fff; font-size: 1.5rem; padding: 15px 20px;  }
+nav .layout_width a:hover {
+	color: red;
+	background-color: gray;
+}
+
+/** 버튼 */
+.btn-grp { display: flex; width: 330px; margin: 10px auto; }
+.btn-grp button { flex-grow: 1; height: 45px; background-color: #212121; color: #fff; font-size: 1.2rem; font-weight: bold; border: 1px solid #212121; cursor: pointer; }
+.btn-grp button:last-of-type { background-color: #fff; color: #212121; margin-left: 2px; }
+.btn-grp button:first-of-type { margin-right: 2px; }

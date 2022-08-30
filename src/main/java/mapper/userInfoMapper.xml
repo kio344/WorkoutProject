@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userInfoMapper">
+	<resultMap id="userInfoMap" type="dto.UserDto">
+		<result property="num" column="num" />
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="mobile" column="mobile" />
+		<result property="address" column="address" />
+		<result property="height" column="height"/>
+		<result property="weight" column="weight"/>
+		<result property="age" column="age"/>
+		<result property="sex" column="sex"/>
+		<result property="userType" column="userType"/>
+	</resultMap>
+	<!-- 유무 체크 -->
+	<select id="check" parameterType="String" resultMap="userInfoMap">
+		SELECT * FROM WorkOutUser WHERE id=#{id}
+	</select>
+	<!-- 유저 아이디로 검색 -->
+	<select id="user" parameterType="dto.UserDto" resultMap="userInfoMap">
+		SELECT * FROM WorkOutUser WHERE id=#{id}
+	</select>
+	<!-- 유저 정보 추가 -->
+	<insert id="insert" parameterType="dto.UserDto" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO WorkOutUser (id, password, name, email, mobile, address)
+			VALUES(#{id}, #{password}, #{name}, #{email}, #{mobile}, #{address});
+	</insert>	
+	<!-- 유저 id 검색 후 삭제 -->
+	<delete id="delete" parameterType="dto.UserDto" >
+		DELETE FROM WorkOutUser WHERE id=#{id}
+	</delete>
+	<!-- 유저 정보 변경사항 업데이트 -->
+	<update id="update" parameterType="dto.UserDto">
+		UPDATE WorkOutUser
+			SET
+				password=#{password},
+				name=#{name},
+				email=#{email},
+				mobile=#{mobile},
+				address=#{address}
+			WHERE id=#{id}
+	</update>
+	<!-- 추가 기능  -->
+	
+	<!-- 유저 신체정보 업데이트 -->
+	<update id="bmiUpdate" parameterType="dto.UserDto">
+		UPDATE WorkOutUser
+			SET
+				height=#{height},
+				weight=#{weight},
+				age=#{age},
+				sex=#{sex}
+			WHERE id=#{id}
+	</update>
+	
+	<!-- 유저(판매자) 정보 추가 -->
+	<insert id="insertSeller" parameterType="dto.UserDto" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO WorkOutUser (id, password, name, email, mobile, address, userType)
+			VALUES(#{id}, #{password}, #{name}, #{email}, #{mobile}, #{address},'seller');
+	</insert>	
+	
+</mapper>
