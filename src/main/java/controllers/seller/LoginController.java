@@ -16,8 +16,8 @@ import static jmsUtil.Utils.*;
 public class LoginController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String[] addCss=new String[] {"/seller/login"};
-		String[] addJs=new String[] {"/seller/login"};
+		String[] addCss=new String[] {"seller/login"};
+		String[] addJs=new String[] {"seller/login"};
 		req.setAttribute("addCss", addCss);
 		req.setAttribute("addJs", addJs);
 		RequestDispatcher rd=req.getRequestDispatcher("/jmsPage/login.jsp");
