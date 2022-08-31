@@ -1,6 +1,8 @@
 package controller.mypage;
 
 import java.io.IOException;
+
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -29,13 +31,13 @@ public class MypagePwController extends HttpServlet{
 		resp.setContentType("text/html; charset=utf-8");
 		
 		HttpSession session = req.getSession();
-		UserDto param = (UserDto)session.getAttribute("member");
+		UserDto dto = (UserDto)session.getAttribute("member");
 		
 		MypageService service = new MypageService();
 		PrintWriter out = resp.getWriter();
 		
 		try {
-			service.passwordUpdate(req, param);
+			service.passwordUpdate(req, dto);
 			
 			out.println("<script>alert('비밀번호 수정 완료')</script>");
 			out.println("<script>parent.location.replace('/WorkOutProject/mypage')</script>");
@@ -45,7 +47,6 @@ public class MypagePwController extends HttpServlet{
 			out.println("<script>alert('"+ e.getMessage() +"')</script>");
 			
 		}
-		
 		
 	}
 }

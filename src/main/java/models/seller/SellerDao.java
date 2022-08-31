@@ -103,7 +103,7 @@ public class SellerDao {
 		msg.setRecipient(product.getSeller());
 		msg.setMessage(m1);
 		
-		int nums = sqlSession.insert("RequestProductMap.send", msg);
+		int nums = sqlSession.insert("MessageMapper.sendMsg", msg);
 		
 		sqlSession.commit();
 		sqlSession.close();
@@ -116,9 +116,9 @@ public class SellerDao {
 	 * @param str
 	 * @return
 	 */
-	public List<ProductDto> searchReq(String select, String str) {
+	public List<ProductDto> searchReq(String select, String str, int page, int limit) {
 		SqlSession sqlSession = Connection.getSession();
-		ProductDto param = new ProductDto();
+		ProductListDto param = new ProductListDto();
 		if(select.equals("seller")) {
 			param.setSeller("%" + str + "%");
 		} else if(select.equals("name")) {
@@ -129,11 +129,35 @@ public class SellerDao {
 			param.setCompany("%" + str + "%");
 		}
 		
+		int offset = (page - 1) * limit;
+		
+		param.setLimit(limit);
+		param.setOffset(offset);
+		
 		List<ProductDto> products = sqlSession.selectList("RequestProductMap.searchReq", param);
 		
 		
 		sqlSession.close();
 		return products;
+	}
+	
+	public int total(String select, String str) {
+		SqlSession sqlSession = Connection.getSession();
+		ProductListDto param = new ProductListDto();
+		if(select.equals("seller")) {
+			param.setSeller("%" + str + "%");
+		} else if(select.equals("name")) {
+			param.setName("%" + str + "%");
+		} else if(select.equals("kategorie")) {
+			param.setKategorie("%" + str + "%");
+		} else if(select.equals("company")) {
+			param.setCompany("%" + str + "%");
+		}
+		
+		int total = sqlSession.selectOne("RequestProductMap.countReq", param);
+		sqlSession.close();
+		return total;
+		
 	}
 	
 

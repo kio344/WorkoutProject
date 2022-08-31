@@ -35,6 +35,7 @@ public class UserDao {
 		
 		sqlSession.commit();
 		sqlSession.close();
+		
 	}
 	
 	/**

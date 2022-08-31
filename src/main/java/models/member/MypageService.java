@@ -1,10 +1,8 @@
 package models.member;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.mindrot.bcrypt.BCrypt;
 
@@ -14,7 +12,6 @@ import mybatis.Connection;
 
 public class MypageService {
 
-	UserValidator validator = new UserValidator();
 
 	/**
 	 * 인적사항 업데이트
@@ -22,6 +19,7 @@ public class MypageService {
 	 * @param param
 	 */
 	
+<<<<<<< HEAD:src/main/java/models/member/MyPageService.java
 	public void update(HttpServletRequest req, UserDto param) {
 	public void check(HttpServletRequest request) {
 		String repw = request.getParameter("repw");
@@ -29,37 +27,62 @@ public class MypageService {
 		String nameRe = request.getParameter("nameRe");
 		String addressRe = request.getParameter("addressRe");
 		
+=======
+	public void update(HttpServletRequest req, UserDto dto) {
+		UserValidator validator = new UserValidator();
+>>>>>>> a61627f0c326895a27306d8ac27e6522989b081d:src/main/java/models/member/MypageService.java
 		check(req);
 		
 		String name = req.getParameter("nameRe");
+		String fakeName = req.getParameter("fakeNameRe");
 		String email = req.getParameter("emailRe");
 		String mobile = req.getParameter("mobileRe");
 		String address = req.getParameter("addressRe");
-
-		//정보 수정 완료
+		
+		//별명 중복 체크
+		validator.checkFakeName(fakeName);
+		
+		//이메일 체크
+//		validator.emailCheck(req);
+		
 		HttpSession session = req.getSession();
+		//번호 형식 체크
+		if(mobile != null && !mobile.isBlank()) {
+			mobile = mobile.replaceAll("[^0-9]", "");
+			
+			if(!validator.checkMobile(mobile)) {
+				throw new BadException("번호 형식이 맞지 않습니다.");
+			}
+		}
+		dto.setName(name);
+		dto.setFakeName(fakeName);
+		dto.setEmail(email);
+		dto.setMobile(mobile);
+		dto.setAddress(address);
 		
-		param.setName(name);
-		param.setEmail(email);
-		param.setMobile(mobile);
-		param.setAddress(address);
-		
+		//정보 수정 완료
 		UserDao dao = UserDao.getInstance();
-		dao.update(param);
-		
-		session.setAttribute("member", param);
-		
+		System.out.println(dto);
+		dao.update(dto);
+		System.out.println("업뎃 DB = "+dto);
+		session.setAttribute("member", dto);
+		System.out.println("session = " + session.getAttribute("member"));
 	}
+	
 	
 	public void check(HttpServletRequest req) {
 		//제대로 들어갔나 체크
 		String name = req.getParameter("nameRe");
+		String fakeName = req.getParameter("fakeNameRe");
 		String email = req.getParameter("emailRe");
 		String mobile = req.getParameter("mobileRe");
 		String address = req.getParameter("addressRe");
 		
 		if(name == null || name.isBlank()) {
 			throw new BadException("아이디가 없습니다.");
+		}
+		if(fakeName == null || fakeName.isBlank()) {
+			throw new BadException("별명이 없습니다.");
 		}
 		if(email == null || email.isBlank()) {
 			throw new BadException("이메일이 없습니다.");
@@ -70,36 +93,26 @@ public class MypageService {
 		if(address == null || address.isBlank()) {
 			throw new BadException("주소가 없습니다.");
 		}
-		
-		if(nameRe == null || nameRe.isBlank()) {
-			throw new BadException("이름이 비어있습니다.");
-		}
-		
-		if(addressRe == null || addressRe.isBlank()) {
-			throw new BadException("주소가 비어있습니다.");
-		}
-		
 	}
-	
 
+	
 	
 	/**
 	 * 비번 업데이트
 	 * @param req
 	 * @param param
 	 */
-	public void passwordUpdate(HttpServletRequest req, UserDto param) {
+	public void passwordUpdate(HttpServletRequest req, UserDto dto) {
 		pwCheck(req);
-		
-		//session에는 비번이 비어 있어서 새로 정보를 끌고 온다.
-		SqlSession sqlSession = Connection.getSession();
-		UserDto dto = sqlSession.selectOne("userInfoMapper.user", param);
-		sqlSession.close();
 		
 		//비밀번호 일치 확인
 		String pw = req.getParameter("pw");
 		if(!BCrypt.checkpw(pw, dto.getPassword())) {//일단 현재 페이지에서 만들었지만 추후 비밀번호 수정 버튼을 클릭시 체크 과정을 거치게 할거면 이동할 예정
 			throw new BadException("현재 비밀번호가 일치하지 않습니다.");
+		}
+		
+		if(req.getParameter("pwRe").length() < 8) {
+			throw new BadException("비밀번호는 8자리 이상 입력하세요.");
 		}
 		
 		//변경 비밀번호 해시화
@@ -112,9 +125,8 @@ public class MypageService {
 		dao.update(dto);
 		System.out.println("디비 저장 = " + dto);
 		
-		//세션에 저장해주기 - 비번은 빈값으로 저장해줘야할듯 (아직 안 함)
+		//세션에 저장해주기
 		HttpSession session = req.getSession();
-		dto.setPassword("");
 		session.setAttribute("member", dto);
 		System.out.println("세션 저장 = " + dto);
 	}
@@ -150,9 +162,9 @@ public class MypageService {
 		UserDto dto = sqlSession.selectOne("userInfoMapper.user", param);
 		sqlSession.close();
 		
-		dto.setHeight(Integer.parseInt(req.getParameter("heightRe")));
-		dto.setWeight(Integer.parseInt(req.getParameter("weightRe")));
-		dto.setAge(Integer.parseInt(req.getParameter("ageRe")));
+		dto.setHeight(Double.parseDouble(req.getParameter("heightRe")));
+		dto.setWeight(Double.parseDouble(req.getParameter("weightRe")));
+		dto.setAge(Double.parseDouble(req.getParameter("ageRe")));
 		dto.setSex(req.getParameter("sexRe"));
 		
 		System.out.println(dto);
@@ -164,16 +176,15 @@ public class MypageService {
 
 		//세션에 저장해주기 - 비번은 비워서 저장하기
 		HttpSession session = req.getSession();
-		dto.setPassword("");
 		session.setAttribute("member", dto);
 		System.out.println("세션 저장 = " + dto);
 	}
 	
 	public void physicalCheck(HttpServletRequest req) {
 		
-		double height = Integer.parseInt(req.getParameter("heightRe")); 
-		double weight = Integer.parseInt(req.getParameter("weightRe")); 
-		double age = Integer.parseInt(req.getParameter("ageRe")); 
+		double height = Double.parseDouble(req.getParameter("heightRe")); 
+		double weight = Double.parseDouble(req.getParameter("weightRe")); 
+		double age = Double.parseDouble(req.getParameter("ageRe")); 
 		String sex = req.getParameter("sexRe");
 		
 		if(height <= 0) {
@@ -198,17 +209,15 @@ public class MypageService {
 	public void withdrawal(HttpServletRequest req, UserDto dto) {
 		
 		SqlSession sqlSession = Connection.getSession();
-		UserDto param = sqlSession.selectOne("userInfoMapper.user", dto.getId());
 		
 		//현재 비번과 입력 비번 비교
-		boolean equalPw = BCrypt.checkpw("pw", param.getPassword());
+		boolean equalPw = BCrypt.checkpw("pw", dto.getPassword());
 		if(equalPw) {//일치하면
- 			sqlSession.delete("userInfoMapper.delete", param);
+ 			sqlSession.delete("userInfoMapper.delete", dto);
+ 			sqlSession.close();
 		}else {//비번이 일치하지 않으면
 			throw new BadException("비밀번호가 일치하지 않습니다.");
-			
 		}
-		
 	}
 	
 }
