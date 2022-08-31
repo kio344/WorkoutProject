@@ -21,16 +21,13 @@ public class MypageService {
 	 * @param req
 	 * @param param
 	 */
-<<<<<<< HEAD
 	
 	public void update(HttpServletRequest req, UserDto param) {
-=======
 	public void check(HttpServletRequest request) {
 		String repw = request.getParameter("repw");
 		String repwRe = request.getParameter("repwRe");
 		String nameRe = request.getParameter("nameRe");
 		String addressRe = request.getParameter("addressRe");
->>>>>>> b23242aa539c02da43c934f7918b9d13cda6c95a
 		
 		check(req);
 		
