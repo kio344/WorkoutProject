@@ -16,7 +16,7 @@
 			<div>
 				<a href="<c:url value="/admin/product" />">판매 신청 목록</a>
 				<a href="">QnA 목록</a>
-				<a href="">게시판 관리</a>
+				<a href="<c:url value="/admin/board" />">게시판 관리</a>
 			</div>
 		</nav>
 	</jsp:attribute>

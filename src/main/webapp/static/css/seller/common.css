@@ -112,6 +112,7 @@ nav a{
 	align-items: center;
 	justify-content: center;
 	
+	
 }
 .info{
 	display: inline-block;
@@ -128,4 +129,14 @@ nav a{
 	z-index: 99;
 	 transition: ease-in-out 1000ms;
 
+}
+.msgCount{
+	font-size:15px;	
+	padding:4px;
+	border-radius:20px;
+	color:white;
+	background-color: #ff263c;
+	position: relative;
+	top: 20px;
+	
 }

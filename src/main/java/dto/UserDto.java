@@ -6,6 +6,7 @@ public class UserDto {
 	private String id;
 	private String password;
 	private String name;
+	private String fakeName;
 	private String email;
 	private String mobile;
 	private String address;
@@ -18,33 +19,36 @@ public class UserDto {
 	public UserDto() {
 	}
 
-	public UserDto(String id, String password, String name, String email, String mobile, String address) {
+	public UserDto(String id, String password, String name,String fakeName, String email, String mobile, String address) {
 		this.id = id;
 		this.password = password;
 		this.name = name;
+		this.fakeName = fakeName;
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
 	}
 
-	public UserDto(int num, String id, String password, String name, String email, String mobile, String address,
+	public UserDto(int num, String id, String password, String name,String fakeName, String email, String mobile, String address,
 			String userType) {
 		this.num = num;
 		this.id = id;
 		this.password = password;
 		this.name = name;
+		this.fakeName = fakeName;
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
 		this.userType = userType;
 	}
 
-	public UserDto(int num, String id, String password, String name, String email, String mobile, String address,
+	public UserDto(int num, String id, String password, String name,String fakeName, String email, String mobile, String address,
 			double height, double weight, double age, String sex) {
 		this.num = num;
 		this.id = id;
 		this.password = password;
 		this.name = name;
+		this.fakeName = fakeName;
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
@@ -84,6 +88,14 @@ public class UserDto {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getFakeName() {
+		return fakeName;
+	}
+
+	public void setFakeName(String fakeName) {
+		this.fakeName = fakeName;
 	}
 
 	public String getEmail() {
@@ -152,9 +164,9 @@ public class UserDto {
 
 	@Override
 	public String toString() {
-		return "UserDto [num=" + num + ", id=" + id + ", password=" + password + ", name=" + name + ", email=" + email
-				+ ", mobile=" + mobile + ", address=" + address + ", height=" + height + ", weight=" + weight + ", age="
-				+ age + ", sex=" + sex + ", userType=" + userType + "]";
+		return "UserDto [num=" + num + ", id=" + id + ", password=" + password + ", name=" + name + ", fakeName="
+				+ fakeName + ", email=" + email + ", mobile=" + mobile + ", address=" + address + ", height=" + height
+				+ ", weight=" + weight + ", age=" + age + ", sex=" + sex + ", userType=" + userType + "]";
 	}
 
 }

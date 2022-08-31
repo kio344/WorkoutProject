@@ -1,0 +1,46 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="BoardConfigMap">
+	<resultMap type="models.admin.board.BoardConfigDto" id="boardConfig">
+		<result property="boardId" column="boardId" />
+		<result property="boardName" column="boardName" />
+		<result property="noOfRows" column="noOfRows" />
+		<result property="isUse" column="isUse" />
+		<result property="isMemberOnly" column="isMemberOnly" />
+		<result property="useComment" column="useComment" />
+		<result property="regDt" column="regDt" />
+		<result property="modDt" column="modDt" />
+	</resultMap>
+	
+	<!-- 게시판 만들기 -->
+	<insert id="register" parameterType="models.admin.board.BoardConfigDto">
+		INSERT BoardConfig ( boardId, boardName, noOfRows, isUse, isMemberOnly, useComment )
+			VALUES (#{boardId}, #{boardName}, #{noOfRows}, #{isUse}, #{isMemberOnly}, #{useComment} );
+	</insert>
+	
+	<!-- 게시판 목록 불러오기 -->
+	<select id="list" parameterType="models.admin.board.BoardConfigDto" resultMap="boardConfig">
+		SELECT * FROM BoardConfig ORDER BY regDt DESC;
+	</select>
+	
+	<!-- 게시판 설정 수정 -->
+	<update id="update" parameterType="models.admin.board.BoardConfigDto">
+		UPDATE BoardConfig
+			SET
+				boardName=#{boardName},
+				noOfRows=#{noOfRows},
+				isUse=#{isUse},
+				isMemberOnly=#{isMemberOnly},
+				useComment=#{useComment},
+				modDt=NOW()
+			WHERE boardId=#{boardId};
+	</update>
+	
+	<!-- 게시판 삭제 -->
+	<delete id="delete" parameterType="models.admin.board.BoardConfigDto">
+		DELETE FROM BoardConfig WHERE boardId=#{boardId};
+	</delete>
+	
+</mapper>
