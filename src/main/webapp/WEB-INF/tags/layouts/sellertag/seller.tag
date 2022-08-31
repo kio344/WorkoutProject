@@ -34,7 +34,7 @@
 						</li>
 					</a>
 				
-					<a href="">
+					<a href="<c:url value="/seller/message" />">
 						<li>
 							<div class="xi-message-o header_icon" >
 							<c:if test="${readNotMsg !=0 }">

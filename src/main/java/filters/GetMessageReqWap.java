@@ -31,7 +31,6 @@ public class GetMessageReqWap extends HttpServletRequestWrapper {
 	msg.setRecipient(user.getId());
 	int myCount= dao.getsUserMsgC(msg);
 	req.setAttribute("readNotMsg", myCount);
-	System.out.println(myCount);
 		
 	}
 	

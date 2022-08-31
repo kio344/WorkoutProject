@@ -1,0 +1,27 @@
+@charset "utf-8";
+ul {
+	display: flex;
+	width: 50%;
+	text-align: center;
+}
+ul > .box{
+	border-radius: 30px;
+	padding:10px;
+	margin-bottom:0px;
+	display: flex;
+	width: 280px;
+}
+
+li > span >span{
+	margin-left:10px;
+	color: red;
+}
+
+.outerbox >div:last-child {
+	
+	width: 800px;
+	height: 500px;
+	border-radius: 20px;
+
+}
+
