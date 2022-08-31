@@ -159,7 +159,7 @@ public class SellerDao {
 		return total;
 		
 	}
-	
+	 
 
 	public static SellerDao getInstance() {
 		if (instance==null) {
