@@ -47,6 +47,29 @@ public class UserValidator implements Validator, MobileValidator{
 		}
 	}
 	
+	
+	/**
+	 * 별명 중복 체크
+	 */
+	
+	public void checkFakeName(String fakeName) {
+		SqlSession sqlsession = Connection.getSession();
+		
+		UserDto param = new UserDto();
+		param.setFakeName(fakeName);
+		System.out.println("별명으로 찾아보기 = " + param);
+		UserDto user = sqlsession.selectOne("userInfoMapper.fakeName", param);
+		System.out.println("별명으로 찾아본 아이디의 데이터 = " + user);
+		
+		sqlsession.close();
+		
+		
+		if(user != null ) {
+			throw new BadException("중복된 별명이 존재합니다.");
+		}
+		
+	}
+	
 	/**
 	 * 회원가입
 	 * @param dto

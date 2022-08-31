@@ -8,12 +8,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mindrot.bcrypt.BCrypt;
 
 import commons.Validator;
 import dto.UserDto;
 import exception.BadException;
 import models.member.UserValidator;
+import mybatis.Connection;
 
 public class JoinService {
 
@@ -40,8 +42,10 @@ public class JoinService {
 		check.put("pwre", "비밀번호를 확인해 주세요.");
 		check.put("email", "이메일을 입력해 주세요.");
 		check.put("name", "이름을 입력해 주세요.");
+		check.put("fakeName", "별명을 입력해 주세요.");
 		check.put("mobile", "핸드폰 번호를 입력해 주세요.");
 		check.put("address", "주소를 입력해 주세요.");
+		check.put("sex", "성별을 입력해 주세요.");
 		
 		validator.check(request, check);
 		/** 1. 필수 데이터 검증 끝 */
@@ -50,9 +54,11 @@ public class JoinService {
 		String id = request.getParameter("id");
 		String password = request.getParameter("pw");
 		String name = request.getParameter("name");
+		String fakeName = request.getParameter("fakeName");
 		String email = request.getParameter("email");
 		String mobile = request.getParameter("mobile");
 		String address = request.getParameter("address");
+		String sex = request.getParameter("sex");
 		
 		validator.overlapUser(id);
 		/** 중복 회원 체크 끝 */
@@ -61,7 +67,13 @@ public class JoinService {
 		validator.checkUserId(id);
 		/** 아이디 체크 끝 */
 		
-		/** 3-1.  전화번호 유효성 검사 시작 */
+		
+		/** 3-1. 별명 중복 체크 시작 */
+		validator.checkFakeName(fakeName);
+		/** 3-1. 별명 중복 체크 끝 */
+		
+		
+		/** 3-2.  전화번호 유효성 검사 시작 */
 		if(mobile != null && !mobile.isBlank()) {
 			if(!validator.checkMobile(mobile)) {
 				throw new BadException("전화번호 형식이 아닙니다. 숫자만 입력해 주세요.");
@@ -69,7 +81,7 @@ public class JoinService {
 		}
 		/** 전화번호 유효성 검사 끝 */
 //		System.out.println(str.contains("h"));
-		/** 3-2 이메일 유효성 검사 시작 */
+		/** 3-3 이메일 유효성 검사 시작 */
 		validator.emailCheck(request);
 		/** 이메일 유효성 검사 끝 */
 		
@@ -80,10 +92,11 @@ public class JoinService {
 		dto.setId(id);
 		dto.setPassword(hash);
 		dto.setName(name);
+		dto.setFakeName(fakeName);
 		dto.setEmail(email);
 		dto.setMobile(mobile);
 		dto.setAddress(address);
-		System.out.println(hash);
+		dto.setSex(sex);
 		/** 비밀번호 암호화 (Bcrypt) 끝 */
 		
 		/** 5. 회원 정보 저장 시작 */
@@ -91,7 +104,6 @@ public class JoinService {
 		validator.insertUser(dto);
 		
 		/** 회원 정보 저장 끝 */
-		
 		
 	}
 	

@@ -1,6 +1,7 @@
-package models.member;
+package controller.mypage;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -11,18 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.mindrot.bcrypt.BCrypt;
+import org.apache.ibatis.session.SqlSession;
 
-import commons.Validator;
 import dto.UserDto;
-import exception.BadException;
+import models.member.LoginService;
+import models.member.MypageService;
+import mybatis.Connection;
 
-@WebServlet("/mypage")
-public class MyPageController extends HttpServlet{
-
+@WebServlet("/mypage/basics")
+public class MypageBasicsController extends HttpServlet{
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("/member/mypage.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/member/mypage/mypage_basics.jsp");
 		rd.forward(req, resp);
 	}
 	
@@ -30,28 +32,25 @@ public class MyPageController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html; charset=utf-8");
-		String pw = req.getParameter("pw");
+		
+		MypageService service = new MypageService();
+		
 		HttpSession session = req.getSession();
 		UserDto dto = (UserDto)session.getAttribute("member");
-		LoginService login = new LoginService();
+		
 		PrintWriter out = resp.getWriter();
-		MyPageService service = new MyPageService();
 		
 		try {
-			login.search(dto.getId(), pw);
 			service.check(req);
-			service.emailCheck(req);
-			service.update(req);
+			service.update(req, dto);
 			
-			out.print("<script>alert('변경 완료 되었습니다.')</script>");
-			out.print("<script>parent.location.replace('/WorkOutProject')</script>");
+			out.println("<script> alert('수정 완료') </script>");
+			out.println("<script>parent.location.replace('/WorkOutProject') </script>");
 			
-		}catch (BadException e) {
-			out.print("<script>alert('" + e.getMessage() + "')</script>");
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			out.println("<script>alert('"+ e.getMessage() +"') </script>");
 		}
-		
-		
 	}
-	
-	
+
 }

@@ -30,3 +30,8 @@
 	width: 50%;
 	margin: 10px;
 }
+
+/** 페이지네이션 */
+.pagination { text-align: center; padding: 15px 0; }
+.pagination  a { display: inline-block; padding: 5px 10px; border: 1px solid #212121; border-radius: 5px; }
+.pagination  a.on { background-color: #212121; color: #ffffff; }
