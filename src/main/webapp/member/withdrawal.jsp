@@ -14,7 +14,7 @@
 	<button type="submit">확인</button>
 	
 	<button>
-	<a href="<c:url value="/index.jsp" /> ">메인으로 돌아가기</a>
+	<a href="<c:url value="/index.jsp" /> " >메인으로 돌아가기</a>
 	</button>
 	
 </form>

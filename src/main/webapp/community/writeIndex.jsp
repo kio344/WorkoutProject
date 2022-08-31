@@ -11,15 +11,16 @@
 	
 	<dl>
 		<dt>제목</dt>
-		<dd><input type="text" name="boardName" ></dd>
+		<dd><input type="text" name="subject" ></dd>
 	</dl>
 	
 	<dl>
 		<dt>내용</dt>
 		<dd>
-			<textarea name="content" id="content">테스트</textarea>
+			<textarea name="content" id="content"></textarea>
 		</dd>
 	</dl>
+	
 	<div class="btn-grp">
 	<button>작성하기</button>
 	<button>취소하기</button>
