@@ -10,7 +10,7 @@ import dto.UserDto;
 import exception.BadException;
 import mybatis.Connection;
 
-public class MypageService {
+public class MyPageService {
 
 
 	/**
@@ -19,18 +19,8 @@ public class MypageService {
 	 * @param param
 	 */
 	
-<<<<<<< HEAD:src/main/java/models/member/MyPageService.java
-	public void update(HttpServletRequest req, UserDto param) {
-	public void check(HttpServletRequest request) {
-		String repw = request.getParameter("repw");
-		String repwRe = request.getParameter("repwRe");
-		String nameRe = request.getParameter("nameRe");
-		String addressRe = request.getParameter("addressRe");
-		
-=======
 	public void update(HttpServletRequest req, UserDto dto) {
 		UserValidator validator = new UserValidator();
->>>>>>> a61627f0c326895a27306d8ac27e6522989b081d:src/main/java/models/member/MypageService.java
 		check(req);
 		
 		String name = req.getParameter("nameRe");
