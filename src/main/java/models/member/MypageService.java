@@ -10,7 +10,7 @@ import dto.UserDto;
 import exception.BadException;
 import mybatis.Connection;
 
-public class MyPageService {
+public class MypageService {
 
 
 	/**
