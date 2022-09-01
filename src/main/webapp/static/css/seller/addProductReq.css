@@ -15,7 +15,7 @@ form >input{
 	justify-content:space-around;
 		
 }
-.btn-grp > button{
+.btn-grp.active > button{
 	width: 230px;
 	height: 70px;	
 	
