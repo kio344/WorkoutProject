@@ -54,17 +54,19 @@ public class AddProductService {
 		String serialnum = paraMap.get("serialnum");
 		String name = paraMap.get("name");
 		String price = paraMap.get("price");
+		String writer=paraMap.get("writer");
 		String kategorie = paraMap.get("kategorie");
-		String company = paraMap.get("company");
-		System.out.println(paraMap.get(productImage) == null);
+		String publisher = paraMap.get("publisher");
+
 		String img = productImage.getName();
 
 		ProductDto product = new ProductDto();
 		product.setSerialnum(serialnum);
 		product.setName(name);
 		product.setPrice(Integer.parseInt(price));
+		product.setWriter(writer);
 		product.setKategorie(kategorie);
-		product.setCompany(company);
+		product.setPublisher(publisher);
 		product.setImg(img);
 		product.setSeller(user.getId());
 		SellerDao dao = SellerDao.getInstance();

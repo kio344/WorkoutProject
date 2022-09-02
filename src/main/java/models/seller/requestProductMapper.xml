@@ -20,8 +20,8 @@
 <!-- 판매물품 승인요청 seller(UserId)-->
 <insert id="register"  parameterType="models.seller.ProductDto" useGeneratedKeys="true"
         keyProperty="abnum" keyColumn="abnum">
-	INSERT RequestProduct ( serialnum,seller, name, price, kategorie, company, img) 
-		VALUES (#{serialnum},#{seller},#{name},#{price},#{kategorie},#{company},#{img})
+	INSERT RequestProduct ( serialnum,seller, name,writer, price, kategorie, publisher, img) 
+		VALUES (#{serialnum},#{seller},#{name},#{writer},#{price},#{kategorie},#{publisher},#{img})
 </insert>
 
 
