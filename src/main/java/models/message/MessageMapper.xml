@@ -9,20 +9,28 @@
 		<result column="message" property="message" />
 		<result column="see" property="see" />
 	</resultMap>
-	
+	<!-- 
+		유저한테 메세지 보내기
+	 -->
 	<insert id="sendMsg" parameterType="models.admin.MessageDto" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO Message (recipient,message) 
 			VALUES(#{recipient},#{message})
 	</insert>
 	
+	<!-- 
+		유저가 받은 메세지 
+	 -->
 	<select id="getsUserMsg" parameterType="models.admin.MessageDto" resultMap="messageMap">
 		SELECT * FROM Message
 		<where>
-		<if test="recipient !=null">AND WHERE recipient=#{recipient},</if>
-			<if test="read !=null">AND  WHERE see=#{see},</if>
+		<if test="recipient !=null">AND recipient=#{recipient}</if>
+			<if test="see !=null">AND see=#{see}</if>
 		</where>
 	</select>
 
+	<!-- 
+		유저가 받은 메세지 개수 
+	 -->
 	<select id="getsUserMsgC" parameterType="models.admin.MessageDto" resultType="int">
 		SELECT COUNT(*) FROM Message
 		<where>
@@ -30,5 +38,13 @@
 			<if test="see !=null">AND see=#{see}</if>
 		</where>
 	</select>
+	
+	<update id="update" parameterType="models.admin.MessageDto" >
+		UPDATE Message SET see=#{see} WHERE num=#{num};
+		
+	</update>
+	<delete id="delete" parameterType="models.admin.MessageDto">
+		DELETE FROM Message WHERE num=#{num};
+	</delete>
 
 </mapper>
