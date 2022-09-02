@@ -64,7 +64,7 @@
 		
 		<div class="btn-grp">
 			<button type="button" id="showSign">Sing in</button>
-			<button>Register</button>
+			<button id="regbtn">Register</button>
 		</div>
 		
 		</form>

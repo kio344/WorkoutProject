@@ -33,7 +33,7 @@
 		<label for="img">이미지</label>
 			<input type="file" id="img" name="img" class="" >
 		<div class="btn-grp active" >
-			<button>추가하기</button>
+			<button id="add">추가하기</button>
 		</div>
 		
 	</form>

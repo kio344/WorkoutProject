@@ -23,7 +23,11 @@ form >input{
 	border: 5px solid #dddddd;
 	
 	border-radius: 5px;
-	
-	
-	
+
 }
+
+#add{
+	background-color: #7eaeaf;
+}
+
+
