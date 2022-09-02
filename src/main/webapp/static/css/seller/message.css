@@ -14,7 +14,7 @@ ul > .box{
 
 li > span >span{
 	margin-left:10px;
-	color: red;
+
 }
 
 .outerbox >div:last-child {
@@ -39,4 +39,8 @@ li > span >span{
 
 .outerbox nav ul >li >select{
 	border: none;
+}
+#execute{
+	border: none;
+	background-color: rgba(0,0,0,0);
 }
