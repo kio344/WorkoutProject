@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookShopMapper">
+	<resultMap id="BookShopMap" type="models.bookshop.BookShopDto">
+		<result property="abnum" column="abnum" />
+		<result property="seller" column="seller" />
+		<result property="serialnum" column="serialnum" />
+		<result property="name" column="name" />
+		<result property="writer" column="writer" />
+		<result property="price" column="price" />
+		<result property="kategorie" column="kategorie" />
+		<result property="publisher" column="publisher" />
+		<result property="img" column="img" />
+		<result property="status" column="status" />
+		<result property="regDt" column="regDt" />
+		<result property="modDt" column="modDt" />
+	</resultMap>
+	<!-- 리스트 -->
+	<select id="listAll" resultMap="BookShopMap" >
+	SELECT * FROM RequestProduct;
+	</select>
+</mapper>

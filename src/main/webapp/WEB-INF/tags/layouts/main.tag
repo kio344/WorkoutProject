@@ -40,7 +40,7 @@
 					<a href="#">운동 기록</a>
 					<a href="<c:url value="/purpose" /> ">추천 운동</a>
 					<a href="<c:url value="/community" /> ">커뮤니티</a>
-					<a href="#">Sport Shop</a>
+					<a href="<c:url value="/bookshop" />">Book Shop</a>
 				</div>
 			</nav>
 		</c:if>
