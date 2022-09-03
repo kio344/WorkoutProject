@@ -10,6 +10,11 @@ body {
 	width: 100%;
 	height: 100%;
 }
+.test{
+	width: 100px;
+	height: 100px;
+	background: url(../../img/test.jpg) no-repeat;
+}
 
 .message{
 	text-align: center;
