@@ -123,45 +123,11 @@ public class Utils {
 	}
 
 	/**
-	 * css 적용
-	 * 
+	 * 로그인중인 회원 정보
+	 * @author 5563a
 	 * @param req
-	 * @param list css 파일 배열
+	 * @return
 	 */
-	public static void addCss(HttpServletRequest req, String... list) {
-		if (req.getAttribute("addCss") == null) {
-			List<String> attribute = Arrays.asList(list);
-			req.setAttribute("addCss", attribute);
-		} else {
-			List<String> attribute = (List<String>) req.getAttribute("addCss");
-			for (String css : list) {
-				attribute.add(css);
-			}
-			req.setAttribute("addCss", attribute);
-		}
-
-	}
-
-	public static void addJs(HttpServletRequest req, String... list) {
-		if (req.getAttribute("addJs") == null) {
-			List<String> attribute = Arrays.asList(list);
-			req.setAttribute("addJs", attribute);
-		} else {
-			List<String> attribute = (List<String>) req.getAttribute("addJs");
-			for (String css : list) {
-				attribute.add(css);
-			}
-			req.setAttribute("addJs", attribute);
-		}
-
-	}
-
-	public static void addCommonCssJs(HttpServletRequest req) {
-		addCss(req, "common.css");
-		addJs(req, "common.js");
-
-	}
-
 	public static UserDto getLoginUser(HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		UserDto user = (UserDto) session.getAttribute("member");
@@ -169,4 +135,10 @@ public class Utils {
 		return user;
 	}
 
+	
+	public static String BoardFilePath(int num,HttpServletRequest req) {
+		String filePath=req.getServletContext().getRealPath("/community/uploadFolder/"+(num%10)+"/"+num);
+		
+		return filePath;
+	}
 }

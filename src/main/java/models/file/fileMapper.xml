@@ -5,6 +5,7 @@
 <mapper namespace="FileMapper">
 	<!-- id, gid, memid, fileName, contentType, isDone, regDt -->
 	<resultMap type="models.file.FileInfoDto" id="fileMap">
+
 		<result column="id" property="id" />
 		<result column="gid" property="gid" />
 		<result column="memId" property="memId" />
@@ -17,5 +18,9 @@
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO FileInfo (gid,memId,fileName,contentType) VALUES(#{gid},#{memId},#{fileName},#{contentType})
 	</insert>
+	
+	<select id="get" parameterType="models.file.FileInfoDto" resultType="models.file.FileInfoDto">
+		SELECT * FROM FileInfo WHERE id=#{id};
+	</select>
 
 </mapper>

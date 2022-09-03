@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+main_updown()
+{
+	int userInput, comValue;
+	srand(time(NULL));
+	comValue = (rand() % 100) + 1;
+	int try_count = 0;
+	while (1) {
+		printf("업다운 선택 : ");
+		scanf_s("%d", &userInput);
+		if (userInput > comValue)
+			printf("다운 \n");
+
+		if (userInput < comValue)
+			printf("업 \n");
+
+		try_count++;
+
+		if (userInput == comValue)
+			break;
+
+		printf("%d 번째 시도 \n", try_count);
+
+	}
+	if (try_count<=5)
+	{
+		printf("대박");
+	}
+	else if (try_count<=10) {
+		printf("오케이");
+	}
+	else {
+		printf("BAD");
+	}
+
+}
+char randV() {
+	srand(time(NULL));
+	int comValue = (rand() % 3)+1;
+	if (comValue==1) {
+		printf("가위");
+	}
+	else if (comValue == 2) {
+		printf("바위");
+	}
+	else if (comValue == 3) {
+		printf("보");
+	}
+	return comValue;
+}
+int Ck_WL(int Com,int userInput) {
+	int result;
+	if (Com == userInput)
+		printf("무승부");
+	result = 0;
+
+	if (userInput == Com + 1) {
+		printf("승리");
+		result = 1;
+
+	}
+	if (userInput == Com - 2) {
+		printf("승리");
+		result = 1;
+	}
+	if (userInput == Com - 1) {
+		printf("패배");
+		result = 0;
+	}
+	if (userInput == Com + 2) {
+		printf("패배");
+		result = 0;
+	}
+	return result;
+}
+
+
+main() {
+	
+	int Com = randV();
+	int userInput;
+
+	int result=0;
+	
+	while(1){
+		printf("\n가위(1) 바위(2) 보(3) : ");
+		scanf_s("%d", &userInput);
+		result = Ck_WL(Com, userInput);
+		if (result == 1) {
+			printf("승리하여 게임을 종료합니다.");
+			break;
+		}
+	}
+	
+}

@@ -1,7 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="" />
 <layout:common>
+
 <!-- 로그인 S -->
 	<div class="loginArea">
 	<form target="ifrmProcess" method="post" action="<c:url value="/seller/login" />">

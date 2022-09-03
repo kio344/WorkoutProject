@@ -39,7 +39,7 @@ public class FileUploadController extends HttpServlet{
 		GsonBuilder gsonBuilder=new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(LocalDateTime.class,new LocalDateTimeSerializer());
 		Gson gson=gsonBuilder.setPrettyPrinting().create();
-		resp.setContentType("application/json");
+		resp.setContentType("application/json;charset=utf-8");
 		PrintWriter out=resp.getWriter();
 		try {
 			FileUploadService service=new FileUploadService(req,resp);
