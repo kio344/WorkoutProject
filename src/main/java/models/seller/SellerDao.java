@@ -125,8 +125,10 @@ public class SellerDao {
 			param.setName("%" + str + "%");
 		} else if(select.equals("kategorie")) {
 			param.setKategorie("%" + str + "%");
-		} else if(select.equals("company")) {
-			param.setCompany("%" + str + "%");
+		} else if(select.equals("writer")) {
+			param.setWriter("%" + str + "%");
+		} else if(select.equals("publisher")) {
+			param.setPublisher("%" + str + "%");
 		}
 		
 		int offset = (page - 1) * limit;
@@ -150,8 +152,10 @@ public class SellerDao {
 			param.setName("%" + str + "%");
 		} else if(select.equals("kategorie")) {
 			param.setKategorie("%" + str + "%");
-		} else if(select.equals("company")) {
-			param.setCompany("%" + str + "%");
+		} else if(select.equals("writer")) {
+			param.setWriter("%" + str + "%");
+		} else if(select.equals("publisher")) {
+			param.setPublisher("%" + str + "%");
 		}
 		
 		int total = sqlSession.selectOne("RequestProductMap.countReq", param);
