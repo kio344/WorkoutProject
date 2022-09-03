@@ -10,7 +10,7 @@
 		<result column="name" property="name"/>
 		<result column="price" property="price"/>
 		<result column="kategorie" property="kategorie"/>
-		<result column="company" property="company"/>
+		<result column="publisher" property="publisher"/>
 		<result column="img" property="img"/>
 		<result column="status" property="status"/>
 		<result column="regDt" property="regDt"/>
@@ -20,8 +20,8 @@
 <!-- 판매물품 승인요청 seller(UserId)-->
 <insert id="register"  parameterType="models.seller.ProductDto" useGeneratedKeys="true"
         keyProperty="abnum" keyColumn="abnum">
-	INSERT RequestProduct ( serialnum,seller, name, price, kategorie, company, img) 
-		VALUES (#{serialnum},#{seller},#{name},#{price},#{kategorie},#{company},#{img})
+	INSERT RequestProduct ( serialnum,seller, name,writer, price, kategorie, publisher, img) 
+		VALUES (#{serialnum},#{seller},#{name},#{writer},#{price},#{kategorie},#{publisher},#{img})
 </insert>
 
 
@@ -51,7 +51,8 @@
 		<if test="seller != null">AND seller LIKE #{seller}</if>
 		<if test="name != null">AND name LIKE #{name}</if>
 		<if test="kategorie != null">AND kategorie LIKE #{kategorie}</if>
-		<if test="company != null">AND company LIKE #{company}</if>
+		<if test="writer != null">AND writer LIKE #{writer}</if>
+		<if test="publisher != null">AND publisher LIKE #{publisher}</if>
 		AND status="req"
 	</where>
 	ORDER BY abnum DESC LIMIT #{offset}, #{limit};
@@ -64,7 +65,8 @@
 		<if test="seller != null">AND seller LIKE #{seller}</if>
 		<if test="name != null">AND name LIKE #{name}</if>
 		<if test="kategorie != null">AND kategorie LIKE #{kategorie}</if>
-		<if test="company != null">AND company LIKE #{company}</if>
+		<if test="writer != null">AND writer LIKE #{writer}</if>
+		<if test="publisher != null">AND publisher LIKE #{publisher}</if>
 		AND status="req"
 	</where>
 	ORDER BY abnum DESC;

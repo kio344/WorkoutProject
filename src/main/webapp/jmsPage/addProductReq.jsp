@@ -15,20 +15,25 @@
 		
 		<label for="name">제품명</label>
 			<input type="text" id="name" name="name" class="" autocomplete="off">
-				
-		<label for="price">제품가격</label>
-			<input type="text" id="price" name="price" class="" autocomplete="off">
+
+		<label for="writer">작가</label>
+			<input type="text" id="writer" name="writer" class="" autocomplete="off">				
+		
+		<label for="publisher">출판사</label>
+			<input type="text" id="publisher" name="publisher" class="" autocomplete="off">
 		
 		<label for="kategorie">카테고리</label>
 			<input type="text" id="kategorie" name="kategorie" class="" autocomplete="off">
 		
-		<label for="company">브랜드</label>
-			<input type="text" id="company" name="company" class="" autocomplete="off">
-				
+		<label for="price">제품가격</label>
+			<input type="text" id="price" name="price" class="" autocomplete="off">
+		
+		
+		
 		<label for="img">이미지</label>
 			<input type="file" id="img" name="img" class="" >
 		<div class="btn-grp active" >
-			<button>추가하기</button>
+			<button id="add">추가하기</button>
 		</div>
 		
 	</form>

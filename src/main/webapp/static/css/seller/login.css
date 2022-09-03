@@ -81,9 +81,19 @@ body {
 	margin-top: 10px;
 
 }
-.btn-grp :last-of-type {
+#regbtn{
 		background-color: #568889;
+		color: white;
 	
+}
+
+.input-grp > input{
+	width: 100%;
+}
+
+#showReg{
+	background-color: #568889;
+	color: white;
 }
 
 .input-outer{
