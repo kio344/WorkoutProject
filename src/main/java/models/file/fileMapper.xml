@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FileMapper">
+	<!-- id, gid, memid, fileName, contentType, isDone, regDt -->
+	<resultMap type="models.file.FileInfoDto" id="fileMap">
+		<result column="id" property="id" />
+		<result column="gid" property="gid" />
+		<result column="memId" property="memId" />
+		<result column="fileName" property="fileName" />
+		<result column="contentType" property="contentType" />
+		<result column="isDone" property="isDone" />
+		<result column="regDt" property="regDt" />
+	</resultMap>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO FileInfo (gid,memId,fileName,contentType) VALUES(#{gid},#{memId},#{fileName},#{contentType})
+	</insert>
+
+</mapper>
