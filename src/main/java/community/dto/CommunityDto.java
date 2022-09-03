@@ -14,10 +14,6 @@ public class CommunityDto {
 	
 	public CommunityDto() {}
 	
-	public void test() {
-		//소스트리때문에 테스트중
-	}
-	
 	public CommunityDto(String boardId, String boardName, boolean comment, String type, String poster, String content,
 			String subject, String memId) {
 		this.boardId = boardId;
