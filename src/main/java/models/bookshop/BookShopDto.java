@@ -18,8 +18,9 @@ public class BookShopDto {
 
 	public BookShopDto() {}
 
-	public BookShopDto(String seller, String serialnum, String name, String writer, int price, String kategorie,
+	public BookShopDto(int abnum, String seller, String serialnum, String name, String writer, int price, String kategorie,
 			String publisher, String img, String status, LocalDateTime regDt, LocalDateTime modDt) {
+		this.abnum = abnum;
 		this.seller = seller;
 		this.serialnum = serialnum;
 		this.name = name;

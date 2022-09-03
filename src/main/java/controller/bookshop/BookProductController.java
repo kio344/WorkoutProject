@@ -9,23 +9,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.bookshop.BookShopService;
+import models.bookshop.BookProductService;
 
-@WebServlet("/bookshop")
-public class BookShopController extends HttpServlet{
+@WebServlet("/bookshop/product")
+public class BookProductController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		BookShopService service = new BookShopService();
-		service.list(req);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("/book/index.jsp");
+		int abnum = Integer.parseInt(req.getParameter("abnum"));
+		
+		BookProductService service = new BookProductService();
+		
+		service.product(abnum, req);
+		
+		RequestDispatcher rd = req.getRequestDispatcher("/book/store.jsp");
+		
 		rd.forward(req, resp);
+		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
+
 	}
+
+	
+	
 }
