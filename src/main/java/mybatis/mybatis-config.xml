@@ -41,6 +41,10 @@
 	<mapper resource="models/seller/requestProductMapper.xml" />
 	<mapper resource="models/message/MessageMapper.xml" />
 	<mapper resource="models/admin/board/BoardConfigMapper.xml" />
+<<<<<<< HEAD
 	<mapper resource="models/bookshop/bookShopMapper.xml" />
+=======
+	<mapper resource="models/file/fileMapper.xml" />
+>>>>>>> main
   </mappers>
 </configuration>
