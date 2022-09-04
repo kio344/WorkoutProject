@@ -4,6 +4,7 @@
 <%@ attribute name="header" fragment="true"%>
 <%@ attribute name="footer" fragment="true"%>
 <%@ attribute name="menu" fragment="true"%>
+<%@ attribute name="contents" fragment="true"%>
 <%@ attribute name="title" type="java.lang.String"%>
 
 <!DOCTYPE html>
@@ -36,8 +37,11 @@
 	<jsp:invoke fragment="header" />
 	
 	<jsp:invoke fragment="menu" />
+
+	<jsp:invoke fragment="contents" />
 	
 	<jsp:doBody />
+	
 	
 	<jsp:invoke fragment="footer" />
 	</body>
