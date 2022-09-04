@@ -10,31 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.bookshop.BookProductService;
+import models.bookshop.BookSearchService;
 
-@WebServlet("/bookshop/product")
-public class BookProductController extends HttpServlet{
+@WebServlet("/book/search")
+public class BookSearchController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		int abnum = Integer.parseInt(req.getParameter("abnum"));
-		
-		BookProductService service = new BookProductService();
-		
-		service.product(abnum, req);
-		
-		RequestDispatcher rd = req.getRequestDispatcher("/book/store.jsp");
-		
-		rd.forward(req, resp);
 		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=utf-8");
+		;
 		
-		
+		RequestDispatcher rd = req.getRequestDispatcher("/book/search.jsp");
+		rd.forward(req, resp);		
 	}
-
-	
-	
 }
