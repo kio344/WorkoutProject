@@ -26,7 +26,7 @@
 	</select>
 	
 	<!-- 상품 검색하기 -->
-	<select id="search" resultMap="BookShopMap" parameterType="models.bookshop.BookShopDto">
-	SELECT * FROM RequestProduct WHERE name like '#{name}';
+	<select id="search" resultMap="BookShopMap" parameterType="String">
+	SELECT * FROM RequestProduct WHERE name LIKE CONCAT('%', #{name}, '%');
 	</select>
 </mapper>
