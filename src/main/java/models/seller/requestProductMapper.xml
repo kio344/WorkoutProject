@@ -69,7 +69,6 @@
 		<if test="publisher != null">AND publisher LIKE #{publisher}</if>
 		AND status="req"
 	</where>
-	ORDER BY abnum DESC;
 </select>
 
 <!-- 상품 status 상태 업데이트 -->

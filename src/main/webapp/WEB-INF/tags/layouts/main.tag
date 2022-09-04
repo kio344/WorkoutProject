@@ -40,7 +40,7 @@
 			<nav>
 				<div class="layout_width">
 					<a href="#">운동 기록</a>
-					<a href="<c:url value="/purpose" /> ">추천 운동</a>
+					<a href="<c:url value="/Q&A" /> ">Q&A</a>
 					<a href="<c:url value="/community" /> ">커뮤니티</a>
 					<a href="<c:url value="/bookshop" />">Book Shop</a>
 				</div>
