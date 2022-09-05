@@ -28,6 +28,16 @@ public class QAndADao {
 		sqlSession.close();
 		return affectedRows > 0;
 	}
+	
+	public boolean registerAdmin(QAndADto dto) {
+		SqlSession sqlSession = Connection.getSession();
+
+		int affectedRows = sqlSession.insert("QAndAMapper.registerAdmin", dto);
+
+		sqlSession.commit();
+		sqlSession.close();
+		return affectedRows > 0;
+	}
 
 	/**
 	 * Q&A 답변 등록
