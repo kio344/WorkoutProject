@@ -27,16 +27,23 @@
 			<c:forEach var="lists" items="${list}">
 				<li class="list_sub">
 					<div>
-						<h4>${lists.id}</h4>
+						<h4>${lists.fix == 1 ? "공지사항" : lists.id}</h4>
 					</div>
 					<div>
 						<h4><a href="Q&A/view?id=${lists.id}">${lists.subject}</a></h4>
 					</div>
 					<div>
-						<h4>${lists.isAnswer == 0 ? "미답변" : "답변완료"}</h4>
+						<h4>
+							<c:if test="${lists.fix == 1}">
+								필독!
+							</c:if>
+							<c:if test="${lists.fix == 0}">
+								${lists.isAnswer == 0 ? "미답변" : "답변완료"}
+							</c:if>
+						</h4>
 					</div>
 					<div>
-						<h4>${lists.regDt}</h4>
+						<h4><util:dateFormat value="${lists.regDt}" pattern="yy.MM.dd HH:mm"/></h4>
 					</div>
 				</li>
 			</c:forEach>

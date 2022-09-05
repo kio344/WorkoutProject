@@ -1,6 +1,7 @@
 package controller.qAnda;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.qAnda.QAndADao;
-import models.qAnda.QAndADto;
+import models.qAnda.QAndAAdminViewService;
 import models.qAnda.QAndAViewService;
 
 import static jmsUtil.Utils.*;
@@ -20,14 +20,20 @@ public class QAndAViewController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		try {
+			QAndAAdminViewService service = new QAndAAdminViewService();
+			service.view(req);
+			
+			RequestDispatcher rd = req.getRequestDispatcher("/q&a/view.jsp");
+			rd.forward(req, resp);
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			showAlertException(resp, e);
+			out.println("<script>history.back();</script>");
+		}
 		
-		QAndADao dao = QAndADao.getInstance();
-		QAndADto dto = dao.get(Integer.parseInt(req.getParameter("id")));
-		
-		req.setAttribute("question", dto);
-		
-		RequestDispatcher rd = req.getRequestDispatcher("/q&a/view.jsp");
-		rd.forward(req, resp);
 	}
 	
 	@Override

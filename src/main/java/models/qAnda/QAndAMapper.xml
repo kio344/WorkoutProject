@@ -12,10 +12,15 @@
 		<result property="isAnswer"  column="isAnswer" />
 		<result property="regDt"  column="regDt" />
 		<result property="modDt"  column="modDt" />
+		<result property="fix" column="fix" />
 	</resultMap>
 	
 	<insert id="register" parameterType="models.qAnda.QAndADto" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO QAndA (memId, subject, question) VALUES (#{memId}, #{subject}, #{question});
+	</insert>
+	
+	<insert id="registerAdmin" parameterType="models.qAnda.QAndADto" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO QAndA (memId, subject, question, fix) VALUES (#{memId}, #{subject}, #{question}, #{fix});
 	</insert>
 	
 	<update id="update" parameterType="models.qAnda.QAndADto">
@@ -27,7 +32,7 @@
 	</select>
 
 	<select id="gets" resultMap="qAndaMap" parameterType="models.qAnda.QAndAListDto">
-		SELECT * FROM QAndA ORDER BY id DESC LIMIT #{offset}, #{limit};
+		SELECT * FROM QAndA ORDER BY fix DESC, id DESC LIMIT #{offset}, #{limit};
 	</select>
 	
 	<select id="count" resultType="int">
