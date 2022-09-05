@@ -47,6 +47,7 @@ public class MessageController extends HttpServlet {
 		try {
 			MessageService service=new MessageService(req);
 			service.seeSetting();
+			reloadPage(resp, "parent");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
