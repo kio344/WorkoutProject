@@ -14,7 +14,7 @@ import mybatis.Connection;
 public class BookSearchService {
 
 	/**
-	 * 책 검색
+	 * 책 카테고리별 검색
 	 * 
 	 * @param req
 	 */
