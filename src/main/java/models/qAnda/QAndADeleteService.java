@@ -21,6 +21,7 @@ public class QAndADeleteService {
 		QAndADto dto = new QAndADto();
 		dto.setId(Integer.parseInt(_id));
 		
+		
 		boolean result = dao.delete(dto);
 		if(!result) {
 			throw new BadException("오류가 발생하였습니다.");
