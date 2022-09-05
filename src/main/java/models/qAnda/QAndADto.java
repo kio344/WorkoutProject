@@ -12,6 +12,7 @@ public class QAndADto {
 	private int isAnswer;
 	private LocalDateTime regDt;
 	private LocalDateTime modDt;
+	private int fix;
 
 	public int getId() {
 		return id;
@@ -76,11 +77,22 @@ public class QAndADto {
 	public void setModDt(LocalDateTime modDt) {
 		this.modDt = modDt;
 	}
+	
+	
+
+	public int getFix() {
+		return fix;
+	}
+
+	public void setFix(int fix) {
+		this.fix = fix;
+	}
 
 	@Override
 	public String toString() {
 		return "QAndADto [id=" + id + ", memId=" + memId + ", subject=" + subject + ", question=" + question
-				+ ", answer=" + answer + ", isAnswer=" + isAnswer + ", regDt=" + regDt + ", modDt=" + modDt + "]";
+				+ ", answer=" + answer + ", isAnswer=" + isAnswer + ", regDt=" + regDt + ", modDt=" + modDt + ", fix="
+				+ fix + "]";
 	}
 
 }
