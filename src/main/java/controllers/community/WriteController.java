@@ -17,6 +17,7 @@ public class WriteController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("addJs", new String[] {"ckeditor/ckeditor","board/write"});
+		req.setAttribute("addCss", new String[] {"community/write"});
 		try {
 			RequestDispatcher rd=req.getRequestDispatcher("/community/write.jsp");
 			rd.forward(req, resp);

@@ -23,12 +23,15 @@
 				
 				
 				Upload.addFilesEl(respons);
+				parent.callBackFileUpload(respons);
 
 	
 			}
 		})
 		
 		xhr.send(formdata);
+		
+		
 				
 
 	},
