@@ -1,0 +1,37 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="QAndAMapper">
+	<resultMap type="models.qAnda.QAndADto" id="qAndaMap">
+		<result property="id"  column="id" />
+		<result property="memId"  column="memId" />
+		<result property="subject" column="subject"/>
+		<result property="question"  column="question" />
+		<result property="answer"  column="answer" />
+		<result property="isAnswer"  column="isAnswer" />
+		<result property="regDt"  column="regDt" />
+		<result property="modDt"  column="modDt" />
+	</resultMap>
+	
+	<insert id="register" parameterType="models.qAnda.QAndADto" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO QAndA (memId, subject, question) VALUES (#{memId}, #{subject}, #{question});
+	</insert>
+	
+	<update id="update" parameterType="models.qAnda.QAndADto">
+		UPDATE QAndA SET answer=#{answer}, isAnswer=1, modDt=NOW() WHERE id=#{id};
+	</update>
+	
+	<select id="get" resultType="models.qAnda.QAndADto" parameterType="int">
+		SELECT * FROM QAndA WHERE id=#{id};
+	</select>
+
+	<select id="gets" resultMap="qAndaMap" parameterType="models.qAnda.QAndAListDto">
+		SELECT * FROM QAndA ORDER BY id DESC LIMIT #{offset}, #{limit};
+	</select>
+	
+	<select id="count" resultType="int">
+		SELECT COUNT(*) FROM QAndA;
+	</select>
+
+</mapper>

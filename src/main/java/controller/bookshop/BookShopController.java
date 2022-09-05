@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.bookshop.BookProductService;
+import models.bookshop.BookSearchService;
 import models.bookshop.BookShopService;
 
 @WebServlet("/bookshop")
@@ -19,13 +21,16 @@ public class BookShopController extends HttpServlet{
 		BookShopService service = new BookShopService();
 		service.list(req);
 		
+		BookSearchService searchService = new BookSearchService();
+		
+		searchService.search(req);
+		
 		RequestDispatcher rd = req.getRequestDispatcher("/book/index.jsp");
 		rd.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		
 	}
 }

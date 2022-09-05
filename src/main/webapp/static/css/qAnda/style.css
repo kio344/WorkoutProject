@@ -1,0 +1,32 @@
+/** 페이지네이션 */
+.pagination { text-align: center; padding: 15px 0; }
+.pagination  a { display: inline-block; padding: 5px 10px; border: 1px solid #212121; border-radius: 5px; }
+.pagination  a.on { background-color: #212121; color: #ffffff; }
+
+
+.list_title {
+	width: 100%;
+}
+.list_title .list_wrap {
+	display: flex;
+	width: 100%;
+	padding: 0;
+	flex-direction: column;
+	justify-content: space-between;
+	align-content: center;
+}
+.list_title .list_wrap .list_sub {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+}
+.list_title .list_wrap .list_sub:first-child {
+	border-top: 1px solid red;
+}
+.list_title .list_wrap .list_sub div {
+	border-bottom: 1px solid red;
+	width: 100%;
+	text-align: center;
+	height: auto;
+}

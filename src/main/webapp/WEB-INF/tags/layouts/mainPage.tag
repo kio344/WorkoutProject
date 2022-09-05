@@ -35,14 +35,33 @@
 		</header>
 	</jsp:attribute>
 	
+	
+	<jsp:attribute name="contents">
+		<div class="bg_image">
+			<div class="main_text">
+				<h1>당신의 일상이 되는 책</h1>
+				<h3>어디서든 당신과 함께</h3>
+			</div>
+		</div>
+
+		
+		<div class="book_text">
+			<h1>당신을 기다리는 </h1>
+			<h1>수많은 도서</h1>
+			<h3>첫 달 무료 구독을 통해</h3>
+			<h3>어떤 도서가 있는지 확인해보세요!</h3>
+		</div>
+		
+	</jsp:attribute>
+	
 	<jsp:attribute name="menu">
 		<c:if test="${!empty member}">
 			<nav>
 				<div class="layout_width">
 					<a href="#">운동 기록</a>
-					<a href="<c:url value="/Q&A" /> ">Q&A</a>
+					<a href="<c:url value="/purpose" /> ">추천 운동</a>
 					<a href="<c:url value="/community" /> ">커뮤니티</a>
-					<a href="<c:url value="/bookshop" />">Book Shop</a>
+					<a href="#">Sport Shop</a>
 				</div>
 			</nav>
 		</c:if>

@@ -43,5 +43,6 @@
 	<mapper resource="models/admin/board/BoardConfigMapper.xml" />
 	<mapper resource="models/bookshop/bookShopMapper.xml" />
 	<mapper resource="models/file/fileMapper.xml" />
+	<mapper resource="models/qAnda/QAndAMapper.xml" />
   </mappers>
 </configuration>
