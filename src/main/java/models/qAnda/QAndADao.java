@@ -99,6 +99,16 @@ public class QAndADao {
 		sqlSession.close();
 		return total;
 	}
+	
+	public boolean delete(QAndADto dto) {
+		SqlSession sqlSession = Connection.getSession();
+		
+		int affectedRows = sqlSession.delete("QAndAMapper.delete", dto);
+		
+		sqlSession.commit();
+		sqlSession.close();
+		return affectedRows > 0;
+	}
 
 	public static QAndADao getInstance() {
 		if (instance == null) {
