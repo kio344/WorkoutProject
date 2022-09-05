@@ -4,12 +4,17 @@
 
 <layout:main title="상점">
 	<form action="<c:url value="/bookshop" />" method="get">
-		검색<input type="text" name="bookName">
+		<label for="type">검색 종류</label>
+		<select name="type" size="1">
+		<option ${param.type == "name" ? "selected" : ""} value="name">책이름</option>
+		<option ${param.type == "kategorie" ? "selected" : ""} value="kategorie">카테고리</option>
+		<option ${param.type == "pbulisher" ? "selected" : ""} value="publisher">출판사</option>
+		</select><br>
+		검색<input type="text" name="search">
 		<button type="submit">검색</button>
 		<c:if test="${empty bookList}">
 			<c:forEach var="product" items="${list}">
-				<a
-					href="<c:url value="/bookshop/product?abnum=${product.abnum }" />">
+				<a href="<c:url value="/bookshop/product?abnum=${product.abnum }" />">
 					<div>
 						<table border="1">
 							abnum
@@ -48,8 +53,7 @@
 		</c:if>
 		<c:if test="${!empty bookList }">
 			<c:forEach var="books" items="${bookList}">
-				<a
-					href="<c:url value="/bookshop/product?abnum=${books.abnum }" />">
+				<a href="<c:url value="/bookshop/product?abnum=${books.abnum }" />">
 					<div>
 						<table border="1">
 							<tr>
@@ -80,4 +84,5 @@
 					</div>
 			</c:forEach>
 		</c:if>
+	</form>
 </layout:main>
