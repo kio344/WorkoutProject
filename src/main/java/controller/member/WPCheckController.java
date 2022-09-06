@@ -1,7 +1,9 @@
 package controller.member;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,6 +36,7 @@ public class WPCheckController extends HttpServlet{
 		System.out.println(dto);
 		
 		MypageService service = new MypageService();
+		service.withdrawal(req, dto);
 		PrintWriter out = resp.getWriter();
 		try {
 			service.withdrawal(req, dto);

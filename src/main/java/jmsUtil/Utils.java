@@ -16,27 +16,24 @@ import javax.servlet.http.HttpSession;
 
 import dto.UserDto;
 
-
 public class Utils {
 
 	/**
-	 * 원하는 파라미터 값 만 체크
-	 * 	맵 key값 파라미터 이름 , value 파라미터 값
+	 * 원하는 파라미터 값 만 체크 맵 key값 파라미터 이름 , value 파라미터 값
+	 * 
 	 * @param req
 	 * @param msg
 	 */
-	public static void ckNullParaMap(HttpServletRequest req,Map<String, String> msg ) {
+	public static void ckNullParaMap(HttpServletRequest req, Map<String, String> msg) {
 
-		for(Entry<String, String> en: msg.entrySet() ){
-			String key=en.getKey();
-			String value=en.getValue();
-			
-			if (req.getParameter(key)==null||req.getParameter(key).isBlank()) {
+		for (Entry<String, String> en : msg.entrySet()) {
+			String key = en.getKey();
+			String value = en.getValue();
+
+			if (req.getParameter(key) == null || req.getParameter(key).isBlank()) {
 				throw new RuntimeException(value);
 			}
-			
-		};
-		
+		}
 	}
 
 	/**
@@ -51,10 +48,8 @@ public class Utils {
 		parakey.forEach(t -> {
 			if (req.getParameter((String) t) == null || req.getParameter((String) t).isBlank()) {
 				throw new RuntimeException(t + "값이 비어있습니다.");
-
 			}
 		});
-
 	}
 
 	/**
@@ -67,9 +62,7 @@ public class Utils {
 		Set parakey = req.getParameterMap().keySet();
 
 		parakey.forEach(t -> {
-
 			System.out.println(t + " : " + req.getParameter((String) t));
-
 		});
 	}
 
@@ -100,81 +93,52 @@ public class Utils {
 		out.println("<script>alert('" + msg + "')</script>");
 
 	}
-	
+
 	/**
 	 * 페이지 이동
+	 * 
 	 * @param resp
 	 * @param href
 	 * @param target
 	 * @throws IOException
 	 */
-	public static void replacePage(HttpServletResponse resp, String href ,String target) throws IOException {
+	public static void replacePage(HttpServletResponse resp, String href, String target) throws IOException {
 		resp.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = resp.getWriter();
-		out.println("<script>"+target+".location.replace('"+href+"')"+"</script>");
+		out.println("<script>" + target + ".location.replace('" + href + "')" + "</script>");
 
 	}
-	
-	
-	
+
 	/**
 	 * 페이지 새로 고침
+	 * 
 	 * @param resp
 	 * @param target
 	 * @throws IOException
 	 */
-	public static void reloadPage(HttpServletResponse resp ,String target) throws IOException {
+	public static void reloadPage(HttpServletResponse resp, String target) throws IOException {
 		resp.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = resp.getWriter();
-		out.println("<script>"+target+".location.reload()"+"</script>");
+		out.println("<script>" + target + ".location.reload()" + "</script>");
 	}
-	
+
 	/**
-	 * css 적용
+	 * 로그인중인 회원 정보
+	 * @author 5563a
 	 * @param req
-	 * @param list css 파일 배열
+	 * @return
 	 */
-	public static void addCss(HttpServletRequest req,String...list) {
-		if (req.getAttribute("addCss")==null) {
-			List<String> attribute=Arrays.asList(list);
-			req.setAttribute("addCss", attribute);
-		}else {
-			List<String> attribute=(List<String>) req.getAttribute("addCss");
-			for(String css:list) {
-				attribute.add(css);
-			}
-			req.setAttribute("addCss", attribute);
-		}
-		
-	}
-	
-	public static void addJs(HttpServletRequest req,String...list) {
-		if (req.getAttribute("addJs")==null) {
-			List<String> attribute=Arrays.asList(list);
-			req.setAttribute("addJs", attribute);
-		}else {
-			List<String> attribute=(List<String>) req.getAttribute("addJs");
-			for(String css:list) {
-				attribute.add(css);
-			}
-			req.setAttribute("addJs", attribute);
-		}
-		
-	}
-	
-	public static void addCommonCssJs(HttpServletRequest req) {
-		addCss(req, "common.css");
-		addJs(req, "common.js");
-		
-	}
-	
 	public static UserDto getLoginUser(HttpServletRequest req) {
-		HttpSession session=req.getSession();
-		UserDto user=(UserDto) session.getAttribute("member");
-		
+		HttpSession session = req.getSession();
+		UserDto user = (UserDto) session.getAttribute("member");
+
 		return user;
 	}
-	
-	
 
+	
+	public static String BoardFilePath(int num,HttpServletRequest req) {
+		String filePath=req.getServletContext().getRealPath("/community/uploadFolder/"+(num%10)+"/"+num);
+		
+		return filePath;
+	}
 }

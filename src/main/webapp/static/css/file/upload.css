@@ -1,0 +1,8 @@
+#drop{
+	width: 50%;
+	border: 2px dashed black;
+	height: 300px;
+	text-align: center;;
+	padding: 120px;
+	background-color: white;
+}

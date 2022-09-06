@@ -1,11 +1,11 @@
 package models.admin;
 
 public class MessageDto {
-
+	
 	private int num;
-	private String recipient;
-	private String message;
-	private String read;
+	private String recipient; // 수신자
+	private String message; // 내용
+	private String see; // 읽음 여부
 
 	public int getNum() {
 		return num;
@@ -31,19 +31,17 @@ public class MessageDto {
 		this.message = message;
 	}
 
-	public String getRead() {
-		return read;
+	public String getSee() {
+		return see;
 	}
 
-	public void setRead(String read) {
-		this.read = read;
+	public void setSee(String see) {
+		this.see = see;
 	}
 
 	@Override
 	public String toString() {
-		return "MessageDto [num=" + num + ", recipient=" + recipient + ", message=" + message + ", read=" + read + "]";
+		return "MessageDto [num=" + num + ", recipient=" + recipient + ", message=" + message + ", see=" + see + "]";
 	}
-	
-	
 
 }

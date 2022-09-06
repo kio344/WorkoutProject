@@ -1,0 +1,121 @@
+sh :bourne 제작 유닉스 기본shell
+sch : bill joy
+ksh : korn
+bash : brain fox 리눅스 기본 shell
+
+> 리디렉션
+
+cat /etc/shells 	:
+
+exit 
+
+루트권한 #
+사용자 $
+
+bash :기본쉘
+
+변수의종류 시험
+환경변수
+ps1   은 first 프롬프트를 나타내는 환경변수
+ps2 seconde prompt
+
+
+
+
+
+touch : file 무생성 , 유 수정시간 변경
+
+ ctime : creat time		만든시간
+mtime : modify time	수정시간
+atime : aces time		접근 시간
+
+디가우징
+hdd :강력한 자성
+ssd : 쇼트
+
+사용하여 삭제
+
+ ㅣㅣ
+
+device c, b 종류 존재
+
+c character -> moniter
+b block => disk
+
+
+
+//
+
+cd ~	 	사용자의 홈으로 이동하라
+
+cd  		본인의 홈으로
+
+cd -		 직전 디렉토리
+
+cd /		 최상위 경로
+
+절대 경로
+/ 	부터 시작하면 절대 경로
+
+상대 경로
+폴더 이름으로 시작하면 상대 경로
+
+ex.
+
+cd	 상대경로
+cd ~pi 상대 경로
+
+cd /proc 		 process 관련 폴더
+ 
+
+
+.profile 		path  저장
+
+.bashrc 		alias, 기타 설정
+
+alias 명령어 단축 별명을 짓다.
+
+
+.exrc 			 vi editer(텍스트 편집기) 관련 설정
+
+^d (or exit)
+eod (end of document)
+
+cat 0> test1		test1 파일 작성
+cat > test1
+(0 생략 가능)
+
+^d			종료
+
+
+
+
+
+0< 입력 redirection	표준 입력장치로부터 입력을 받겠다
+1> 출력			표준 출력으로 받겠다
+2> error 
+
+/dev/null > test2
+
+날려버리기
+
+-n 라인 추가옵션
+ex. cat -n test2
+
+
+>> 내용추가 
+ex. cat >> test2
+
+
+cat <<end>> tst
+
+end 를 입력하면 종료 (종단자 설정)
+
+
+
+
+
+
+
+
+

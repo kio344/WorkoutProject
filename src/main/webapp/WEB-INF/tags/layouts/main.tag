@@ -9,6 +9,10 @@
 	<jsp:attribute name="header">
 		<header>
 			<section class="join-menu" >
+				<div class="logo ml">
+					<i class="xi-bars"></i>
+					<a href="<c:url value="/" /> ">로고 부분</a>
+				</div>
 				<div class="layout_width">
 					<c:if test="${empty member}" >
 						<a href="<c:url value="/join" /> " >회원가입</a>
@@ -28,19 +32,17 @@
 					</c:if>
 				</div>
 			</section>
-			<section class="logo">
-			<a href="<c:url value="/" /> ">로고 부분</a>
-			</section>
 		</header>
 	</jsp:attribute>
+	
 	<jsp:attribute name="menu">
 		<c:if test="${!empty member}">
 			<nav>
 				<div class="layout_width">
 					<a href="#">운동 기록</a>
-					<a href="<c:url value="/purpose" /> ">추천 운동</a>
+					<a href="<c:url value="/Q&A" /> ">Q&A</a>
 					<a href="<c:url value="/community" /> ">커뮤니티</a>
-					<a href="#">Sport Shop</a>
+					<a href="<c:url value="/bookshop" />">Book Shop</a>
 				</div>
 			</nav>
 		</c:if>

@@ -35,7 +35,7 @@
 				<td>name</td>
 				<td>price</td>
 				<td>kategorie</td>
-				<td>company</td>
+				<td>publisher</td>
 				<td></td>
 			</tr>
 		</thead>
@@ -50,7 +50,7 @@
 				<td>${product.name }</td>
 				<td>${product.price }</td>
 				<td>${product.kategorie }</td>
-				<td>${product.company }</td>
+				<td>${product.publisher }</td>
 				<td><a href="<c:url value="/seller/ReqRemove?abnum=${product.abnum}" />" >삭제</a></td>
 			</tr>
  		

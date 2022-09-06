@@ -15,7 +15,7 @@ form >input{
 	justify-content:space-around;
 		
 }
-.btn-grp > button{
+.btn-grp.active > button{
 	width: 230px;
 	height: 70px;	
 	
@@ -23,7 +23,11 @@ form >input{
 	border: 5px solid #dddddd;
 	
 	border-radius: 5px;
-	
-	
-	
+
 }
+
+#add{
+	background-color: #7eaeaf;
+}
+
+

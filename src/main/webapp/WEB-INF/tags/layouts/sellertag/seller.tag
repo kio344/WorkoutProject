@@ -34,9 +34,13 @@
 						</li>
 					</a>
 				
-					<a href="">
+					<a href="<c:url value="/seller/message" />">
 						<li>
-							<div class="xi-message-o header_icon" ></div>
+							<div class="xi-message-o header_icon" >
+							<c:if test="${readNotMsg !=0 }">
+							<span class="msgCount">${readNotMsg }</span>
+							</c:if>
+							</div>
 							<div class="info">메세지</div>
 						</li>
 					</a>

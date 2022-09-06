@@ -10,6 +10,11 @@ body {
 	width: 100%;
 	height: 100%;
 }
+.test{
+	width: 100px;
+	height: 100px;
+	background: url(../../img/test.jpg) no-repeat;
+}
 
 .message{
 	text-align: center;
@@ -81,9 +86,19 @@ body {
 	margin-top: 10px;
 
 }
-.btn-grp :last-of-type {
+#regbtn{
 		background-color: #568889;
+		color: white;
 	
+}
+
+.input-grp > input{
+	width: 100%;
+}
+
+#showReg{
+	background-color: #568889;
+	color: white;
 }
 
 .input-outer{

@@ -8,9 +8,10 @@ public class ProductDto {
 	private String seller;
 	private String serialnum;
 	private String name;
+	private String writer;
 	private int price;
 	private String kategorie;
-	private String company;
+	private String publisher;
 	private String img;
 	private String status;
 	private LocalDateTime regDt;
@@ -25,8 +26,6 @@ public class ProductDto {
 	public void setAbnum(int abnum) {
 		this.abnum = abnum;
 	}
-	
-	
 
 	public String getSeller() {
 		return seller;
@@ -52,6 +51,14 @@ public class ProductDto {
 		this.name = name;
 	}
 
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
 	public int getPrice() {
 		return price;
 	}
@@ -68,12 +75,12 @@ public class ProductDto {
 		this.kategorie = kategorie;
 	}
 
-	public String getCompany() {
-		return company;
+	public String getPublisher() {
+		return publisher;
 	}
 
-	public void setCompany(String company) {
-		this.company = company;
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
 	}
 
 	public String getImg() {
@@ -83,8 +90,6 @@ public class ProductDto {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	
-	
 
 	public String getStatus() {
 		return status;
@@ -113,10 +118,11 @@ public class ProductDto {
 	@Override
 	public String toString() {
 		return "ProductDto [abnum=" + abnum + ", seller=" + seller + ", serialnum=" + serialnum + ", name=" + name
-				+ ", price=" + price + ", kategorie=" + kategorie + ", company=" + company + ", img=" + img
-				+ ", status=" + status + ", regDt=" + regDt + ", modDt=" + modDt + "]";
+				+ ", writer=" + writer + ", price=" + price + ", kategorie=" + kategorie + ", publisher=" + publisher
+				+ ", img=" + img + ", status=" + status + ", regDt=" + regDt + ", modDt=" + modDt + "]";
 	}
-	
+
+
 	
 	
 	

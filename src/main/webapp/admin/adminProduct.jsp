@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts/admintag"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils"%>
 
 <layout:admin>
 	<h1>${test}</h1>
@@ -10,7 +11,8 @@
 				<option ${(param.select == "seller") ? "selected" : "" } value="seller">판매자</option>
 				<option ${(param.select == "name") ? "selected" : "" } value="name">제품명</option>
 				<option ${(param.select == "kategorie") ? "selected" : "" } value="kategorie">카테고리</option>
-				<option ${(param.select == "company") ? "selected" : "" } value="company">회사명</option>
+				<option ${(param.select == "writer") ? "selected" : "" } value="writer">지은이</option>
+				<option ${(param.select == "publisher") ? "selected" : "" } value="publisher">출판사</option>
 			</select>
 			<input type="text" name="str" placeholder="검색할 단어를 입력해주세요." value="${param.str}">
 			<button type="submit">검색</button>
@@ -32,13 +34,16 @@
 					<h2>제품명</h2>
 				</div>
 				<div>
+					<h2>저자</h2>
+				</div>
+				<div>
 					<h2>가격</h2>
 				</div>
 				<div>
 					<h2>제품 카테고리</h2>
 				</div>
 				<div>
-					<h2>회사명</h2>
+					<h2>출판사</h2>
 				</div>
 				<div>
 					<h2>이미지</h2>
@@ -68,13 +73,16 @@
 						<h4>${product.name}</h4>
 					</div>
 					<div>
+						<h4>${product.writer}</h4>
+					</div>
+					<div>
 						<h4>${product.price}</h4>
 					</div>
 					<div>
 					<h4>${product.kategorie}</h4>
 					</div>
 					<div>
-					<h4>${product.company}</h4>
+					<h4>${product.publisher}</h4>
 					</div>
 					<div>
 					<h4>${product.img}</h4>
@@ -93,4 +101,6 @@
 			</c:forEach>
 		</ul>
 	</div>
+	
+	<util:pagination page="${page}" limit="${limit}" url="admin/product?select=${select}&str=${str}" total="${total}" pageCnt="5" />
 </layout:admin>

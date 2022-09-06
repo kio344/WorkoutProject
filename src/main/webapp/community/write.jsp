@@ -1,34 +1,50 @@
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts/"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<layout:main>
+	<h1>글쓰기</h1>
+	<form action="<c:url value="/board/write" />" method="post">
 
-<layout:main title="커뮤니티 글쓰기">
-	<form action="<c:url value="/write" />" method="post">
-	<h1>커뮤니티</h1>
-		<select name="type">
-			<optgroup label="======선택======">
-				<option value="freeTalk">자유게시판</option>
-				<option value="workOutSkill">운동 노하우</option>
-			</optgroup> 
-		</select>
-	
-	<dl>
-	
-	<dt>게시판 이름</dt>
-		<dd><input type="text" name="boardName"></dd>
-	</dl>
-	
-	<dl>
-		<dt>댓글 사용</dt>
-		<dd>
-			<input type="radio" name="comment" value="1" id="comment_1" checked="checked">
-			<label for="comment_1">사용</label>
-			<input type="radio" name="comment" value="0" id="comment_0">
-			<label for="comment_0">미사용</label>
-		</dd>
-	</dl>
-	
-	<button> <a href="<c:url value="/writeIndex" /> " >다음</button>
-	<button><a href="<c:url value="/index.jsp" /> " > 처음으로 돌아가기</button>
+		<input name="boardId" type="text" value="${param.boardId }">
+
+		<dl>
+			<dt>제목</dt>
+			<dd>
+				<input name="subject" type="text">
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>내용</dt>
+			<dd>
+				<textarea name="content" id="content"></textarea>
+			</dd>
+		</dl>
+
+		<div class="btn-grp">
+			<button>작성하기</button>
+		</div>
+	<button id="imageuploadbtn" type="button">이미지첨부</button>
+		<iframe src="<c:url value="/board/fileupload?imageOnly=1" />"></iframe>
+		<button id="fileuploadbtn" type="button">파일첨부</button>
+
+		<ul id="files">
+
+		</ul>
+
+		<script id="tmp" type="text/html">
+`		<li id="file">
+			<a target="ifrmProcess" href="<c:url value="/file/download?&num=#_num_" />
+">#_fileName_</a>
+			<a target="ifrmProcess" href="<c:url value="/file/delete?&num=#_num_" />">
+			[X]
+			</a>
+	</li>
+	</script>
+
+		<div class="center dn">
+			<iframe id="fileuploadiframe" scrolling="no" class=""
+				src="<c:url value="/board/fileupload" />"></iframe>
+		</div>
 	</form>
 </layout:main>

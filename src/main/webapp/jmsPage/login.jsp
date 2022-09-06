@@ -1,7 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="" />
 <layout:common>
+
 <!-- 로그인 S -->
 	<div class="loginArea">
 	<form target="ifrmProcess" method="post" action="<c:url value="/seller/login" />">
@@ -10,7 +12,7 @@
 			<dt class="message"><h2>Please sign in</h2></dt>
 			<dd class="input-grp" >
 				<input placeholder="User ID" name="id">
-				<input placeholder="Password" name="password">
+				<input placeholder="Password" type="password" name="password">
 			</dd>
 		</dl>
 		
@@ -64,7 +66,7 @@
 		
 		<div class="btn-grp">
 			<button type="button" id="showSign">Sing in</button>
-			<button>Register</button>
+			<button id="regbtn">Register</button>
 		</div>
 		
 		</form>
