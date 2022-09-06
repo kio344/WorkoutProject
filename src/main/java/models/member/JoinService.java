@@ -45,9 +45,9 @@ public class JoinService {
 		check.put("fakeName", "별명을 입력해 주세요.");
 		check.put("mobile", "핸드폰 번호를 입력해 주세요.");
 		check.put("address", "주소를 입력해 주세요.");
-		check.put("year", "생년 월 일을 입력해 주세요."); // ???????????
-		check.put("month", "생년 월 일을 입력해 주세요."); // ???????????
-		check.put("day", "생년 월 일을 입력해 주세요."); // ???????????
+		check.put("year", "생년 월 일을 입력해 주세요."); 
+		check.put("month", "생년 월 일을 입력해 주세요."); 
+		check.put("day", "생년 월 일을 입력해 주세요."); 
 		check.put("sex", "성별을 입력해 주세요.");
 		
 		validator.check(request, check);
@@ -79,7 +79,7 @@ public class JoinService {
 		
 		
 		/** 3-1. 별명 중복 체크 시작 */
-//		validator.checkFakeName(request, fakeName);
+//		validator.checkFakeName(request, fakeName); [수정필요]
 		/** 3-1. 별명 중복 체크 끝 */
 		
 		
