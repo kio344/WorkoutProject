@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import commons.Pagination;
 import models.bookshop.BookProductService;
 
 @WebServlet("/bookshop/product")
@@ -24,6 +25,8 @@ public class BookProductController extends HttpServlet{
 		service.product(abnum, req);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/book/store.jsp");
+		
+//		Pagination page = new Pagination(1, abnum); 페이지 네이션 기능 구현중
 		
 		rd.forward(req, resp);
 		
