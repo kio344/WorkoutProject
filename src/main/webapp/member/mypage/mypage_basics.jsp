@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts"%>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils" %>
 <layout:main title="마이페이지">
 <form method="post" action="<c:url value="/mypage/basics" />" target="ifrmProcess">
 
@@ -10,6 +11,7 @@
 이메일 <input type="email" name="emailRe" value="${member.email}">
 전화번호 <input type="number" name="mobileRe" value="${member.mobile}">
 주소 <input type="text" name="addressRe" value="${member.address}">
+생년월일 <util:selectBirth />
 
 
 <button type="reset">다시하기</button>

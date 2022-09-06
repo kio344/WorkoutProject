@@ -10,16 +10,15 @@ public class UserDto {
 	private String email;
 	private String mobile;
 	private String address;
-	private double height;
-	private double weight;
-	private double age;
+	private String birthDay;
 	private String sex;
 	private String userType;
 
 	public UserDto() {
 	}
 
-	public UserDto(String id, String password, String name,String fakeName, String email, String mobile, String address) {
+	public UserDto(String id, String password, String name, String fakeName, String email, String mobile,
+			String address, String birthDay) {
 		this.id = id;
 		this.password = password;
 		this.name = name;
@@ -27,10 +26,11 @@ public class UserDto {
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
+		this.birthDay = birthDay;
 	}
 
-	public UserDto(int num, String id, String password, String name,String fakeName, String email, String mobile, String address,
-			String userType) {
+	public UserDto(int num, String id, String password, String name, String fakeName, String email, String mobile,
+			String address, String userType) {
 		this.num = num;
 		this.id = id;
 		this.password = password;
@@ -42,8 +42,8 @@ public class UserDto {
 		this.userType = userType;
 	}
 
-	public UserDto(int num, String id, String password, String name,String fakeName, String email, String mobile, String address,
-			double height, double weight, double age, String sex) {
+	public UserDto(int num, String id, String password, String name, String fakeName, String email, String mobile,
+			String address, String birthDay, String sex) {
 		this.num = num;
 		this.id = id;
 		this.password = password;
@@ -52,9 +52,7 @@ public class UserDto {
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
-		this.height = height;
-		this.weight = weight;
-		this.age = age;
+		this.birthDay = birthDay;
 		this.sex = sex;
 	}
 
@@ -122,28 +120,12 @@ public class UserDto {
 		this.address = address;
 	}
 
-	public double getHeight() {
-		return height;
+	public String getBirthDay() {
+		return birthDay;
 	}
 
-	public void setHeight(double height) {
-		this.height = height;
-	}
-
-	public double getWeight() {
-		return weight;
-	}
-
-	public void setWeight(double weight) {
-		this.weight = weight;
-	}
-
-	public double getAge() {
-		return age;
-	}
-
-	public void setAge(double age) {
-		this.age = age;
+	public void setBirthDay(String birthDay) {
+		this.birthDay = birthDay;
 	}
 
 	public String getSex() {
@@ -165,8 +147,8 @@ public class UserDto {
 	@Override
 	public String toString() {
 		return "UserDto [num=" + num + ", id=" + id + ", password=" + password + ", name=" + name + ", fakeName="
-				+ fakeName + ", email=" + email + ", mobile=" + mobile + ", address=" + address + ", height=" + height
-				+ ", weight=" + weight + ", age=" + age + ", sex=" + sex + ", userType=" + userType + "]";
+				+ fakeName + ", email=" + email + ", mobile=" + mobile + ", address=" + address + ", birthDay="
+				+ birthDay + ", sex=" + sex + ", userType=" + userType + "]";
 	}
 
 }

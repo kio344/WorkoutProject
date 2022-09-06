@@ -2,7 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts"%>
 <layout:main>
-<form method="post" action="<c:url value="/wpc" />" target="ifrmProcess">
+<form method="post" action="<c:url value="/mypage/wpc" />" target="ifrmProcess">
+
 비밀번호<input type="password" name="wpcPw">
 비밀번호 확인<input type="password" name="wpcPwCheck">
 
