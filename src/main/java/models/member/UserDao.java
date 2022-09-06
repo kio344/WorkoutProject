@@ -28,10 +28,14 @@ public class UserDao {
 		return dto;
 	}
 	
+	/**
+	 * 회원 정보 수정
+	 * @param dto
+	 */
 	public void update(UserDto dto) {
 		SqlSession sqlSession = Connection.getSession();
 		
-		int param = sqlSession.update("userInfoMapper.update", dto);
+		sqlSession.update("userInfoMapper.update", dto);
 		
 		sqlSession.commit();
 		sqlSession.close();

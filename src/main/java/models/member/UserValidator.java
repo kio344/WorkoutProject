@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -52,7 +53,7 @@ public class UserValidator implements Validator, MobileValidator{
 	 * 별명 중복 체크
 	 */
 	
-	public void checkFakeName(String fakeName) {
+	public void checkFakeName(HttpServletRequest req, String fakeName) {
 		SqlSession sqlsession = Connection.getSession();
 		
 		UserDto param = new UserDto();
@@ -63,8 +64,11 @@ public class UserValidator implements Validator, MobileValidator{
 		
 		sqlsession.close();
 		
+		HttpSession session = req.getSession();
 		
-		if(user != null ) {
+		System.out.println(session.getAttribute("member"));
+		
+		if(user != null && !user.equals(session.getAttribute("member"))) {
 			throw new BadException("중복된 별명이 존재합니다.");
 		}
 		

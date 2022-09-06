@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dto.UserDto;
 import models.member.MypageService;
-@WebServlet("/withdrawal")
+@WebServlet("/mypage/withdrawal")
 public class WithdrawalController extends HttpServlet{
 	
 	@Override

@@ -40,6 +40,13 @@ public class MypageBasicsController extends HttpServlet{
 		PrintWriter out = resp.getWriter();
 		
 		try {
+			
+			String year = req.getParameter("year"); // ???????
+			String month = req.getParameter("month"); // ???????
+			String day = req.getParameter("day"); // ???????
+			String ymd = year + month + day;
+			System.out.println(ymd);
+			
 			service.check(req);
 			service.update(req, dto);
 			
