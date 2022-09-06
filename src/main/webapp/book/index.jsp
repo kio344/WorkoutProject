@@ -51,18 +51,20 @@
 				</a>
 			</c:forEach>
 			<div>
-			<c:if test="${param.page - 2 || param.page - 1  }">
+			<c:if test="${param.page <= 0 && param.page -2 > 0 }">
 			
 			<a href="">
-				${param.page - 2} 
+				${param.page - 2}
 			</a>
+			</c:if>
 			
+			<c:if test="${param.page <= 0 && param.page -1 > 0 }">
 			<a href="">
 				${param.page - 1} 
 			</a>
 			
 			</c:if>
-			<a href=<c:url value="/bookshop?page=${param.page }" />" >
+			<a href="<c:url value="/bookshop?page=${param.page }" />" >
 			${param.page}
 			</a>
 			
