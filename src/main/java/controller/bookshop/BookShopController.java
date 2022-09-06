@@ -21,7 +21,6 @@ public class BookShopController extends HttpServlet{
 		BookShopService service = new BookShopService();
 		service.list(req);
 		
-		System.out.println("너니?");
 //		BookSearchService searchService = new BookSearchService();
 //		String type = req.getParameter("type");
 		
