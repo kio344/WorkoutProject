@@ -50,6 +50,29 @@
 					</div>
 				</a>
 			</c:forEach>
+			<div>
+			<c:if test="${param.page - 2 || param.page - 1  }">
+			
+			<a href="">
+				${param.page - 2} 
+			</a>
+			
+			<a href="">
+				${param.page - 1} 
+			</a>
+			
+			</c:if>
+			<a href=<c:url value="/bookshop?page=${param.page }" />" >
+			${param.page}
+			</a>
+			
+			<a href="">
+				${param.page + 1} 
+			</a>
+			<a href="">
+				${param.page + 2} 
+			</a>
+			</div>
 		</c:if>
 		<c:if test="${!empty bookList }">
 			<c:forEach var="books" items="${bookList}">

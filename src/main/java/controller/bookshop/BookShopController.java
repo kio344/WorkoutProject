@@ -21,13 +21,15 @@ public class BookShopController extends HttpServlet{
 		BookShopService service = new BookShopService();
 		service.list(req);
 		
-		BookSearchService searchService = new BookSearchService();
-		String type = req.getParameter("type");
+		System.out.println("너니?");
+//		BookSearchService searchService = new BookSearchService();
+//		String type = req.getParameter("type");
 		
-		searchService.search(req, type);
-		
+//		searchService.search(req, type);
 		RequestDispatcher rd = req.getRequestDispatcher("/book/index.jsp");
 		rd.forward(req, resp);
+		
+		
 	}
 
 	@Override

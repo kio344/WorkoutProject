@@ -34,6 +34,16 @@
 		<if test="publisher != null ">publisher LIKE CONCAT('%', #{publisher}, '%');</if>
 	</where>
 	</select>
+	
+	<!-- 총 상품 갯수 -->
+	<select id="items" resultType="int">
+	SELECT COUNT(*) FROM RequestProduct;
+	</select>
+	
+	<!-- 페이지 별 상품 갯수 -->
+	<select id="pageItems" resultMap="BookShopMap" parameterType="models.bookshop.ProductLimitDto">
+	SELECT * FROM RequestProduct limit ${start}, ${count};
+	</select>
 </mapper>
 
 

@@ -19,7 +19,7 @@ public class Pagination {
 		if (total < 1) {
 			return;
 		}
-		
+
 		this.total = total;
 		this.limit = limit;
 		this.pageCnt = pageCnt < 1 ? 10 : pageCnt;
@@ -29,18 +29,18 @@ public class Pagination {
 			page = this.lastPage;
 		this.page = page;
 		pages = new ArrayList<>();
-		
+
 		/** 페이지 구간 구하기 S */
 		int cnt = (int) Math.ceil(this.page / (double) this.pageCnt) - 1;
 		int lastCnt = (int) Math.ceil(this.lastPage / (double) this.pageCnt) - 1;
-		
+
 		if (cnt == 0)
 			this.isFirstCnt = true;
 		if (cnt == lastCnt)
 			this.isLastCnt = true;
-		
+
 		/** 페이지 구간 구하기 E */
-		
+
 		/** 구간별 페이지 번호 S */
 		int start = cnt * this.pageCnt + 1;
 		for (int i = start; i < start + this.pageCnt; i++) {
