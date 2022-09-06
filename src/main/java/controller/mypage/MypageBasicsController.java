@@ -42,9 +42,9 @@ public class MypageBasicsController extends HttpServlet{
 		
 		try {
 			
-			String year = req.getParameter("year"); // ???????
-			String month = req.getParameter("month"); // ???????
-			String day = req.getParameter("day"); // ???????
+			String year = req.getParameter("year");
+			String month = req.getParameter("month"); 
+			String day = req.getParameter("day"); 
 			String ymd = year + month + day;
 			System.out.println(ymd);
 			
