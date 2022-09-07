@@ -22,5 +22,32 @@
 	<select id="get" parameterType="models.file.FileInfoDto" resultType="models.file.FileInfoDto">
 		SELECT * FROM FileInfo WHERE id=#{id};
 	</select>
+	
+	<!-- gid or id 채워주면 됨  -->
+	<select id="gets" parameterType="models.file.FileInfoDto" resultMap="fileMap">
+	SELECT * FROM FileInfo 
+	<where>
+		<if test="gid!=null">
+			AND gid=#{gid}
+		</if>
+		<if test="id!=0">
+			AND id=#{id}
+		</if>
+	</where>
+	
+	</select>
+	
+	<!-- 파일삭제 id or gid -->
+	<delete id="delete">
+	DELETE FROM FileInfo 
+	<where>
+		<if test="id!=0">
+		AND id=#{id}
+		</if>
+		<if test="gid!=null">
+		AND gid like '%${gid}%'
+		</if>
+	</where>
+	</delete>
 
 </mapper>

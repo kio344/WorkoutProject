@@ -4,19 +4,43 @@ window.addEventListener("DOMContentLoaded", function(){
 	height: 350
 	});
 });
+function deleteEl(e){
+	
+}
 
 window.addEventListener("DOMContentLoaded",function(){
 	const fileuploadbtnEl=document.getElementById("fileuploadbtn");
-	const fileuploadiframeEl=document.getElementById("fileuploadiframe");
-	const centerEl=document.getElementsByClassName("center")[0];
+	const imageuploadbtnEl=document.getElementById("imageuploadbtn");	
+	const filedeleteEl=document.getElementsByClassName("filedelete");
+	console.log(filedeleteEl)
+	
+	if(filedeleteEl){
+		
+		for(el of filedeleteEl){
+			el.addEventListener("click",function(e){
+				let target=e.target
+				let parentel= target.parentElement;
+				console.log(parentel);
+				parentel.innerHTML="";
+			})
+		}
+	}
+	
+	const fileuploadEl=document.getElementById("fileuploadEl");
 	fileuploadbtnEl.addEventListener("click",function(){
-		centerEl.className="center";
+		fileuploadEl.className="center";
 	});
-	centerEl.addEventListener("click",function(){
-		centerEl.className="center dn";
+	fileuploadEl.addEventListener("click",function(){
+		fileuploadEl.className="center dn";
 	})
-	
-	
+
+	const imageuploadEl=document.getElementById("imageuploadEl");
+	imageuploadbtnEl.addEventListener("click",function(e){
+		imageuploadEl.className="center";
+	})
+	imageuploadEl.addEventListener("click",function(e){
+		imageuploadEl.className="center dn";
+	})
 });
 
 function callBackFileUpload (resp){
@@ -30,9 +54,27 @@ function callBackFileUpload (resp){
 						  
 			let createEl=domparser.parseFromString(html,"text/html");
 			let getEl=createEl.querySelectorAll("#file")[0];
-			console.log(getEl);
+			let removeEl=getEl.children[1];
+			
+			removeEl.addEventListener("click",function(e){
+				let target=e.target;
+				let parent=target.parentElement;
+				parent.innerHTML="";
+			})
+			
 			filesEl.append(getEl);
 
 		}
 
+}
+function callBackimage(resp){
+		for(file_json of resp){
+			
+			let imgtag=`<img src='../community/uploadFolder/${file_json.id%10}/${file_json.id}'>`
+			
+			console.log(imgtag)
+					CKEDITOR.instances.content.insertHtml(imgtag);	
+
+
+		}
 }

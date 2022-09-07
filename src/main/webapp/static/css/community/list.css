@@ -1,0 +1,48 @@
+.center{
+	width: 100%;
+	background-color: #eeeeee;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.board_List_Area{
+	width:80%;
+	font-size: 15px;
+	display: flex;
+	flex-direction: column;
+	
+}
+.board_List_Area .boardEl:first-child{
+	font-size: 20px;
+}
+
+.boardEl{
+	padding: 30px;
+	border-top: 2px solid #e5e5e5;
+}
+.boardEl:last-child{
+	padding: 30px;
+	border-top: 2px solid #e5e5e5;
+	border-bottom: 2px solid #e5e5e5;
+}
+.boardEl > a:first-child{
+	display:inline-block;
+	width: 5%;
+	margin-right: 15px;
+	text-align: center;
+}
+.boardEl > a:last-child{
+	display:inline-block;
+	text-align: right;
+	width: 30%;
+	
+}
+.boardEl > a{
+	display:inline-block;
+	width: 60%;
+	
+}
