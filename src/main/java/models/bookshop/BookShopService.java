@@ -8,7 +8,6 @@ import mybatis.Connection;
 
 public class BookShopService {
 	
-	
 	public void list(HttpServletRequest req) {
 		SqlSession sqlSession = Connection.getSession();
 		int num = Integer.parseInt(req.getParameter("page"));

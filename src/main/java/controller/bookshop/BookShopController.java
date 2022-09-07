@@ -18,13 +18,13 @@ public class BookShopController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		BookShopService service = new BookShopService();
-		service.list(req);
+//		BookShopService service = new BookShopService();
+//		service.list(req);
 		
-//		BookSearchService searchService = new BookSearchService();
-//		String type = req.getParameter("type");
+		BookSearchService searchService = new BookSearchService();
+		String type = req.getParameter("type");
+		searchService.search(req, type);
 		
-//		searchService.search(req, type);
 		RequestDispatcher rd = req.getRequestDispatcher("/book/index.jsp");
 		rd.forward(req, resp);
 		
@@ -33,5 +33,6 @@ public class BookShopController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 	}
 }
