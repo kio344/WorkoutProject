@@ -45,10 +45,14 @@ public class JoinService {
 		check.put("fakeName", "별명을 입력해 주세요.");
 		check.put("mobile", "핸드폰 번호를 입력해 주세요.");
 		check.put("address", "주소를 입력해 주세요.");
+		check.put("year", "생년 월 일을 입력해 주세요."); 
+		check.put("month", "생년 월 일을 입력해 주세요."); 
+		check.put("day", "생년 월 일을 입력해 주세요."); 
 		check.put("sex", "성별을 입력해 주세요.");
 		
 		validator.check(request, check);
 		/** 1. 필수 데이터 검증 끝 */
+		
 		
 		/** 2. 중복 회원 체크 시작 */
 		String id = request.getParameter("id");
@@ -58,6 +62,12 @@ public class JoinService {
 		String email = request.getParameter("email");
 		String mobile = request.getParameter("mobile");
 		String address = request.getParameter("address");
+		
+		String year = request.getParameter("year"); 
+		String month = request.getParameter("month"); 
+		String day = request.getParameter("day"); 
+		String ymd = year + month + day;
+		
 		String sex = request.getParameter("sex");
 		
 		validator.overlapUser(id);
@@ -69,7 +79,7 @@ public class JoinService {
 		
 		
 		/** 3-1. 별명 중복 체크 시작 */
-		validator.checkFakeName(fakeName);
+//		validator.checkFakeName(request, fakeName); [수정필요]
 		/** 3-1. 별명 중복 체크 끝 */
 		
 		
@@ -96,6 +106,7 @@ public class JoinService {
 		dto.setEmail(email);
 		dto.setMobile(mobile);
 		dto.setAddress(address);
+		dto.setBirthDay(ymd);
 		dto.setSex(sex);
 		/** 비밀번호 암호화 (Bcrypt) 끝 */
 		

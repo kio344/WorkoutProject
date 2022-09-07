@@ -10,9 +10,7 @@
 		<result property="email" column="email" />
 		<result property="mobile" column="mobile" />
 		<result property="address" column="address" />
-		<result property="height" column="height"/>
-		<result property="weight" column="weight"/>
-		<result property="age" column="age"/>
+		<result property="birthDay" column="birthDay"/>
 		<result property="sex" column="sex"/>
 		<result property="userType" column="userType"/>
 	</resultMap>
@@ -29,8 +27,8 @@
 	
 	<!-- 유저 정보 추가 -->
 	<insert id="insert" parameterType="dto.UserDto" useGeneratedKeys="true" keyProperty="num">
-		INSERT INTO WorkOutUser (id, password, name, fakeName, email, mobile, address, sex)
-			VALUES(#{id}, #{password}, #{name}, #{fakeName}, #{email}, #{mobile}, #{address}, #{sex});
+		INSERT INTO WorkOutUser (id, password, name, fakeName, email, mobile, address, birthDay, sex)
+			VALUES(#{id}, #{password}, #{name}, #{fakeName}, #{email}, #{mobile}, #{address}, #{birthDay}, #{sex});
 	</insert>	
 	<!-- 유저 id 검색 후 삭제 -->
 	<delete id="delete" parameterType="dto.UserDto" >
@@ -45,21 +43,12 @@
 				fakeName=#{fakeName},
 				email=#{email},
 				mobile=#{mobile},
-				address=#{address}
-			WHERE id=#{id}
-	</update>
-	<!-- 추가 기능  -->
-	
-	<!-- 유저 신체정보 업데이트 -->
-	<update id="bmiUpdate" parameterType="dto.UserDto">
-		UPDATE WorkOutUser
-			SET
-				height=#{height},
-				weight=#{weight},
-				age=#{age},
+				address=#{address},
+				birthDay=#{birthDay},
 				sex=#{sex}
 			WHERE id=#{id}
 	</update>
+	<!-- 추가 기능  -->
 	
 	<!-- 유저(판매자) 정보 추가 -->
 	<insert id="insertSeller" parameterType="dto.UserDto" useGeneratedKeys="true" keyProperty="num">

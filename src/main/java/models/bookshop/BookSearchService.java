@@ -1,14 +1,11 @@
 package models.bookshop;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 
+import exception.BadException;
 import mybatis.Connection;
 
 public class BookSearchService {
@@ -19,25 +16,39 @@ public class BookSearchService {
 	 * @param req
 	 */
 	public void search(HttpServletRequest req, String type) {
+		SqlSession sqlSession = Connection.getSession();
+		
 		String searchType = req.getParameter("type");
-		BookShopDto dto = new BookShopDto();
-		String search = req.getParameter("search");
-		if(searchType == null) {
+		ProductLimitDto dto = new ProductLimitDto();
+		int num = Integer.parseInt(req.getParameter("page"));
+		dto.setCount(3);
+		int strat = (num * dto.getCount()) - dto.getCount();
+		dto.setStart(strat);
+		
+		int items = sqlSession.selectOne("BookShopMapper.searchItems");
+		if(items != 0) {
+			int totalPage = (int)(Math.ceil((double)items / dto.getCount()));
+			req.setAttribute("totalPage", totalPage);
+		}
+		if (searchType == null) {
 			searchType = "name";
 		}
-
-		if (searchType.equals("name")) {
-			dto.setName(search);
-		} else if (searchType.equals("kategorie")) {
-			dto.setKategorie(search);
-		} else if (searchType.equals("publisher")) {
-			dto.setPublisher(search);
-		}
-
-		SqlSession sqlSession = Connection.getSession();
-
+		
+		String search = req.getParameter("search");
+			if (searchType.equals("name")) {
+				dto.setName(search);
+			} else if (searchType.equals("kategorie")) {
+				dto.setKategorie(search);
+			} else if (searchType.equals("publisher")) {
+				dto.setPublisher(search);
+			}
+		
+		
 		List<BookShopDto> list = sqlSession.selectList("BookShopMapper.search", dto);
-		req.setAttribute("bookList", list);
+		req.setAttribute("list", list);
+		
+		req.setAttribute("type", searchType);
+		req.setAttribute("search", search);
 
 	}
 }
