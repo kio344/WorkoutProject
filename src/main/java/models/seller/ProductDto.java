@@ -119,7 +119,7 @@ public class ProductDto {
 	public String toString() {
 		return "ProductDto [abnum=" + abnum + ", seller=" + seller + ", serialnum=" + serialnum + ", name=" + name
 				+ ", writer=" + writer + ", price=" + price + ", kategorie=" + kategorie + ", publisher=" + publisher
-				+ ", img=" + img + ", status=" + status + ", regDt=" + regDt + ", modDt=" + modDt + "]";
+				+ ", img=" + img + ", status=" + status + ", regDt=" + regDt + ", modDt=" + modDt + "]\n";
 	}
 
 
