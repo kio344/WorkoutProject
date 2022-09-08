@@ -1,5 +1,7 @@
 package models.file;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.mysql.cj.result.Field;
@@ -34,6 +36,29 @@ public class FileDao {
 
 		return fileInfoDto;
 		
+	}
+	public List<FileInfoDto> gets(FileInfoDto file){
+		
+		SqlSession session=Connection.getSession();
+		
+		List<FileInfoDto> list= session.selectList("FileMapper.gets",file);
+		
+		session.close();
+		
+	
+		
+		return list;
+		
+	}
+	
+	public void delete(FileInfoDto file) {
+		SqlSession session=Connection.getSession();
+		
+		session.delete("FileMapper.delete",file);
+		
+		
+		session.commit();
+		session.close();
 	}
 
 	public static FileDao getInstance() {
