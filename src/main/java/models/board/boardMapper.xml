@@ -21,7 +21,7 @@
 	
 	<!-- 특정 게시판(boardId) 모든  게시글 갖고오기 -->
 	<select id="gets" parameterType="models.board.BoardDto" resultMap="boardMap">
-		SELECT * FROM Board WHERE boardId=#{boardId};
+		SELECT * FROM Board WHERE boardId=#{boardId} ORDER BY regDt DESC;
 	</select>
 	
 	<!-- 게시글(id or gid) 가져오기 -->

@@ -17,7 +17,7 @@
 			</div>
 			<div class="edit-grp">
 				<a href="<c:url value="/board/edit?gid=${board.gid }" />" >게시글 수정</a>
-				<a href="<c:url value="/board/delete?gid=${board.gid }" />" >게시글 삭제</a>
+				<a target="ifrmProcess" onclick="confirm('게시물을 삭제하시겠습니까?')" href="<c:url value="/board/delete?gid=${board.gid }" />" >게시글 삭제</a>
 			</div>
 		</div>
 			<div>

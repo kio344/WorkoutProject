@@ -17,9 +17,16 @@ public class DeleteController extends HttpServlet{
 		try {
 			DeleteService service=new DeleteService(req, resp);
 			service.boardDelete();
-			showAlert(resp, "삭제완료");
-		} catch (Exception e) {
+			
+			
+		}catch (RuntimeException e) {
 			e.printStackTrace();
+			showAlertException(resp, e);
+		} 
+		
+		catch (Exception e) {
+			e.printStackTrace();
+			
 		}
 
 	}

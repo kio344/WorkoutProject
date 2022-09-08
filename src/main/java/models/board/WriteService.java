@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.UserDto;
+import jmsUtil.LoginException;
 
 import static jmsUtil.Utils.*;
 
@@ -23,13 +24,18 @@ public class WriteService {
 		req=request;
 	}
 	
-	public void write() {
+	public BoardDto write() {
 		showParaMap(req);
 		
 		UserDto loginUser=getLoginUser(req);
+		
 		if (loginUser==null) {
-			loginUser=new UserDto();
-			loginUser.setId("TestUser");
+//			
+//			loginUser=new UserDto();
+//			loginUser.setId("TestUser");
+//			
+			throw new LoginException();
+			
 		}
 		
 		Map<String, String> validator=new HashMap<>();
@@ -57,14 +63,7 @@ public class WriteService {
 		
 		dao.insert(board);
 		
-		System.out.println(board);
-		
-		
-		
-		
-		
-		
-
+		return board;
 
 		
 	}
