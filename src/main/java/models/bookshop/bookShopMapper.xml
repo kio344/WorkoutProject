@@ -31,7 +31,7 @@
 	<where>
 		<if test="name != null ">name LIKE CONCAT('%', #{name}, '%') limit ${start}, ${count};</if>
 		<if test="kategorie != null ">kategorie LIKE CONCAT('%', #{kategorie}, '%') limit ${start}, ${count};</if>
-		<if test="publisher != null ">publisher LIKE CONCAT('%', #{publisher}, '%') limit $ {start}, ${count};</if>
+		<if test="publisher != null ">publisher LIKE CONCAT('%', #{publisher}, '%') limit ${start}, ${count};</if>
 	</where>
 	</select>
 	
@@ -43,9 +43,9 @@
 	<!-- 검색한 총 상품 갯수 -->
 	<select id="searchItems" resultType="int">
 	SELECT COUNT(*) FROM RequestProduct 
-	<if test="name != null">WHERE name like CONCAT('%', #{name}, '%') limit ${start}, ${count}</if>
-	<if test="kategorie != null">WHERE kategorie CONCAT('%', #{kategorie}, '%') limit ${start}, ${count}</if>
-	<if test="publisher != null">WHERE publisher like CONCAT('%', #{publisher}, '%') limit ${start}, ${count}</if>
+	<if test="name != null">WHERE name LIKE CONCAT('%', #{name}, '%') limit ${start}, ${count}</if>
+	<if test="kategorie != null">WHERE kategorie LIKE CONCAT('%', #{kategorie}, '%') limit ${start}, ${count}</if>
+	<if test="publisher != null">WHERE publisher LIKE CONCAT('%', #{publisher}, '%') limit ${start}, ${count}</if>
 	</select>
 	
 	<!-- 페이지 별 상품 갯수 -->
