@@ -38,7 +38,10 @@ public class BookSearchService {
 		}
 
 		String search = req.getParameter("search");
-		
+		if((search.isBlank() || search.isBlank()) && !type.isBlank()) {
+			throw new BadException("검색하신 결과가 없습니다.");
+		}
+			
 		if (searchType.equals("name")) {
 			dto.setName(search);
 		} else if (searchType.equals("kategorie")) {
@@ -54,23 +57,23 @@ public class BookSearchService {
 		req.setAttribute("search", search);
 	}// search
 	
-	public void list(HttpServletRequest req) {
-		SqlSession sqlSession = Connection.getSession();
-
-		ProductLimitDto dto = new ProductLimitDto();
-		int num = Integer.parseInt(req.getParameter("page"));
-		dto.setCount(3);
-		int strat = (num * dto.getCount()) - dto.getCount();
-		dto.setStart(strat);
-
-		int items = sqlSession.selectOne("BookShopMapper.searchItems");
-		if (items != 0) {
-			int totalPage = (int) (Math.ceil((double) items / dto.getCount()));
-			req.setAttribute("totalPage", totalPage);
-		}
-
-		List<BookShopDto> list = sqlSession.selectList("BookShopMapper.pageItems", dto);
-		req.setAttribute("list", list);
-	
-	}
+//	public void list(HttpServletRequest req) {
+//		SqlSession sqlSession = Connection.getSession();
+//
+//		ProductLimitDto dto = new ProductLimitDto();
+//		int num = Integer.parseInt(req.getParameter("page"));
+//		dto.setCount(3);
+//		int strat = (num * dto.getCount()) - dto.getCount();
+//		dto.setStart(strat);
+//
+//		int items = sqlSession.selectOne("BookShopMapper.searchItems");
+//		if (items != 0) {
+//			int totalPage = (int) (Math.ceil((double) items / dto.getCount()));
+//			req.setAttribute("totalPage", totalPage);
+//		}
+//
+//		List<BookShopDto> list = sqlSession.selectList("BookShopMapper.pageItems", dto);
+//		req.setAttribute("list", list);
+//	
+//	}
 }

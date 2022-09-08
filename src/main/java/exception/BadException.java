@@ -1,5 +1,7 @@
 package exception;
 
+import javax.servlet.http.HttpServletResponse;
+
 public class BadException extends RuntimeException{
 	
 	public BadException () {

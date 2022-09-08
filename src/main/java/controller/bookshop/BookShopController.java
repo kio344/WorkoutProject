@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static jmsUtil.Utils.*;
 import exception.BadException;
 import models.bookshop.BookSearchService;
 
@@ -17,12 +18,17 @@ public class BookShopController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		BookSearchService searchService = new BookSearchService();
+		try {
+			String type = req.getParameter("type");
+			searchService.search(req, type);
+			
+			RequestDispatcher rd = req.getRequestDispatcher("/book/index.jsp");
+			rd.forward(req, resp);
+		}catch (BadException e) {
+			e.printStackTrace();
+			showAlertException(resp, e);
+		}
 
-		String type = req.getParameter("type");
-		searchService.search(req, type);
-
-		RequestDispatcher rd = req.getRequestDispatcher("/book/index.jsp");
-		rd.forward(req, resp);
 
 	}
 
