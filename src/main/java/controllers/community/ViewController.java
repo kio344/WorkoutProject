@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.board.BoardDto;
 import models.board.ViewService;
+import models.comment.CommentViewService;
 import models.file.FileInfoDto;
 
 @WebServlet("/board/view")
@@ -26,6 +27,9 @@ public class ViewController extends HttpServlet {
 			
 			req.setAttribute("fileList", fileList);
 			req.setAttribute("board", board);
+			
+			CommentViewService viewService = new CommentViewService();
+			viewService.view(req);
 			
 			RequestDispatcher rd=req.getRequestDispatcher("/community/view.jsp");
 			rd.forward(req, resp);
