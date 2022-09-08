@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.board.BoardDto;
 import models.board.WriteService;
 
 @WebServlet("/board/write")
@@ -33,9 +34,11 @@ public class WriteController extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		try {
 			WriteService  service=new WriteService(req,resp);
-			service.write();
+			BoardDto board= service.write();
 			
 			showAlert(resp, "게시글 등록이 완료되었습니다.");
+			replacePage(resp, req.getContextPath()+"/board/view?gid="+board.getGid(), "parent");
+			
 		}catch (RuntimeException e) {
 			showAlertException(resp, e);
 			e.printStackTrace();

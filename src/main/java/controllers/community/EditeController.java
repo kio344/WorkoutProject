@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.board.BoardDto;
 import models.board.EditService;
+import models.board.PosterCkException;
 import models.file.FileInfoDto;
 import static jmsUtil.Utils.*;
 @WebServlet("/board/edit")
@@ -27,13 +28,11 @@ public class EditeController extends HttpServlet{
 			
 			req.setAttribute("board", board);
 			req.setAttribute("fileList", fileList);
-			
-			System.out.println(board);
-			
+						
 			RequestDispatcher rd=req.getRequestDispatcher("/community/edit.jsp");
 			rd.forward(req, resp);
 			
-		} catch (Exception e) {
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -45,9 +44,9 @@ public class EditeController extends HttpServlet{
 		
 		try {
 			EditService service=new EditService(req,resp);
-			service.editService();
+			BoardDto board=service.editService();
 			showAlert(resp, "수정되었습니다.");
-			
+			replacePage(resp, req.getContextPath()+"/board/view?gid="+board.getGid(), null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
