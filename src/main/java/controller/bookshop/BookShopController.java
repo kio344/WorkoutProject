@@ -27,8 +27,9 @@ public class BookShopController extends HttpServlet {
 		}catch (BadException e) {
 			e.printStackTrace();
 			showAlertException(resp, e);
+			System.out.println(req.getContextPath());
+			replacePage(resp, req.getContextPath() + "/bookshop?type=&search=&page=1", "parent");
 		}
-
 
 	}
 
