@@ -1,4 +1,4 @@
-#fileuploadiframe{
+#fileuploadiframe,#imageuploadiframe{
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -16,6 +16,12 @@
 	position: fixed;
 	
 	top:0;
+	left:0;
 	background-color: rgba(0,0,0,0.5);
 	
+}
+
+#writearea{
+	padding-left: 100px;
+	padding-right: 100px;
 }

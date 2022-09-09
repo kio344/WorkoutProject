@@ -1,0 +1,86 @@
+파일 만들기 touch 파일이름
+
+date 날짜 확인
+
+
+touch 는 파일의 수정, 접근시간
+
+시간 종류
+ctime		생성 시간
+mtime		수정시간
+atime		접근시간
+
+파일복사 	cp 복사할파일 복사이름
+
+		cp 복사할파일 경로			:디렉토리 지정 복사
+
+		cp 복사할파일 경로/파일이름	:
+
+mkdir dir1 파일생성
+
+mv test2_cp test2_mv
+
+mv test2_mv dir2
+
+mv 할때 디렉토리는 -R 태그 붙여야됨
+
+한번에 경로 만들기		mkdir -p a/b/c/d/e/f/g 	:한번에 디렉토리 만들기
+
+								-p태그
+
+rmdir dir3 디렉토리 지우기
+
+rm test2* 
+
+rm -rf dir1 안에 파일있어도 지워짐
+
+rm -rf *  man ls
+
+cp /etc/passwd .		passwd 복사해오기
+
+cat -n 옾션 붙이면 라인넘버 추가
+
+
+
+more 한화면씩 보기 줄씩 내리기
+
+	엔터			스페이스
+
+^v 한페이지 위로 올라감
+
+
+^F
+^B
+
+q 끝내기
+
+
+tail head less more 비슷한명령
+
+헤드는 앞부터
+
+테일은 뒤부터
+
+
+head +5 passwd 
+앞에서 5개 뛰고 보여줌
+
+
+tail -5 passwd
+뒤에서 5개 뛰고 보여줌
+
+하면 줄여서 보여줌
+
+
+chmod ugo+x passwd
+chmode 
+
+
+
+
+
+
+
+
+
+

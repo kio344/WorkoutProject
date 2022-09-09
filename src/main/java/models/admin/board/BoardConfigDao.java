@@ -72,6 +72,15 @@ public class BoardConfigDao {
 		sqlSession.close();
 		return affectedRows > 0;
 	}
+	
+	public BoardConfigDto get(BoardConfigDto boardConfig) {
+		SqlSession session=Connection.getSession();
+		BoardConfigDto dto= session.selectOne("BoardConfigMap.get",boardConfig);
+		
+		session.close();
+		
+		return dto;
+	}
 
 	public static BoardConfigDao getInstance() {
 		if (instance == null) {

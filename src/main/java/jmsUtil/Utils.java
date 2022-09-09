@@ -104,7 +104,13 @@ public class Utils {
 	public static void replacePage(HttpServletResponse resp, String href, String target) throws IOException {
 		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
-		out.println("<script>" + target + ".location.replace('" + href + "')" + "</script>");
+		if (target != null) {
+			target += ".";
+		}else {
+			target="";
+		}
+
+		out.println("<script>" + target + "location.replace('" + href + "')" + "</script>");
 
 	}
 
@@ -123,6 +129,7 @@ public class Utils {
 
 	/**
 	 * 로그인중인 회원 정보
+	 * 
 	 * @author 5563a
 	 * @param req
 	 * @return
@@ -134,10 +141,9 @@ public class Utils {
 		return user;
 	}
 
-	
-	public static String BoardFilePath(int num,HttpServletRequest req) {
-		String filePath=req.getServletContext().getRealPath("/community/uploadFolder/"+(num%10)+"/"+num);
-		
+	public static String BoardFilePath(int num, HttpServletRequest req) {
+		String filePath = req.getServletContext().getRealPath("/community/uploadFolder/" + (num % 10) + "/" + num);
+
 		return filePath;
 	}
 }

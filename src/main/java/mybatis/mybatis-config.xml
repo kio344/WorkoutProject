@@ -44,5 +44,7 @@
 	<mapper resource="models/bookshop/bookShopMapper.xml" />
 	<mapper resource="models/file/fileMapper.xml" />
 	<mapper resource="models/qAnda/QAndAMapper.xml" />
+	<mapper resource="models/board/boardMapper.xml" />
+	<mapper resource="models/comment/CommentMapper.xml" />
   </mappers>
 </configuration>

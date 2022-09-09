@@ -150,7 +150,7 @@
 						<div>
 							<h4>
 								<a href="<c:url value="/board/write?boardId=${list.boardId}" />">글쓰기</a>
-								<a href="">글목록</a>
+								<a href="<c:url value="/board/list?boardId=${list.boardId}" />">글목록</a>
 							</h4>
 						</div>
 					</li>
