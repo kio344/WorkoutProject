@@ -60,8 +60,37 @@ public class MessageDao {
 		session.close();
 
 		return list;
-
+		
 	}
+	
+	/**
+	 * 사용자 메세지 개수 가져옴 recipient(수신자),see(읽음 여부 ) 채워주기 see 값 null 시 모든 메세지 개수
+	 * 
+	 * @param message
+	 * @return
+	 */
+	public int getsUserMsgCount(MessageDto message) {
+		SqlSession session = Connection.getSession();
+
+		int count = session.selectOne("MessageMapper.getsUserMsgCount", message);
+
+		session.close();
+
+		return count;
+		
+	}
+	
+	
+	public List<MessageDto> getsUserMsg_limit(MessageLimitDto message) {
+		SqlSession session = Connection.getSession();
+
+		List<MessageDto> list = session.selectList("MessageMapper.getsUserMsg_limit", message);
+
+		session.close();
+
+		return list;
+	}
+	
 
 	/**
 	 * 메세지 읽음 안읽음 처리 메세지 바꿀 메세지 num 바꿀 상태 see ("true","false")

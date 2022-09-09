@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import dto.UserDto;
 import models.admin.MessageDto;
 import models.message.MessageDao;
+import models.message.MessageLimitDto;
+
 import static jmsUtil.Utils.*;
 
 public class MessageService {
@@ -17,7 +19,7 @@ public class MessageService {
 	private MessageDao msgdao=MessageDao.getInstance();
 	private UserDto loginUser;	//로그인한 유저
 	String[] abnum ;	//선택한 메세지 num
-	
+	static final int limit=10;
 	public MessageService(HttpServletRequest request) {
 		this.req=request;
 		loginUser=getLoginUser(request);
@@ -28,7 +30,7 @@ public class MessageService {
 		if (getLoginUser(req)==null) {
 			 throw new LoginException();
 		}
-		msgdao = MessageDao.getInstance();
+		
 
 		MessageDto msgdto = new MessageDto();
 		msgdto.setRecipient(loginUser.getId());
@@ -37,6 +39,65 @@ public class MessageService {
 
 		return list;
 
+	}
+	
+	/**
+	 * 
+	 * num=페이지네이션 페이지 번호 (start 와 관련)
+	 * req: see (읽음 여부) 지정되있으면 됨
+	 * limit 몇개씩 볼지
+	 * @author 5563a
+	 * @param num
+	 * @return
+	 */
+	public List<MessageDto> getUserMsg(int num) {
+		if (getLoginUser(req)==null) {
+			 throw new LoginException();
+		}
+		
+		int start=limit*(num-1);
+		
+		String see=req.getParameter("see");
+
+		msgdao = MessageDao.getInstance();
+
+		MessageLimitDto msgdto = new MessageLimitDto();
+		
+		msgdto.setRecipient(loginUser.getId());
+		if (!(see==null || see.isBlank())) {
+			msgdto.setSee(see);
+		}
+		msgdto.setOffset(limit);
+		msgdto.setStart(start);
+
+		List<MessageDto> list = msgdao.getsUserMsg_limit(msgdto);
+
+		return list;
+
+	}
+	
+	/**
+	 * 페이지 네이션 개수
+	 */
+	public int pagelenght() {
+		
+		String see=req.getParameter("see");
+		
+		MessageDto msgdto = new MessageDto();
+		msgdto.setRecipient(loginUser.getId());
+		if (!(see==null || see.isBlank())) {
+			msgdto.setSee(see);
+		}
+		
+		int total=msgdao.getsUserMsgCount(msgdto);
+		
+		double _lenght=(double)total/limit;
+		
+		int length=(int) Math.ceil(_lenght);
+		
+		return length;
+		
+		
 	}
 
 	/**

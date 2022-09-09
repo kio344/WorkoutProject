@@ -26,7 +26,7 @@ li > span >span{
 }
 .outerbox nav{
 	width:100%;
-
+	padding-top:0;
 	background-color: rgba(0,0,0,0);
 	
 }
@@ -34,6 +34,12 @@ li > span >span{
 .outerbox nav ul{
 	display: flex;
 
+}
+table thead td:first-child{
+	width: 10%;
+}
+table thead td:last-child{
+	width: 10%;
 }
 
 
@@ -43,4 +49,24 @@ li > span >span{
 #execute{
 	border: none;
 	background-color: rgba(0,0,0,0);
+}
+.pagination{
+	margin-top:10px;
+	padding:0px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.pagination >div{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width: 25px;
+	height: 25px;
+	border-radius:5px;
+	background-color: white;
+	margin: 5px;
+}
+.pagination .nowPage{
+	background-color: #d3d3d3;
 }
