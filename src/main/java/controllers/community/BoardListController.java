@@ -19,7 +19,8 @@ public class BoardListController extends HttpServlet {
 		req.setAttribute("addCss", new String[] {"community/list"});
 		try {
 			ListService service=new ListService(req,resp);
-			req.setAttribute("list",service.getBoard() ); 
+			req.setAttribute("list",service.getBoardPage() ); 
+			
 			RequestDispatcher rd=req.getRequestDispatcher("/community/list.jsp");
 			rd.forward(req, resp);
 		} catch (Exception e) {
