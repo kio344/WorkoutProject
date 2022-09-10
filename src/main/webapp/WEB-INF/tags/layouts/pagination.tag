@@ -19,7 +19,7 @@
 
 
 <div class="pagination">
-
+<!-- 페이지네이션 설정 -->
 	<%
 	ArrayList<Integer> pageList = new ArrayList();
 
@@ -60,6 +60,7 @@ int min = Collections.min(pageList);
 System.out.println(pageList);
 %>
 
+<!-- 페이지네이션 생성 -->
 
 <%
 if(min>1){
