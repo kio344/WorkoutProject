@@ -34,6 +34,24 @@
 	SELECT * FROM RequestProduct WHERE seller=#{seller} AND status=#{status};
 </select>
 
+<!--
+	getlist + 페이지네이션
+	seller : 신청자(Userid) , status : 상태값(요청중(req),승인(ture),거부(false)) 조건으로 모든 상품 가져옴   
+	@author 5563a
+ -->
+<select id="getlistPage" parameterType="models.seller.ProductListDto" resultMap="productmap">
+	SELECT * FROM RequestProduct WHERE seller=#{seller} AND status=#{status} limit ${offset},${limit};
+</select>
+
+<!--
+	getlist + 페이지네이션 : 개수 가져오기
+	seller : 신청자(Userid) , status : 상태값(요청중(req),승인(ture),거부(false)) 조건으로 모든 상품 가져옴   
+	@author 5563a
+ -->
+<select id="getlistPageCount" parameterType="models.seller.ProductListDto" resultType="int">
+	SELECT COUNT(*) FROM RequestProduct WHERE seller=#{seller} AND status=#{status};
+</select>
+
 <!-- seller : 신청자(Userid) , status : 상태값(요청중(req),승인(ture),거부(false)) 조건으로 상품 갯수 가져옴 -->
 <select id="getlistCount" resultType="int">
 	SELECT COUNT(*) FROM RequestProduct WHERE seller=#{seller} AND status=#{status};

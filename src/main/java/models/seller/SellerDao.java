@@ -42,6 +42,35 @@ public class SellerDao {
 	}
 	
 	/**
+	 * getProductList + 페이지네이션
+	 * @author 5563a
+	 * @param product
+	 * @return
+	 */
+	public List<ProductListDto> getProductListPage(ProductListDto product) {
+		SqlSession session=Connection.getSession();
+		
+		List<ProductListDto> list=session.selectList("RequestProductMap.getlistPage",product);
+		
+		return list;
+	}
+	
+	/**
+	 * getProductList + 페이지네이션 : 개수
+	 * @author 5563a
+	 * @param product
+	 * @return
+	 */
+	public int getlistPageCount(ProductListDto product) {
+		SqlSession session=Connection.getSession();
+		
+		int result=session.selectOne("RequestProductMap.getlistPageCount",product);
+		
+		return result;
+	}
+	
+	
+	/**
 	 * 신청자(Userid) , status : 상태값(요청중(req),승인(ture),거부(false)) 조건으로 상품 갯수 가져옴
 	 * @param product - seller status 만채워주면 됨
 	 * @return 해당 seller status 에 맞는 상품 갯수
