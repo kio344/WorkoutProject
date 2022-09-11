@@ -10,13 +10,13 @@
 		<ul>
 			<li class="box"><a
 				href="<c:url value="/seller/message?see=false" />"><span>미확인
-						메세지<span>●</span>
+						메세지<span>  ●</span>
 				</span></a></li>
 			<li class="box"><a
 				href="<c:url value="/seller/message?see=true" />"><span>확인한
-						메세지<span>●</span>
+						메세지<span>  ●</span>
 				</span></a></li>
-			<li class="box"><a href="<c:url value="/seller/message" />"><span>모든메세지<span>●</span></span></a></li>
+			<li class="box"><a href="<c:url value="/seller/message" />"><span>모든메세지<span>  ●</span></span></a></li>
 		</ul>
 		<div class="box">
 			<h3>
