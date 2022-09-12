@@ -74,10 +74,9 @@ public class Utils {
 	 * @throws IOException
 	 */
 	public static void showAlertException(HttpServletResponse resp, Exception e) throws IOException {
-		resp.setContentType("text/html;charset=UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 		out.println("<script>alert('" + e.getMessage() + "')</script>");
-
 	}
 
 	/**
@@ -88,7 +87,7 @@ public class Utils {
 	 * @throws IOException
 	 */
 	public static void showAlert(HttpServletResponse resp, String msg) throws IOException {
-		resp.setContentType("text/html;charset=UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 		out.println("<script>alert('" + msg + "')</script>");
 
@@ -103,7 +102,7 @@ public class Utils {
 	 * @throws IOException
 	 */
 	public static void replacePage(HttpServletResponse resp, String href, String target) throws IOException {
-		resp.setContentType("text/html;charset=UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 		if (target != null) {
 			target += ".";
@@ -123,7 +122,7 @@ public class Utils {
 	 * @throws IOException
 	 */
 	public static void reloadPage(HttpServletResponse resp, String target) throws IOException {
-		resp.setContentType("text/html;charset=UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 		out.println("<script>" + target + ".location.reload()" + "</script>");
 	}
