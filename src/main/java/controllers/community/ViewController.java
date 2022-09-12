@@ -20,6 +20,7 @@ public class ViewController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("addCss", new String[] {"community/view"});
+		req.setAttribute("addJs", new String[] {"board/update"});
 		try {
 			ViewService service=new ViewService(req,resp);
 			BoardDto board= service.get();
