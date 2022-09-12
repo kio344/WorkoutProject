@@ -26,7 +26,32 @@
 		<if test="recipient !=null">AND recipient=#{recipient}</if>
 			<if test="see !=null">AND see=#{see}</if>
 		</where>
+		 order by num desc
 	</select>
+	
+		<!-- 
+		유저가 받은 메세지 개수
+	 -->
+	<select id="getsUserMsgCount" parameterType="models.admin.MessageDto" resultType="int">
+		SELECT COUNT(*) FROM Message
+		<where>
+		<if test="recipient !=null">AND recipient=#{recipient}</if>
+			<if test="see !=null">AND see=#{see}</if>
+		</where>
+	</select>
+	
+		<!-- 
+		유저가 받은 메세지 + 페이지네이션
+	 -->
+	<select id="getsUserMsg_limit" parameterType="models.message.MessageLimitDto" resultMap="messageMap">
+		SELECT * FROM Message 
+		<where>
+		<if test="recipient !=null">AND recipient=#{recipient}</if>
+			<if test="see !=null">AND see=#{see}</if>
+		</where>
+		 order by num desc limit ${start},${offset}
+	</select>
+	
 
 	<!-- 
 		유저가 받은 메세지 개수 

@@ -2,7 +2,7 @@
 
 
 .box{
-	height:800px;
+	height:700px;
 	width:1500px;
 	overflow: scroll;
 	
@@ -12,10 +12,10 @@
 }
 table{
 	border:10px solid #efefef;
-	font-size: 20px;
+	font-size: 15px;
 }
 table thead{
-	font-size: 25px;
+	font-size: 20px;
 	background-color: #d3e4e4;
 }
 
@@ -36,4 +36,30 @@ tbody tr:nth-child(even) {
 			background-color: #dbdbdb;
 	
 
+}
+
+.pagination{
+	
+	display:flex;
+	flex-direction:row;
+	
+}
+
+.pagination >div{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width: 25px;
+	height: 25px;
+	border-radius:5px;
+	background-color: white;
+	margin: 5px;
+}
+.pagination .nowPage{
+	background-color: #d3d3d3;
+}
+
+
+.layout{
+	flex-direction: column !important;
 }

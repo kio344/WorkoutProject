@@ -23,5 +23,6 @@
 		</div>
 	</c:forEach>
 	</div>
+	<layout:pagination paginationCount="4" pageCount="${!empty param.num ? param.num:1}" link="/board/list?boardId=${param.boardId }&" total="${totalPage }"/>
 	</div>
 </layout:main>

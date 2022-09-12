@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts/sellertag" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags/layouts" %>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="<c:url value="/static/css/seller/myProduct.css" />" />
 	<%
@@ -59,5 +60,11 @@
 		</tbody>
 		
 	</table>
+	
+
+	
 	</div>
+	
+		<util:pagination paginationCount="3" pageCount="${empty param.num ? 1:param.num}" link="/seller/myproduct?status=${param.status }&" total="${totalPage }"/>
+	
 </layout:seller>
