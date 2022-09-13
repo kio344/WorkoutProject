@@ -74,7 +74,7 @@ public class UserValidator implements Validator, MobileValidator{
 	 * 회원가입
 	 * @param dto
 	 */
-	public UserDto insertUser(UserDto dto ) {
+	public UserDto insertUser(UserDto dto) {
 		SqlSession sqlsession = Connection.getSession();
 		
 		int affectedRows = sqlsession.insert("userInfoMapper.insert", dto);
