@@ -1,7 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts/" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="community"  tagdir="/WEB-INF/tags/layouts/community/"  %>
+
 <layout:main>
+
 	<div class="center">
 	<div>
 		<h1>${param.boardId } 게시판</h1> 
