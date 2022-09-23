@@ -47,7 +47,16 @@
 					</div>
 				</li>
 			</c:forEach>
+			<c:if test="${total == 0}">
+				<li class="list_sub">
+					<div>
+						<h4>검색한 데이터가 없습니다.</h4>
+					</div>
+				</li>
+			</c:if>
 		</ul>
 	</div>
-	<util:pagination url="Q&A" total="${total}" pageCnt="5" page="${page}" limit="${limit}" />
+	<c:if test="${total != 0}">
+		<util:pagination url="Q&A" total="${total}" pageCnt="5" page="${page}" limit="${limit}" />
+	</c:if>
 </layout:main>

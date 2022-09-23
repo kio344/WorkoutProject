@@ -25,6 +25,11 @@
 		SELECT * FROM WorkOutUser WHERE fakeName=#{fakeName}
 	</select>
 	
+	<!-- 유저 리스트 검색 -->
+	<select id="list" parameterType="dto.UserDto" resultMap="userInfoMap">
+		SELECT * FROM WorkOutUser
+	</select>
+	
 	<!-- 유저 정보 추가 -->
 	<insert id="insert" parameterType="dto.UserDto" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO WorkOutUser (id, password, name, fakeName, email, mobile, address, birthDay, sex)

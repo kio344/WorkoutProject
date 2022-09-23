@@ -49,8 +49,18 @@
 							<div>
 								<util:dateFormat value="${comment.regDt}"/>
 							</div>
+							<form method="post" action="<c:url value="/comment/update" />" target="ifrmProcess" autocomplete="off">
+								<div>
+									<textarea name="content" rows="5" cols="200" disabled>${comment.content}</textarea>
+								</div>
+								<c:if test="${comment.userName eq member.fakeName}">
+									<div class="btnWrap">
+										<input type="hidden" name="id" value="${comment.id}">
+										<button type="button" class="btn" data-id="${comment.id}" data-gid="${board.gid}">수정하기</button>
+									</div>
+								</c:if>
+							</form>
 						</div>
-						${comment.content}
 					</div>
 				</c:forEach>
 			</c:if>
