@@ -41,8 +41,10 @@
 				<div class="layout_width">
 					<a href="#">운동 기록</a>
 					<a href="<c:url value="/Q&A" /> ">Q&A</a>
-					<a href="<c:url value="/community" /> ">커뮤니티</a>
-					<a href="<c:url value="/bookshop?type=&search=&page=1" />">Book Shop</a>
+
+					<a href="<c:url value="/board/main" /> ">커뮤니티</a>
+					<a href="<c:url value="/bookshop?type=name&search=${search}&page=1" />">Book Shop</a>
+
 				</div>
 			</nav>
 		</c:if>
@@ -56,7 +58,7 @@
 	</jsp:attribute>
 	
 	<jsp:body>
-		<main>
+		<main style="${empty member ? "padding-top:60px":"padding-top:0px"}">
 			<jsp:doBody />
 		</main>
 	</jsp:body>
