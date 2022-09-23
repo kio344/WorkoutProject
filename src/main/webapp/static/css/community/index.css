@@ -1,0 +1,157 @@
+.center {
+	background-color: #dedede;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 50px;
+	padding-top: 50px;
+}
+
+.community_nav {
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0;
+	padding: 0;
+	background-color: rgba(0, 0, 0, 0);
+	width: auto;
+	font-size: 15px;
+	margin-left: 30px;
+		
+}
+
+.community_nav>ul {
+	background-color: #b5b5b5;
+	border-radius: 5px;
+	width: 100%;
+	height: 40rem;
+	display: flex;
+	justify-content: center;
+	
+	padding:10px;
+
+	flex-direction: column;
+	
+
+}
+
+.community_nav>ul>li {
+	padding: 10px;
+	padding-left: 0px;
+	border-bottom: 1px solid black;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	
+
+}
+.community_nav>ul>li>a{
+	margin: 0px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding: 10px;
+	padding-left: 0px;
+	font-size: 1.3rem;
+	
+}
+
+.community_nav>ul>ul {
+	font-size: 0.5rem;
+	width: 100%;
+}
+
+.community_nav>ul>ul>li {
+	font-size: 1rem;
+	padding:5px;
+	padding-left:0px;
+	width: 10rem;
+	border-radius: 10px;
+}
+
+.community_nav>ul>ul>li:first-child {
+	margin-top: 5;
+}
+
+.community_nav>ul>ul>li:last-child {
+	margin-bottom: 0;
+}
+
+.community_nav>ul>ul>li>a {
+	display: block; font-size : 1rem;
+	padding: unset;
+	width: 100%;
+	font-size: 1rem;
+	text-align: left;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left: 1rem;
+	
+	
+}
+ 
+.community_nav ul li:hover {
+	background-color: #e5e5e5;
+	border-radius: 0 5px 5px 0;
+	border-left: 5px solid #8c8c8c;
+}
+ 
+.community_nav>ul>li:hover {
+	background-color: #dddddd;
+	border-radius: 0 5px 5px 0;
+	border-left: 5px solid #8c8c8c;
+	border-bottom: none ;
+	padding-left: 1rem;
+}
+
+.outer {
+	width: 70%;
+	display: flex;
+	flex-direction: row;
+}
+
+.board {
+	background-color: #d5d5d5;
+	margin: 5px;
+	border: 1px solid #cccccc;
+	width: 50%;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+.board > div:first-child{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.board .boardEl > ul li{
+	padding-top:8px;
+	padding-bottom:8px;	
+	border-bottom: 2px solid #bcbcbc;
+	display: flex;
+}
+
+.board .boardEl > ul li:first-child {
+	border-top: 2px solid #bcbcbc;
+	
+}
+.board .boardEl > ul li a{
+	display: flex;
+	width:100%;
+	justify-content: space-between;
+		font-size: 1rem;
+	
+}
+
+.board .boardEl > ul li a span:nth-child(2){
+	width: 80%;
+}
+
+
+
+
+
+
+
