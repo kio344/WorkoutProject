@@ -1,0 +1,12 @@
+.item{
+	
+	display: flex;
+}
+.item_image img{
+	margin-left: 50px;
+	float: left;
+}
+.item_info {
+	float: right;
+	margin-right: 50px;
+}

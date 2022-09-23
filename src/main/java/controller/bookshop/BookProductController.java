@@ -22,7 +22,7 @@ public class BookProductController extends HttpServlet{
 		BookProductService service = new BookProductService();
 		
 		service.product(abnum, req);
-		
+		req.setAttribute("addCss", new String [] {"bookshop/book"});
 		RequestDispatcher rd = req.getRequestDispatcher("/book/store.jsp");
 		
 		rd.forward(req, resp);
@@ -32,7 +32,7 @@ public class BookProductController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		System.out.println("구입 테스트");
 		
 	}
 
