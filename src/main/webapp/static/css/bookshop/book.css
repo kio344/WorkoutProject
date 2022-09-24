@@ -1,12 +1,17 @@
 .item{
-	
 	display: flex;
+	align-items: center;
+	border: 1px solid black;
 }
-.item_image img{
-	margin-left: 50px;
-	float: left;
+
+.item_image{
+	display: flex;
+	margin: 250px 50px 350px 250px; 
 }
+
 .item_info {
-	float: right;
-	margin-right: 50px;
+	margin-left: 300px;
+}
+.book_name{
+	border-bottom: 1px solid black;
 }
