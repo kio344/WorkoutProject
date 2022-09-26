@@ -13,6 +13,7 @@ input[type="email"],
 input[type="number"] { border: 1px solid #d5d5d5; height: 40px; padding: 0 10px; border-radius: 3px; width: 100%; }
 main{ min-height: 600px; padding-top: 100px;}
 .dn{ display: none !important; }
+button{border:none; background-color:white;}
 
 /** 여백*/
 .mr{ margin-right: 50px;}
@@ -43,13 +44,13 @@ header .join-menu > div a { margin-left: 10px; }
 footer .footer{ text-align: center; border-top: solid 1px black; font-size: 25px; padding-top:50px; padding-bottom: 50px; font-size: 15px; }
 /** 푸터 */
 
-nav { background-color:rgba(255,255,255,0.5);  width: 100%; padding-top: 50px; }
-nav > div { display: flex; width: 100%; justify-content: space-around; }
+nav { background-color:rgba(255,255,255);  width: 280px; height: 100%; top:0; left:-280px; transtion:0.5s;}
+nav > div { display: flex; width: 100%; justify-content: space-around; flex-direction: column;}
 nav a {  text-align: center; font-size: 1.5rem; padding: 15px 20px;  }
-nav .layout_width a:hover {
-	color: red;
-	background-color: gray;
+.layout_width a:hover {
+	border:solid 1px black;
 }
+.layer{position:fixed; top:50px; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); display:none;}
 
 /** 버튼 */
 .btn-grp { display: flex; width: 330px; margin: 10px auto; }
