@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookPaymentMapper">
+	<resultMap id="BookPayment" type="models.bookshop.BookPaymentDto">
+		<result property="num" column="num" />
+		<result property="userId" column="userId" />
+		<result property="productNum" column="productNum" />
+		<result property="count" column="count" />
+		<result property="regDt" column="regDt" />
+		<result property="destination" column="destination" />
+	</resultMap>
+	
+	<insert id="insertInfo" parameterType="models.bookshop.BookPaymentDto" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO payment (userId, productNum, count, destination)
+			VALUES (#{userId}, #{productNum}, #{count}, #{destination});
+	</insert>
+	
+</mapper>

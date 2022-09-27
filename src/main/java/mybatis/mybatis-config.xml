@@ -36,7 +36,7 @@
       </dataSource>
     </environment>
   </environments>
-  <mappers>
+ <mappers>
 	<mapper resource="mapper/userInfoMapper.xml" />
 	<mapper resource="models/seller/requestProductMapper.xml" />
 	<mapper resource="models/message/MessageMapper.xml" />
@@ -44,5 +44,8 @@
 	<mapper resource="models/bookshop/bookShopMapper.xml" />
 	<mapper resource="models/file/fileMapper.xml" />
 	<mapper resource="models/qAnda/QAndAMapper.xml" />
-  </mappers>
+	<mapper resource="models/board/boardMapper.xml" />
+	<mapper resource="models/comment/CommentMapper.xml" />
+	<mapper resource="controller/bookshop/bookPaymentMapper.xml" />
+</mappers>
 </configuration>

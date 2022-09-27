@@ -20,34 +20,43 @@ import models.seller.MessageService;
 public class MessageController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String[] addCss=new String[] {"/seller/message"};
+		String[] addCss = new String[] { "/seller/message" };
 		req.setAttribute("addCss", addCss);
 
 		try {
-			MessageService service=new MessageService(req);
-			List<MessageDto> list = service.getUserMsg();
+			MessageService service = new MessageService(req);
+			List<MessageDto> list=null;
+			String num=req.getParameter("num");
+			if (num==null) {
+				num="1";
+			}
+			list= service.getUserMsg(Integer.parseInt(num));
+			int pageCount=service.pagelenght();
+			
+			req.setAttribute("paginationTotal", pageCount);
 			req.setAttribute("list", list);
-			RequestDispatcher rd=req.getRequestDispatcher("/jmsPage/message.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/jmsPage/message.jsp");
 			rd.forward(req, resp);
-		}catch (LoginException e) {
+		} catch (LoginException e) {
 			e.printStackTrace();
 			showAlert(resp, "로그인 후 사용해주세요");
-			RequestDispatcher rd=req.getRequestDispatcher("/jmsPage/login.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/jmsPage/login.jsp");
 
-			replacePage(resp, req.getContextPath()+"/seller/login", "parent");
+			replacePage(resp, req.getContextPath() + "/seller/login", "parent");
 		} catch (RuntimeException e) {
 			e.printStackTrace();
 			System.out.println("dd");
-		}  
+		}
 
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			MessageService service=new MessageService(req);
+			MessageService service = new MessageService(req);
 			service.seeSetting();
-			
+			reloadPage(resp, "parent");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

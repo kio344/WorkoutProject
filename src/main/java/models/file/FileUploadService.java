@@ -1,5 +1,6 @@
 package models.file;
 
+import java.io.Console;
 import java.io.File;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -40,7 +41,8 @@ public class FileUploadService {
 
 		
 		List<FileItem> _list = upload.parseRequest(req);
-
+		System.out.println(_list);
+		
 		List<FileInfoDto> list=new ArrayList<>();
 		
 		
@@ -68,8 +70,11 @@ public class FileUploadService {
 		String gid="";
 		
 		for (FileItem _file : _list) {
+			
 			if (_file.isFormField()) {
-				gid=_file.getString();
+				if (_file.getFieldName().equals("gid")) {
+					gid=_file.getString();
+				}
 			}
 		}
 
@@ -86,6 +91,9 @@ public class FileUploadService {
 				File uploadPath=new File(uploadFolder.getAbsoluteFile()+File.separator+(fileInfoDto.getId()%10)+File.separator+fileInfoDto.getId());
 				
 				_file.write(uploadPath);
+				
+				System.out.println(_file);
+
 				
 				list.add(fileInfoDto);
 			}

@@ -12,26 +12,42 @@
 		<result property="isAnswer"  column="isAnswer" />
 		<result property="regDt"  column="regDt" />
 		<result property="modDt"  column="modDt" />
+		<result property="fix" column="fix" />
 	</resultMap>
 	
+	<!-- QnA 등록 -->
 	<insert id="register" parameterType="models.qAnda.QAndADto" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO QAndA (memId, subject, question) VALUES (#{memId}, #{subject}, #{question});
 	</insert>
 	
+	<!-- 공지사항 등록 -->
+	<insert id="registerAdmin" parameterType="models.qAnda.QAndADto" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO QAndA (memId, subject, question, fix) VALUES (#{memId}, #{subject}, #{question}, #{fix});
+	</insert>
+	
+	<!-- QnA 답변 등록 -->
 	<update id="update" parameterType="models.qAnda.QAndADto">
 		UPDATE QAndA SET answer=#{answer}, isAnswer=1, modDt=NOW() WHERE id=#{id};
 	</update>
 	
+	<!-- QnA 단일 조회 -->
 	<select id="get" resultType="models.qAnda.QAndADto" parameterType="int">
 		SELECT * FROM QAndA WHERE id=#{id};
 	</select>
 
+	<!-- QnA 글목록 조회 -->
 	<select id="gets" resultMap="qAndaMap" parameterType="models.qAnda.QAndAListDto">
-		SELECT * FROM QAndA ORDER BY id DESC LIMIT #{offset}, #{limit};
+		SELECT * FROM QAndA ORDER BY fix DESC, id DESC LIMIT #{offset}, #{limit};
 	</select>
 	
+	<!-- QnA 글 총 개수 -->
 	<select id="count" resultType="int">
 		SELECT COUNT(*) FROM QAndA;
 	</select>
+	
+	<!-- QnA 관리자권한 삭제 -->
+	<delete id="delete" parameterType="models.qAnda.QAndADto">
+		DELETE FROM QAndA WHERE id=#{id};
+	</delete>
 
 </mapper>

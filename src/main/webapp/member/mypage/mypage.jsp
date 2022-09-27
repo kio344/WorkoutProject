@@ -9,7 +9,7 @@
 
 <button><a href="<c:url value="/mypage/basics"/> " >인적사항 변경</a></button>
 <button><a href="<c:url value="/mypage/password"/> " >비밀번호 변경</a></button>
-<button><a href="<c:url value="/mypage/physical"/> " >신체정보 변경</a></button>
+<button><a href="<c:url value="/mypage/withdrawal"/> " >회원 탈퇴</a></button>
 
 <!-- 프로필 이미지 넣기 -->
 

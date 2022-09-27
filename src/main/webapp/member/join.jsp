@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils" %>
 
 <layout:main title="회원가입">
 
@@ -15,8 +16,10 @@
 	사용할 별명 : <input type="text" name="fakeName" > <br>
 	핸드폰 번호 : <input type="number" name="mobile" ><br>
 	주소 : <input type="text" name="address" > <br>
+	생년월일: <util:selectBirth />
+	
 	<div>
-	성별 : <br>
+	성별 :
 		<label for="man">남자</label>
 		<input type="radio" name="sex" value="남자" >
 		<label for="woman">여자</label>

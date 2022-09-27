@@ -29,8 +29,14 @@ public class MypageService {
 		String mobile = req.getParameter("mobileRe");
 		String address = req.getParameter("addressRe");
 		
+		String year = req.getParameter("year");
+		String month = req.getParameter("month");
+		String day = req.getParameter("day");
+		String ymd = year + month + day;
+		
 		//별명 중복 체크
-		validator.checkFakeName(fakeName);
+		
+		validator.checkFakeName(req, fakeName);  //왜 자꾸 중복 된거 찾냐....
 		
 		//이메일 체크
 //		validator.emailCheck(req);
@@ -49,6 +55,7 @@ public class MypageService {
 		dto.setEmail(email);
 		dto.setMobile(mobile);
 		dto.setAddress(address);
+		dto.setBirthDay(ymd);
 		
 		//정보 수정 완료
 		UserDao dao = UserDao.getInstance();
@@ -141,57 +148,6 @@ public class MypageService {
 
 	
 	/**
-	 * 신체정보 업데이트
-	 * @param req
-	 * @param param
-	 */
-	public void physicalUpdate(HttpServletRequest req, UserDto param) { // 나이 같은 경우는 나중에 년생을 선택하게 해서 현재 년도와 비교해서 나이 값을 도출하는 방식이 필요해 보임
-		physicalCheck(req);
-		
-		SqlSession sqlSession = Connection.getSession();
-		UserDto dto = sqlSession.selectOne("userInfoMapper.user", param);
-		sqlSession.close();
-		
-		dto.setHeight(Double.parseDouble(req.getParameter("heightRe")));
-		dto.setWeight(Double.parseDouble(req.getParameter("weightRe")));
-		dto.setAge(Double.parseDouble(req.getParameter("ageRe")));
-		dto.setSex(req.getParameter("sexRe"));
-		
-		System.out.println(dto);
-		
-		//DB 저장
-		UserDao dao = UserDao.getInstance();
-		dao.bmiUpdate(dto);
-		System.out.println("디비 저장 = " + dto);
-
-		//세션에 저장해주기 - 비번은 비워서 저장하기
-		HttpSession session = req.getSession();
-		session.setAttribute("member", dto);
-		System.out.println("세션 저장 = " + dto);
-	}
-	
-	public void physicalCheck(HttpServletRequest req) {
-		
-		double height = Double.parseDouble(req.getParameter("heightRe")); 
-		double weight = Double.parseDouble(req.getParameter("weightRe")); 
-		double age = Double.parseDouble(req.getParameter("ageRe")); 
-		String sex = req.getParameter("sexRe");
-		
-		if(height <= 0) {
-			throw new BadException("정상적인 키를 입력 해주세요.");
-		}
-		if(weight <= 0) {
-			throw new BadException("비정상적인 입력값 입니다.");
-		}
-		if(age <= 0) {
-			throw new BadException("정상적인 나이 값을 입력해주세요.");
-		}
-		if(sex == null || sex.isBlank()) {
-			throw new BadException("성별을 체크해주세요.");
-		}
-	}
-	
-	/**
 	 * 회원 탈퇴
 	 * @param req - 현재 비번 입력,
 	 * @param dto
@@ -200,11 +156,30 @@ public class MypageService {
 		
 		SqlSession sqlSession = Connection.getSession();
 		
+		String pw = req.getParameter("wpcPw");
+		String pwRe = req.getParameter("wpcPwCheck");
+		
+		System.out.println(pw);
+		System.out.println(pwRe);
+		
+		if(pw == null || pw.isBlank()) {
+			throw new BadException("비밀번호를 입력하세요.");
+		}else if(pwRe == null || pwRe.isBlank()) {
+			throw new BadException("비밀번호 확인 칸을 입력하세요.");
+		}else if(!pw.equals(pwRe)) {
+			throw new BadException("비밀번호와 비밀번호 확인 입력을 일치시켜주세요.");
+		}
+		
 		//현재 비번과 입력 비번 비교
-		boolean equalPw = BCrypt.checkpw("pw", dto.getPassword());
+		boolean equalPw = BCrypt.checkpw(pw, dto.getPassword());
+		System.out.println(equalPw);
+		
 		if(equalPw) {//일치하면
- 			sqlSession.delete("userInfoMapper.delete", dto);
+			//db 지우기
+			sqlSession.delete("userInfoMapper.delete", dto.getId());
+			sqlSession.commit();
  			sqlSession.close();
+ 			
 		}else {//비번이 일치하지 않으면
 			throw new BadException("비밀번호가 일치하지 않습니다.");
 		}

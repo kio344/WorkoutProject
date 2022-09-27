@@ -99,8 +99,16 @@
 					</div>
 				</li>
 			</c:forEach>
+			<c:if test="${total == 0}">
+				<li class="list_sub">
+					<div>
+						<h4>검색한 데이터가 없습니다.</h4>
+					</div>
+				</li>
+			</c:if>
 		</ul>
 	</div>
-	
-	<util:pagination page="${page}" limit="${limit}" url="admin/product?select=${select}&str=${str}" total="${total}" pageCnt="5" />
+	<c:if test="${total != 0}">
+		<util:pagination page="${page}" limit="${limit}" url="admin/product?select=${select}&str=${str}" total="${total}" pageCnt="5" />
+	</c:if>
 </layout:admin>

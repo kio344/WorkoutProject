@@ -43,4 +43,12 @@
 		DELETE FROM BoardConfig WHERE boardId=#{boardId};
 	</delete>
 	
+	<!--
+	 id 로 1개만 가져오기 
+	@author 5563a
+	  -->
+	<select id="get" parameterType="models.admin.board.BoardConfigDto" resultType="models.admin.board.BoardConfigDto">
+		SELECT * FROM BoardConfig WHERE boardId=#{boardId} ;
+	</select>
+	
 </mapper>

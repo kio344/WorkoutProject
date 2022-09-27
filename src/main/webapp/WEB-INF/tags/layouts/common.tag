@@ -16,8 +16,12 @@
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/static/css/common.css" />">
+<<<<<<< HEAD
 <script defer type="text/javascript" src="<c:url value="/static/js/common.js" />"></script>
 
+=======
+<script type="text/javascript" src="<c:url value="/static/js/common.js" />"></script>
+>>>>>>> main
 <c:if test="${!empty addCss }">
 	<c:forEach var="css" items="${addCss }">
 		<link rel="stylesheet" type="text/css"

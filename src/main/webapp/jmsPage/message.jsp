@@ -1,21 +1,22 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts/sellertag"%>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags/layouts"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <layout:seller>
 	<div class="background"></div>
 	<div class="outerbox">
 		<form target="ifrmProcess" action="<c:url value="" />" method="post">
-	
+
 		<ul>
 			<li class="box"><a
 				href="<c:url value="/seller/message?see=false" />"><span>미확인
-						메세지<span>●</span>
+						메세지<span>  ●</span>
 				</span></a></li>
 			<li class="box"><a
 				href="<c:url value="/seller/message?see=true" />"><span>확인한
-						메세지<span>●</span>
+						메세지<span>  ●</span>
 				</span></a></li>
-			<li class="box"><a href="<c:url value="/seller/message" />"><span>모든메세지<span>●</span></span></a></li>
+			<li class="box"><a href="<c:url value="/seller/message" />"><span>모든메세지<span>  ●</span></span></a></li>
 		</ul>
 		<div class="box">
 			<h3>
@@ -41,7 +42,7 @@
 							<tr>
 								<td>
 								<input type="checkbox" name="num" value="${message.num }">
-								${no.index }
+								${message.num}
 								</td>
 								<td>${message.message }</td>
 								<c:if test="${message.see==true }">
@@ -58,7 +59,7 @@
 							<tr>
 								<td>
 								<input type="checkbox" name="num" value="${message.num }">
-								${no.index }
+								${message.num}
 								</td>
 								<td>${message.message }</td>
 								<c:if test="${message.see==true }">
@@ -75,7 +76,7 @@
 						<tr>
 								<td>
 								<input type="checkbox" name="num" value="${message.num }">
-								${no.index }
+								${message.num}
 								</td>
 								<td>${message.message }</td>
 								<c:if test="${message.see==true }">
@@ -109,6 +110,17 @@
 				</li>
 			</ul>
 		</nav>
-		</form>
+		
+		 
+<util:pagination link='/seller/message?${!empty param.see ?  "see=":""}${!empty param.see ?  param.see:""}&' paginationCount="5" pageCount="${empty param.num ? 1:param.num }"  total="${paginationTotal }"/>
+	 
+	 <%-- 
+ <util:pagination link='/seller/message?${!empty param.see ?  ("see="+param.see):""}&' paginationCount="5" pageCount="${empty param.num ? 1:param.num }"  total="10"/>
+ --%>
+ 
+ 
+ </form>
+
+		
 	</div>
 </layout:seller>

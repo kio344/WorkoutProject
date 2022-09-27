@@ -21,7 +21,7 @@
 					<c:if test="${!empty member }">
 						${member.fakeName}님 환영합니다. 
 						<a href="<c:url value="/mypage" /> ">MyPage</a>
-						<a href="<c:url value="/withdrawal" />" onclick="return confirm('탈퇴페이지로 이동하시겠습니까?');">회원탈퇴</a>
+						
 						<a href="<c:url value="/logout" /> ">로그아웃</a>
 						<c:if test="${member.userType eq 'admin'}">
 							<a href="<c:url value="/admin" /> " target="_blank"  >관리자 페이지</a>
@@ -37,6 +37,7 @@
 	
 	<jsp:attribute name="menu">
 		<c:if test="${!empty member}">
+<<<<<<< HEAD
 			<div id="layer" class="layer">
 				<nav>
 					<div class="layout_width">
@@ -47,6 +48,18 @@
 					</div>
 				</nav>
 			</div>
+=======
+			<nav>
+				<div class="layout_width">
+					<a href="#">운동 기록</a>
+					<a href="<c:url value="/Q&A" /> ">Q&A</a>
+
+					<a href="<c:url value="/board/main" /> ">커뮤니티</a>
+					<a href="<c:url value="/bookshop?type=name&search=${search}&page=1" />">Book Shop</a>
+
+				</div>
+			</nav>
+>>>>>>> main
 		</c:if>
 	</jsp:attribute>
 	<jsp:attribute name="footer">
@@ -58,7 +71,7 @@
 	</jsp:attribute>
 	
 	<jsp:body>
-		<main>
+		<main style="${empty member ? "padding-top:60px":"padding-top:0px"}">
 			<jsp:doBody />
 		</main>
 	</jsp:body>

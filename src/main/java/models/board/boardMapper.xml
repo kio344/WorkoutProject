@@ -1,0 +1,79 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardMapper">
+	<!-- id, gid, boardId, subject, poster, content, regDt -->
+	<resultMap type="models.board.BoardDto" id="boardMap">
+		<result column="id" property="id" />
+		<result column="gid" property="gid" />
+		<result column="boardId" property="boardId" />
+		<result column="subject" property="subject" />
+		<result column="poster" property="poster" />
+		<result column="content" property="content" />
+		<result column="regDt" property="regDt" />
+	</resultMap>
+
+	<!-- 게시글쓰기 -->
+	<insert id="insert" parameterType="models.board.BoardDto" useGeneratedKeys="true" keyProperty="id">
+		INSERT Board ( gid, boardId, subject, poster, content) VALUES (#{gid},#{boardId},#{subject},#{poster},#{content});
+	</insert>
+	
+	<!-- 특정 게시판(boardId) 모든  게시글 갖고오기 -->
+	<select id="gets" parameterType="models.board.BoardDto" resultMap="boardMap">
+		SELECT * FROM Board WHERE boardId=#{boardId} ORDER BY regDt DESC;
+	</select>
+	
+		<!-- 특정 게시판(boardId) 모든  게시글 개수 갖고오기 -->
+	<select id="getsCount" parameterType="models.board.BoardDto" resultType="int">
+		SELECT COUNT(*) FROM Board WHERE boardId=#{boardId} ORDER BY regDt DESC;
+	</select>
+	
+	<!-- 게시글(id or gid) 가져오기 -->
+	<select id="get" parameterType="models.board.BoardDto" resultType="models.board.BoardDto">
+		SELECT * FROM Board
+		<where>
+			<if test="id!=null">
+			AND id=#{id}
+			</if>
+			<if test="gid!=null">
+			AND gid=#{gid}
+			</if>
+			<if test="boardId!=null">
+			AND boardId=#{boardId}
+			</if>
+		</where>
+		ORDER BY id desc
+	</select>
+	
+	<!-- 게시글 가져오기 + 페이지네이션 -->
+	<select id="getpage" parameterType="models.board.BoardLimitDto" resultType="models.board.BoardDto">
+		SELECT * FROM Board
+		<where>
+			<if test="id!=null">
+			AND id=#{id}
+			</if>
+			<if test="gid!=null">
+			AND gid=#{gid}
+			</if>
+			<if test="boardId!=null">
+			AND boardId=#{boardId}
+			</if>
+		</where>
+		ORDER BY id desc limit ${start}, ${offset} 
+	</select>
+	
+	
+	
+	
+	<!-- 게시글 수정(업데이트) -->
+	<update id="update" parameterType="models.board.BoardDto" >
+		UPDATE Board SET subject=#{subject},content=#{content} WHERE gid=#{gid} ORDER BY id desc;
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="delete" parameterType="models.board.BoardDto" >
+		DELETE FROM Board WHERE gid=#{gid} ORDER BY id desc
+	</delete>
+
+</mapper>

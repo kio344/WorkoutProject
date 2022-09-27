@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="<c:url value="/static/css/file/upload.css" />" />
 <script src="<c:url value="/static/js/file/upload.js" />"  type="text/javascript"> </script>
 
-	<div id="drop" data-gid="123">
+	<div id="drop" data-gid="${param.gid }" ${empty param.imageOnly ? " ":"data-imageOnly='1' " } >
 		<h1>파일을 드래그 해주세요</h1>
 	</div>
 	<ul id="files">
