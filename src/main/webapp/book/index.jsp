@@ -13,7 +13,7 @@
 				value="publisher">출판사</option>
 		</select>
 		<br>
-		검색<input type="text" name="search"> 
+		검색<input type="text" name="search" placeholder="검색하실 책 이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='검색하실 책 이름을 입력해 주세요.'"> 
 		<input type="hidden" name="page" value="1" />
 		<button type="submit">검색</button>
 	</form>

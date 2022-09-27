@@ -12,10 +12,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/static/css/common.css" />">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" type="text/css" href="<c:url value="/static/css/common.css" />">
 <script type="text/javascript" src="<c:url value="/static/js/common.js" />"></script>
 <c:if test="${!empty addCss }">
 	<c:forEach var="css" items="${addCss }">

@@ -11,8 +11,8 @@
 	</resultMap>
 	
 	<insert id="insertInfo" parameterType="models.bookshop.BookPaymentDto" useGeneratedKeys="true" keyProperty="num">
-		INSERT INTO payment (userId, productNum, count, destination)
-			VALUES (#{userId}, #{productNum}, #{count}, #{destination});
+		INSERT INTO payment (userId, productNum, count, destination, progress)
+			VALUES (#{userId}, #{productNum}, #{count}, #{destination}, #{progress});
 	</insert>
 	
 </mapper>
