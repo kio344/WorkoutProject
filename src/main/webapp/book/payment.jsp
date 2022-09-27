@@ -5,12 +5,15 @@
 
 <layout:main title="구매/결제 페이지">
 
-	<form action="" method="post">
+	<form action="<c:url value="/bookshop/payment"/>" method="post">
 
 	<h1>주문/결제</h1>
 		<hr>
 	<h2>구매자 정보</h2>
 		<hr>
+			<input type="hidden" name="userId" value="${member.id }">
+			<input type="hidden" name="abnum" value="${param.abnum }">
+			<input type="hidden" name="count" value="${param.count }">
 			이름 : ${member.name }
 			<br>
 			
@@ -19,21 +22,30 @@
 			
 			휴대폰 번호 : ${member.mobile }
 			<br> 
-			
 	<h2>받는사람정보</h2>
 			이름 : ${member.name }
 			<br>
-			<p>
+			 <p>
 				<input type="text" name="postcode" id="sample6_postcode" placeholder="우편번호" readonly>
 				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-				<br>
+					<br>
 				<input type="text" name="addr" id="sample6_address" placeholder="주소" readonly>
-				<br>
+					<br>
 				<input type="text" name="datiladdr" id="sample6_detailAddress" placeholder="상세주소">
 				<input type="text" name="extraaddr" id="sample6_extraAddress" placeholder="참고항목" readonly>
 			</p>
-</form>
-
+			
+	<h3>배송 수량 및 가격</h3>
+		상품명 : ${dto.name }
+		<br>
+		상품 수량 : ${param.count }
+		<br>
+		상품 총 가격 : ${dto.price * param.count }
+		<br>
+	<h3>결제하기</h3>
+	
+	<button>결제하기</button>
+	</form>
 </layout:main>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -63,7 +75,7 @@
 				if(data.buildingName !== '' && data.apartment === 'Y'){
 					extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
 				}
-				// 표시할 ㅊ마고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+				// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
 				if(extraAddr !== ''){
 					extraAddr = '(' + extraAddr + ')'
 				}

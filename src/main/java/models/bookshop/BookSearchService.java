@@ -38,7 +38,7 @@ public class BookSearchService {
 		}
 
 		String search = req.getParameter("search");
-		if((search.isBlank() || search.isBlank()) && !type.isBlank()) {
+		if(search.isBlank() && type.isBlank()) { // 여기 수정해야함
 			throw new BadException("검색하신 결과가 없습니다.");
 		}
 			

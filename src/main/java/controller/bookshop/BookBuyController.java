@@ -2,6 +2,7 @@ package controller.bookshop;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,26 +10,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
+import models.bookshop.BookPaymentDto;
+import models.bookshop.BookPaymentService;
+import models.bookshop.BookProductService;
 
-@WebServlet("/book/buy")
+@WebServlet("/bookshop/payment")
 public class BookBuyController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		BookProductService service = new BookProductService();
+		int abnum = Integer.parseInt(req.getParameter("abnum"));
+		service.product(abnum, req);
+		RequestDispatcher rd = req.getRequestDispatcher("/book/payment.jsp");
 		HttpSession session = req.getSession();
-		session.setAttribute("member", session);
+		session.getAttribute("member");
+		
+		String name = req.getParameter("name");
+		System.out.println(name);
+		
+		rd.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		int bookPrice = Integer.parseInt(req.getParameter("price"));
-		int bookCount = Integer.parseInt(req.getParameter("count"));
+		BookPaymentService service = new BookPaymentService();
 		
-		int bookTotal = bookPrice * bookCount;
-		System.out.println(bookTotal);
-		
+		try {
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
