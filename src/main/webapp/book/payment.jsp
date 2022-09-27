@@ -32,8 +32,6 @@
 				<input type="text" name="datiladdr" id="sample6_detailAddress" placeholder="상세주소">
 				<input type="text" name="extraaddr" id="sample6_extraAddress" placeholder="참고항목" readonly>
 			</p>
-					
-				
 </form>
 
 </layout:main>
