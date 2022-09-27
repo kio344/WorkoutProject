@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.bookshop.BookPaymentService;
 import models.bookshop.BookProductService;
 
 @WebServlet("/bookshop/product")
@@ -32,8 +33,6 @@ public class BookProductController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("구입 테스트");
-		
 	}
 
 	

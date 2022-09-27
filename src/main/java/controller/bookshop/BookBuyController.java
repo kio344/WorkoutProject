@@ -1,5 +1,7 @@
 package controller.bookshop;
 
+import static jmsUtil.Utils.*;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import exception.BadException;
 import models.bookshop.BookPaymentDto;
 import models.bookshop.BookPaymentService;
 import models.bookshop.BookProductService;
@@ -38,9 +41,14 @@ public class BookBuyController extends HttpServlet{
 		BookPaymentService service = new BookPaymentService();
 		
 		try {
-
+			service.setDto(req);
+			showAlert(resp, "결제완료");
+			replacePage(resp, req.getContextPath() + "/bookshop?type=&search=&page=1", "parent");
 		} catch (Exception e) {
 			e.printStackTrace();
+			showAlertException(resp, e);
+			System.out.println(req.getContextPath());
+			replacePage(resp, req.getContextPath() + "/bookshop?type=&search=&page=1", "parent");
 		}
 	}
 	

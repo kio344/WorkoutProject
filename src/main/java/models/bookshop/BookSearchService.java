@@ -38,7 +38,7 @@ public class BookSearchService {
 		}
 
 		String search = req.getParameter("search");
-		if(search.isBlank() && type.isBlank()) { // 여기 수정해야함
+		if(search.isBlank() && !type.isBlank()) { 
 			throw new BadException("검색하신 결과가 없습니다.");
 		}
 			
@@ -49,12 +49,12 @@ public class BookSearchService {
 		} else if (searchType.equals("publisher")) {
 			dto.setPublisher(search);
 		}
-
 		List<BookShopDto> list = sqlSession.selectList("BookShopMapper.search", dto);
+
 		req.setAttribute("list", list);
 
-		req.setAttribute("type", searchType);
-		req.setAttribute("search", search);
+/**		req.setAttribute("type", searchType);
+		req.setAttribute("search", search); */
 	}// search
 	
 //	public void list(HttpServletRequest req) {
