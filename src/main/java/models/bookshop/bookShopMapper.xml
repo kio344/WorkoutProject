@@ -54,6 +54,15 @@
 	SELECT * FROM RequestProduct limit ${start}, ${count};
 	</select>
 	
+	<select id="searchProduct" resultType="int" parameterType="models.bookshop.BookShopDto">
+	SELECT COUNT(*) FROM RequestProduct
+	<where>
+		<if test="name != null ">name LIKE CONCAT('%', #{name}, '%')</if>
+		<if test="kategorie != null ">kategorie LIKE CONCAT('%', #{kategorie}, '%')</if>
+		<if test="publisher != null ">publisher LIKE CONCAT('%', #{publisher}, '%')</if>
+	</where>
+	</select>
+	
 </mapper>
 
 

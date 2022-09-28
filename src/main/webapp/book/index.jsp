@@ -17,13 +17,17 @@
 		<input type="hidden" name="page" value="1" />
 		<button type="submit">검색</button>
 	</form>
+	<c:if test="${empty list }" >
+	검색하신 책이 없습니다.
+	</c:if>
+		
+	<c:if test="${!empty list }" >
+		
 		<c:forEach var="product" items="${list}">
 			<a href="<c:url value="/bookshop/product?abnum=${product.abnum }" />">
 				<div>
 					<table border="1">
-						<input disabled="disabled" type="test" value="${product.abnum }"
-							name="abnum" />
-
+						<input disabled="disabled" type="test" value="${product.abnum }" name="abnum" />
 						<tr>
 							<td>${product.seller }</td>
 						</tr>
@@ -45,8 +49,7 @@
 						</tr>
 
 						<tr>
-							<td><img alt="${product.name }"
-								src="<c:url value="/productImage/${product.abnum%10}/${product.abnum }" /> "></td>
+							<td><img alt="${product.name }" src="<c:url value="/productImage/${product.abnum%10}/${product.abnum }" /> "></td>
 						</tr>
 					</table>
 				</div>
@@ -54,32 +57,28 @@
 		</c:forEach>
 	<div>
 		<c:if test="${param.page -2 > 0 }">
-			<a
-				href="<c:url value="/bookshop?type=${type}&search=${search}&page=${param.page -2 }" />">
+			<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page -2 }" />">
 				${param.page - 2} </a>
 		</c:if>
 
 		<c:if test="${param.page -1 > 0 }">
-			<a
-				href="<c:url value="/bookshop?type=${type}&search=${search}&page=${param.page -1 }" />">
+			<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page -1 }" />">
 				${param.page - 1} </a>
-
 		</c:if>
 
-		<a
-			href="<c:url value="/bookshop?type=${type}&search=${search}&page=${param.page}" />">
+		<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page}" />">
 			${param.page} </a>
 
 		<c:if test="${totalPage >= param.page + 1 }">
-			<a
-				href="<c:url value="/bookshop?type=${type}&search=${search}&page=${param.page + 1}" />">
+			<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page + 1}" />">
 				${param.page + 1} </a>
+		
 		</c:if>
 
 		<c:if test="${totalPage >= param.page + 2}">
-			<a
-				href="<c:url value="/bookshop?type=${type}&search=${search}&page=${param.page + 2}" />">
+			<a href="<c:url value="/bookshop?type=${type}&search=${search}&page=${param.page + 2}" />">
 				${param.page + 2} </a>
 		</c:if>
 	</div>
+	</c:if>
 </layout:main>
