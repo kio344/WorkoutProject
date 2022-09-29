@@ -9,6 +9,7 @@ public class BookPaymentDto {
 	private int count; // 책 수량
 	private LocalDateTime regDt; // 주문한 날짜
 	private String destination; // 배송지
+	private BookProgress progress; // 주문상태
 
 	public int getNum() {
 		return num;
@@ -57,5 +58,15 @@ public class BookPaymentDto {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
+
+	public BookProgress getProgress() {
+		return progress;
+	}
+
+	public void setProgress(BookProgress progress) {
+		this.progress = progress;
+	}
+	
+	
 
 }

@@ -18,30 +18,17 @@ public class BookSearchService {
 	 * 
 	 * @param req
 	 */
-	public void search(HttpServletRequest req, String type) {
+	public void search(HttpServletRequest req) {
 		SqlSession sqlSession = Connection.getSession();
-
 		String searchType = req.getParameter("type");
 		ProductLimitDto dto = new ProductLimitDto();
 		int num = Integer.parseInt(req.getParameter("page"));
-		dto.setCount(3);
-		int strat = (num * dto.getCount()) - dto.getCount();
-		dto.setStart(strat);
-
-		int items = sqlSession.selectOne("BookShopMapper.searchItems");
-		if (items != 0) {
-			int totalPage = (int) (Math.ceil((double) items / dto.getCount()));
-			req.setAttribute("totalPage", totalPage);
-		}
-		if (searchType == null) {
+		String search = req.getParameter("search");
+		
+		if (searchType == null || searchType.isBlank()) {
 			searchType = "name";
 		}
 
-		String search = req.getParameter("search");
-		if(search.isBlank() && type.isBlank()) { // 여기 수정해야함
-			throw new BadException("검색하신 결과가 없습니다.");
-		}
-			
 		if (searchType.equals("name")) {
 			dto.setName(search);
 		} else if (searchType.equals("kategorie")) {
@@ -50,30 +37,28 @@ public class BookSearchService {
 			dto.setPublisher(search);
 		}
 
+		dto.setCount(3);
+		int start = (num * dto.getCount()) - dto.getCount();
+		
+		int searchCount = sqlSession.selectOne("BookShopMapper.searchProduct", dto);
+		if(search.isBlank() || search.equals(null)) {
+			dto.setStart(start);
+		}else {
+			dto.setStart(searchCount);
+		}
+		
+		dto.setStart(start);
+		
+		if (searchCount != 0) { 
+			int totalPage = (int)(Math.ceil((double) searchCount / dto.getCount()));
+			req.setAttribute("totalPage", totalPage);
+		}
+
 		List<BookShopDto> list = sqlSession.selectList("BookShopMapper.search", dto);
+		
 		req.setAttribute("list", list);
 
 		req.setAttribute("type", searchType);
-		req.setAttribute("search", search);
+		req.setAttribute("search", search); 
 	}// search
-	
-//	public void list(HttpServletRequest req) {
-//		SqlSession sqlSession = Connection.getSession();
-//
-//		ProductLimitDto dto = new ProductLimitDto();
-//		int num = Integer.parseInt(req.getParameter("page"));
-//		dto.setCount(3);
-//		int strat = (num * dto.getCount()) - dto.getCount();
-//		dto.setStart(strat);
-//
-//		int items = sqlSession.selectOne("BookShopMapper.searchItems");
-//		if (items != 0) {
-//			int totalPage = (int) (Math.ceil((double) items / dto.getCount()));
-//			req.setAttribute("totalPage", totalPage);
-//		}
-//
-//		List<BookShopDto> list = sqlSession.selectList("BookShopMapper.pageItems", dto);
-//		req.setAttribute("list", list);
-//	
-//	}
 }
