@@ -27,10 +27,10 @@
 					</a>
 				</c:if>
 				
-					<a href="<c:url value="/seller" />">
+					<a href="<c:url value="/seller/order" />">
 						<li>
-							<div class="xi-home-o header_icon" ></div>
-							<div class="info">메인페이지</div>
+							<div class="xi-download header_icon" ></div>
+							<div class="info">주문관리</div>
 						</li>
 					</a>
 				
