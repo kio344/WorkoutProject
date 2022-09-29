@@ -18,9 +18,9 @@ public class BookShopController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		BookSearchService searchService = new BookSearchService();
+		
 		try {
-			String type = req.getParameter("type");
-			searchService.search(req, type);
+			searchService.search(req);
 			
 			RequestDispatcher rd = req.getRequestDispatcher("/book/index.jsp");
 			rd.forward(req, resp);
