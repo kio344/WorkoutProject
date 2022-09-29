@@ -1,4 +1,4 @@
-<%@ tag description="메인 공통 레이아웃" pageEncoding="utf-8" %>
+<%-- <%@ tag description="메인 공통 레이아웃" pageEncoding="utf-8" %>
 <%@ tag body-content="scriptless" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -80,4 +80,4 @@
 		</main>
 	</jsp:body>
 	
-</layout:common>
+</layout:common> --%>

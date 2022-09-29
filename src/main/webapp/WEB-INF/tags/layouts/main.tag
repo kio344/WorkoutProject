@@ -10,7 +10,7 @@
 		<header>
 			<section class="join-menu" >
 				<div class="logo ml">
-					<i class="xi-bars"></i>
+					<button id="btn"><i class="xi-bars"></i></button>
 					<a href="<c:url value="/" /> ">로고 부분</a>
 				</div>
 				<div class="layout_width">
@@ -37,6 +37,7 @@
 	
 	<jsp:attribute name="menu">
 		<c:if test="${!empty member}">
+			<div id="layer" class="layer">
 			<nav>
 				<div class="layout_width">
 					<a href="#">운동 기록</a>
@@ -47,6 +48,7 @@
 
 				</div>
 			</nav>
+			</div>
 		</c:if>
 	</jsp:attribute>
 	<jsp:attribute name="footer">
