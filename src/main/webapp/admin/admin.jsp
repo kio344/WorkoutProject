@@ -3,4 +3,5 @@
 
 <layout:admin>
 	<h1>테스트</h1>
+	<h1>이게무슨일이야</h1>
 </layout:admin>
