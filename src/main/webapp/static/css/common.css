@@ -10,8 +10,8 @@ dl, dt, dd {margin: 0; padding: 0;}
 input[type="text"], 
 input[type="password"], 
 input[type="email"], 
-input[type="number"] { border: 1px solid #d5d5d5; height: 40px; padding: 0 10px; border-radius: 3px; width: 100%; }
-main{ min-height: 600px;}
+input[type="number"] { border: 1px solid rgb(132, 132, 132); height: 40px; padding: 0 10px; border-radius: 20px; width: 100%; }
+main{ min-height: 600px; padding-top:0px;}
 .dn{ display: none !important; }
 button{border:none; background-color:white;}
 

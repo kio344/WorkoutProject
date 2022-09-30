@@ -1,0 +1,40 @@
+.flex{display:flex; justify-content: space-between;}
+.pointer{cursor: pointer;}
+
+.content{padding: 100 300 100 300px;}
+.join{padding: 45 60 60 60px; border: 2px solid #6c6c6c; border-radius: 30px; width: 500px; margin: 0 auto;}
+.text{padding:20 10 10 10px;}
+input{border-radius:10px; margin: 0 auto;}
+select{padding: 10px;
+    border-radius: 20px;
+    width: 110px; cursor: pointer;}
+.gender{display:flex;     justify-content: space-evenly;}
+.manBtn{border: 1px solid rgb(132, 132, 132);
+    border-radius: 20px;
+    padding: 10 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;}
+.womanBtn{border: 1px solid rgb(132, 132, 132);
+    border-radius: 20px;
+    padding: 10 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;}
+.man{padding-right:10px;}
+.joinBtn{    border: 1px solid;
+    padding: 15px;
+    border-radius: 20px;
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgoldenrodyellow;
+    cursor: pointer;}
+.joinbox{width: 100%;
+    display: flex;
+    justify-content: center;}
