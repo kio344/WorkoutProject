@@ -52,7 +52,7 @@ header{
 	height: 100%;
 	background-color: white;
     transition: ease-in-out 400ms;
-	position:fixed;
+	/* position:fixed; */
 	overflow: hidden;
 	z-index: 100;
 }
@@ -69,8 +69,8 @@ header{
 }
 
 .header_nav ul a:last-child {
-	position:absolute;
-	bottom: 0;
+/* 	position:absolute;
+ */	bottom: 0;
 }
 
 .header_nav ul a li:hover{

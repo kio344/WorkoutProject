@@ -8,8 +8,9 @@
 		<link rel="stylesheet" href="<c:url value="/static/css/seller/common.css" />" ></link>
 		<header>
 			<nav class="header_nav" >
+			<ul>
 				<c:if test="${!empty member }">
-				<ul>
+
 					<a href="<c:url value="/seller" />">
 						<li>
 							<div class="xi-profile-o header_icon" ></div>
@@ -18,7 +19,7 @@
 					</a>
 				</c:if>
 				<c:if test="${empty member }">
-				<ul>
+
 					<a href="<c:url value="/seller/login" />">
 						<li>
 							<div class="xi-profile-o header_icon" ></div>
@@ -27,7 +28,7 @@
 					</a>
 				</c:if>
 				
-					<a href="<c:url value="/seller/order?progress=PAYMENT" />">
+					<a href="<c:url value="/seller/order?progress=PAYMENT&num=1" />">
 						<li>
 							<div class="xi-download header_icon" ></div>
 							<div class="info">주문관리</div>
@@ -75,7 +76,7 @@
 					</a>
 					
 					<c:if test="${!empty member }">
-				<ul>
+
 					<a href="<c:url value="/seller/logout" />">
 						<li>
 							<div class="xi-log-out header_icon" ></div>
@@ -85,7 +86,7 @@
 				</c:if>
 				
 					<c:if test="${empty member }">
-				<ul>
+
 					<a href="<c:url value="/seller" />">
 						<li>
 							<div class="xi-log-out header_icon dn" ></div>

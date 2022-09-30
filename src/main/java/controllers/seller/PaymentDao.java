@@ -22,6 +22,16 @@ public class PaymentDao {
 		return list;
 	}
 	
+	public BookPaymentDto update(BookPaymentDto dto) {
+		SqlSession session=Connection.getSession();
+
+		session.update("BookPaymentMapper.update",dto);
+		session.commit();
+		System.out.println(dto);
+		session.close();
+		return dto;
+	}
+	
 	
 	public static PaymentDao getInstance() {
 		if (instance==null) {
@@ -30,4 +40,6 @@ public class PaymentDao {
 		
 		return instance;
 	}
+	
+	
 }

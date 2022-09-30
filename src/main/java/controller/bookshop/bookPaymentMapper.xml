@@ -16,6 +16,10 @@
 			VALUES (#{userId}, #{productNum}, #{count}, #{destination}, #{progress});
 	</insert>
 	
+	<!-- 
+	판매자별 주문내역 확인  
+	@author 5563a
+	-->
 	<select id="gets" parameterType="models.bookshop.BookPaymentDto" resultMap="BookPayment">
 		SELECT * FROM WorkOut.payment pay left join RequestProduct product on pay.productNum=product.abnum 
 		<where>
@@ -25,5 +29,9 @@
 			</if>
 		</where>
 	</select>
+	
+	<update id="update" parameterType="models.bookshop.BookPaymentDto"  >
+		UPDATE payment set progress=#{progress} WHERE num=${num};
+	</update>
 	
 </mapper>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import models.bookshop.BookPaymentDto;
 import models.bookshop.BookProgress;
 import models.seller.OrderService;
+import static jmsUtil.Utils.*;
 
 @WebServlet("/seller/order")
 public class OrderController extends HttpServlet{
@@ -39,5 +40,18 @@ public class OrderController extends HttpServlet{
 		}
 		
 		rd.forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		OrderService service=new OrderService(req,resp);
+		try {
+			service.setOrderProcess();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		reloadPage(resp, "parent");
 	}
 }

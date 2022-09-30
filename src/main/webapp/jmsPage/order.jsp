@@ -9,19 +9,23 @@
 
 		<ul>
 			<li class="box"><a
-				href="<c:url value="/seller/message?see=false" />">
+				href="<c:url value="/seller/order?progress=PAYMENT" />">
 				<span>받은 주문<span>  ●</span>
 				</span></a></li>
 			<li class="box"><a
-				href="<c:url value="/seller/message?see=true" />">
+				href="<c:url value="/seller/order?progress=SHIPPING" />">
 				<span>배송중인 주문<span>  ●</span></span>
 				</a>
 			</li>
-			<li class="box"><a href="<c:url value="/seller/message" />">
+			<li class="box"><a href="<c:url value="/seller/order?progress=COMPLETED" />">
 				<span>수취 완료된 주문<span>  ●</span></span>
+				</a></li>
+			<li class="box"><a href="<c:url value="/seller/order?progress=cancel" />">
+				<span>취소한 주문<span>  ●</span></span>
 				</a></li>
 		</ul>
 		<div class="box">
+			<h3>${param.progress }</h3>
 			<table>
 				<thead>
 					<td>선택</td>
@@ -35,7 +39,7 @@
 					<c:forEach varStatus="no"  items="${list }" var="payment">
 						<tr>
 							<td>
-								<input type="checkbox" name="num" >
+								<input type="checkbox" name="abnum" value="${payment.num }" >
 							</td>
 							<td>
 								${payment.userId }
@@ -64,9 +68,9 @@
 			<ul>
 				<li class="box">
 					<select name="mode">
-						<option value="true">확인</option>
-						<option value="false">미확인</option>
-						<option value="delete">삭제 </option>
+						<option value="SHIPPING">배송중</option>
+						<option value="cancel">취소</option>
+						 <option value="PAYMENT">결제됨 </option>
 					</select>
 				</li>
 				<li class="box">
