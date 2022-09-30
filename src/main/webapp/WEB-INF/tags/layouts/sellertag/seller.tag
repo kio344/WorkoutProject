@@ -27,7 +27,7 @@
 					</a>
 				</c:if>
 				
-					<a href="<c:url value="/seller/order" />">
+					<a href="<c:url value="/seller/order?progress=PAYMENT" />">
 						<li>
 							<div class="xi-download header_icon" ></div>
 							<div class="info">주문관리</div>

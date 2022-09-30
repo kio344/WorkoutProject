@@ -22,10 +22,41 @@
 				</a></li>
 		</ul>
 		<div class="box">
-			<h1>1232131231231231231231231231313132131231</h1>		
-						<h1>1232131231231231231231231231313132131231</h1>			
-						<h1>1232131231231231231231231231313132131231</h1>			
-						<h1>1232131231231231231231231231313132131231</h1>			
+			<table>
+				<thead>
+					<td>선택</td>
+					<td>주문자</td>
+					<td>제품번호</td>
+					<td>제품이름</td>
+					<td>수량</td>
+					<td>주소</td>
+				</thead>
+				<tbody>
+					<c:forEach varStatus="no"  items="${list }" var="payment">
+						<tr>
+							<td>
+								<input type="checkbox" name="num" >
+							</td>
+							<td>
+								${payment.userId }
+							</td>
+							<td>
+								${payment.productNum }
+							</td>
+							<td>
+								${payment.name }
+							</td>
+							<td>
+								${payment.count }
+							</td>
+							<td>
+								${payment.destination }
+							</td>
+						</tr>
+						
+					</c:forEach>
+				</tbody>
+			</table>
 				
 
 		</div>

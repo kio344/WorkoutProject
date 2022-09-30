@@ -8,11 +8,22 @@
 		<result property="count" column="count" />
 		<result property="regDt" column="regDt" />
 		<result property="destination" column="destination" />
+		<result property="progress" column="progress"  />
 	</resultMap>
 	
 	<insert id="insertInfo" parameterType="models.bookshop.BookPaymentDto" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO payment (userId, productNum, count, destination, progress)
 			VALUES (#{userId}, #{productNum}, #{count}, #{destination}, #{progress});
 	</insert>
+	
+	<select id="gets" parameterType="models.bookshop.BookPaymentDto" resultMap="BookPayment">
+		SELECT * FROM WorkOut.payment pay left join RequestProduct product on pay.productNum=product.abnum 
+		<where>
+			 seller=#{seller} 
+			<if test="progress != null">
+				AND progress=#{progress}
+			</if>
+		</where>
+	</select>
 	
 </mapper>
