@@ -2,14 +2,14 @@ package models.bookshop;
 
 import java.time.LocalDateTime;
 
-public class BookPaymentDto {
+public class BookPaymentDto extends ProductLimitDto {
 	private int num; // 넘
 	private String userId; // 유저 아이디
 	private int productNum; // 책 번호
 	private int count; // 책 수량
 	private LocalDateTime regDt; // 주문한 날짜
 	private String destination; // 배송지
-	private BookProgress progress; // 주문상태
+	private String progress; // 주문상태
 
 	public int getNum() {
 		return num;
@@ -59,12 +59,18 @@ public class BookPaymentDto {
 		this.destination = destination;
 	}
 
-	public BookProgress getProgress() {
+	public String getProgress() {
 		return progress;
 	}
 
-	public void setProgress(BookProgress progress) {
+	public void setProgress(String progress) {
 		this.progress = progress;
+	}
+
+	@Override
+	public String toString() {
+		return "BookPaymentDto [num=" + num + ", userId=" + userId + ", productNum=" + productNum + ", count=" + count
+				+ ", regDt=" + regDt + ", destination=" + destination + ", progress=" + progress + "]";
 	}
 	
 	
