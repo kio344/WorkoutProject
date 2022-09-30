@@ -98,4 +98,14 @@
 			WHERE abnum=#{abnum};
 </update>
 
+<!-- 상품 삭제  -->
+<delete id="delete">
+	DELETE FROM RequestProduct 
+	<where>
+	seller=#{seller}
+	AND
+	abnum=${abnum}
+	</where>
+</delete>
+
 </mapper>
