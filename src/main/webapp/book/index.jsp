@@ -61,12 +61,23 @@
 			</c:forEach>
 		</div>
 	<div class="booksPageNum">
-		<c:if test="${param.page -2 > 0 }">
+		
+		<a href="<c:url value="/bookshop?type=${type }&search=${search }&page=1" />">
+			<button >&lt;&lt;</button>&nbsp;&nbsp;
+		</a>
+		   
+		
+		<c:if test="${param.page - 1 > 0 }">
+			<a href="<c:url value="/bookshop?type=${type }&search=${search }&page=${param.page -1 }" />">
+				&lt;
+			</a>
+		</c:if>
+		<c:if test="${param.page - 2 > 0 }">
 			<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page -2 }" />" class="bookPageNum">
 				${param.page - 2} </a>
 		</c:if>
 
-		<c:if test="${param.page -1 > 0 }">
+		<c:if test="${param.page - 1 > 0 }">
 			<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page -1 }" />" class="bookPageNum">
 				${param.page - 1} </a>
 		</c:if>
@@ -77,13 +88,25 @@
 		<c:if test="${totalPage >= param.page + 1 }">
 			<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page + 1}" />" class="bookPageNum">
 				${param.page + 1} </a>
-		
 		</c:if>
 
 		<c:if test="${totalPage >= param.page + 2}">
 			<a href="<c:url value="/bookshop?type=${type}&search=${search}&page=${param.page + 2}" />" class="bookPageNum">
 				${param.page + 2} </a>
 		</c:if>
+		
+		<c:if test="${totalPage >= param.page + 1 }">
+			<a href="<c:url value="/bookshop?type=${type }&search=${search }&page=${param.page + 1 }" />">
+				&gt;&nbsp;&nbsp;
+			</a>
+		</c:if>
+		
+		<a href="<c:url value="/bookshop?type=${type }&search=${search }&page=${totalPage }" />">
+			<button >&gt;&gt;</button>
+		</a>
+		
+		${param.page} / 총 ${totalPage}페이지
+		
 	</div>
 	</c:if>
 </layout:main>
