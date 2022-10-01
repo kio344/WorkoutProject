@@ -2,6 +2,8 @@ package models.bookshop;
 
 import java.time.LocalDateTime;
 
+import commons.PaginationAddOn;
+
 public class BookPaymentDto extends ProductLimitDto {
 	private int num; // 넘
 	private String userId; // 유저 아이디

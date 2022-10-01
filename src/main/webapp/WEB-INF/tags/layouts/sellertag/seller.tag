@@ -30,7 +30,11 @@
 				
 					<a href="<c:url value="/seller/order?progress=PAYMENT&num=1" />">
 						<li>
-							<div class="xi-download header_icon" ></div>
+							<div class="xi-download header_icon" >
+							<c:if test="${orderCount !=0 }">
+							<span class="msgCount">${orderCount }</span>
+							</c:if>
+							</div>
 							<div class="info">주문관리</div>
 						</li>
 					</a>
