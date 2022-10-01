@@ -54,6 +54,7 @@
 	SELECT * FROM RequestProduct limit ${start}, ${count};
 	</select>
 	
+	<!-- 검색했을때 카테고리별 갯수 -->
 	<select id="searchProduct" resultType="int" parameterType="models.bookshop.BookShopDto">
 	SELECT COUNT(*) FROM RequestProduct
 	<where>
