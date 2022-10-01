@@ -1,0 +1,21 @@
+.pointer{cursor: pointer;}
+.content{    padding: 100 300 100 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+.login{
+	padding: 45 60 60 60px; border: 2px solid #6c6c6c; border-radius: 30px; width: 500px; margin: 0 auto;
+}
+.text{padding:20 10 10 10px;}
+.loginbox{padding:20 10 10 10px;}
+.loginBtn{    border: 1px solid;
+    padding: 15px;
+    border-radius: 20px;
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgoldenrodyellow;
+    cursor: pointer;}
