@@ -1,0 +1,35 @@
+.content {
+	padding: 100 300 100 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.text{
+	
+}
+.withdrawal{    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;}
+.agree{display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;}
+.withbox{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+}
+.withBtn{
+		border: 1px solid;
+	padding: 15px;
+	border-radius: 20px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color:#d5d5d5;
+	cursor: pointer;
+	margin: 20px;
+}

@@ -60,7 +60,7 @@
 	</jsp:attribute>
 	
 	<jsp:body>
-		<main style="${empty member ? "padding-top:60px":"padding-top:0px"}">
+		<main style="${empty member ? "padding-top:0px":"padding-top:0px"}">
 			<jsp:doBody />
 		</main>
 	</jsp:body>
