@@ -9,18 +9,18 @@
 		<form target="ifrmProcess" action="<c:url value="/join" />" method="post">
 			<div class="join">
 			
-				<div class="text">아이디</div><input type="text" name="id" > <br>
-				<div class="text">비밀번호</div><input type="password" name="pw" > <br>
-				<div class="text">비밀번호 확인</div><input type="password" name="pwre" > <br>
-				<div class="text">이메일</div><input type="text" name="email" > <br>
-				<div class="text">이름</div><input type="text" name="name" > <br>
-				<div class="text">사용할 별명</div><input type="text" name="fakeName" > <br>
-				<div class="text">핸드폰 번호</div><input type="number" name="mobile" ><br>
-				<div class="text">주소</div><input type="text" name="address" > <br>
-				<div class="text">생년월일</div><div class="flex"><util:selectBirth /></div>
+				<div class="text">아이디</div><input class="joinInput" type="text" name="id" > <br>
+				<div class="text">비밀번호</div><input class="joinInput" type="password" name="pw" > <br>
+				<div class="text">비밀번호 확인</div><input class="joinInput" type="password" name="pwre" > <br>
+				<div class="text">이메일</div><input class="joinInput" type="text" name="email" > <br>
+				<div class="text">이름</div><input class="joinInput" type="text" name="name" > <br>
+				<div class="text">사용할 별명</div><input class="joinInput" type="text" name="fakeName" > <br>
+				<div class="text">핸드폰 번호</div><input class="joinInput" type="number" name="mobile" ><br>
+				<div class="text">주소</div><input class="joinInput" type="text" name="address" > <br>
+				<div class="text">생년월일</div><div class="joinInput" class="flex"><util:selectBirth /></div>
 				
 				<div class="text">성별</div>
-					<div class="gender">
+					<div class="gender" class="joinInput">
 						<div class="manBtn">
 							<label for="man" class="man">남자</label>
 							<input class="pointer" type="radio" name="sex" value="남자" >

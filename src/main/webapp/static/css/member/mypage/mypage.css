@@ -1,1 +1,89 @@
-.pt-50{padding-top:50px;}
+.flex {
+	display: flex;
+	justify-content: space-between;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.content {
+	padding: 100 300 100 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mybasic {
+	padding: 45 60 60 60px;
+	border: 2px solid #6c6c6c;
+	border-radius: 30px;
+	width: 500px;
+	margin: 0 auto;
+}
+
+.text {
+	padding: 20 10 10 10px;
+}
+.textLast{
+	padding: 20 10 10 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lastCheck{
+	margin-right: 10px;
+}
+
+select {
+	padding: 10px;
+	border-radius: 20px;
+	width: 110px;
+	cursor: pointer;
+}
+
+.basicbox {
+	padding-top: 30px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.basicBtn {
+	border: 1px solid;
+	padding: 15px;
+	border-radius: 20px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color:#e8fad2;
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.basicBtn1 {
+	border: 1px solid;
+	padding: 15px;
+	border-radius: 20px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color:#e8fad2;
+	cursor: pointer;
+}
+
+.wpcBtn {
+	border: 1px solid;
+	padding: 15px;
+	border-radius: 20px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color:#d5d5d5;
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.
