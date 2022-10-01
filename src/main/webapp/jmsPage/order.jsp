@@ -9,18 +9,18 @@
 
 		<ul>
 			<li class="box"><a
-				href="<c:url value="/seller/order?progress=PAYMENT" />">
+				href="<c:url value="/seller/order?progress=PAYMENT&num=1" />">
 				<span>받은 주문<span>  ●</span>
 				</span></a></li>
 			<li class="box"><a
-				href="<c:url value="/seller/order?progress=SHIPPING" />">
+				href="<c:url value="/seller/order?progress=SHIPPING&num=1" />">
 				<span>배송중인 주문<span>  ●</span></span>
 				</a>
 			</li>
-			<li class="box"><a href="<c:url value="/seller/order?progress=COMPLETED" />">
+			<li class="box"><a href="<c:url value="/seller/order?progress=COMPLETED&num=1" />">
 				<span>수취 완료된 주문<span>  ●</span></span>
 				</a></li>
-			<li class="box"><a href="<c:url value="/seller/order?progress=cancel" />">
+			<li class="box"><a href="<c:url value="/seller/order?progress=cancel&num=1" />">
 				<span>취소한 주문<span>  ●</span></span>
 				</a></li>
 		</ul>
@@ -82,11 +82,10 @@
 		</nav>
 		
 		 
+<util:pagination link='/seller/order?progress=${param.progress }&' paginationCount="5" pageCount="${empty param.num ? 1:param.num }"  total="${totalPage}"/>
 
  
  
  </form>
-
-		
 	</div>
 </layout:seller>

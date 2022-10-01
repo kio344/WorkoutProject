@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import models.bookshop.BookPaymentDto;
+import models.seller.BookPaymentLimitDto;
 import mybatis.Connection;
 
 public class PaymentDao {
@@ -30,6 +31,17 @@ public class PaymentDao {
 		System.out.println(dto);
 		session.close();
 		return dto;
+	}
+	
+	public int getsCount(BookPaymentLimitDto dto) {
+		SqlSession session=Connection.getSession();
+
+		int result =session.selectOne("BookPaymentMapper.getsCount",dto);
+
+
+		
+		session.close();
+		return result;
 	}
 	
 	
