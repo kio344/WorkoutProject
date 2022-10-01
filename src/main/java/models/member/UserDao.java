@@ -1,10 +1,13 @@
 package models.member;
 
 import java.net.ConnectException;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import dto.UserDto;
+import models.seller.ProductDto;
+import models.seller.ProductListDto;
 import mybatis.Connection;
 
 public class UserDao {
@@ -78,14 +81,35 @@ public class UserDao {
 		return member;
 	}
 	
-	public boolean bmiUpdate(UserDto dto) {
-		SqlSession sqlSession = mybatis.Connection.getSession();
-		int affectedRows = sqlSession.update("userInfoMapper.bmiUpdate", dto);
+	/**
+	 * 유저 관리자에서 유저 검색
+	 * @param select
+	 * @param str
+	 * @return
+	 */
+	public List<UserDto> searchMember(String select, String str) {
+		SqlSession sqlSession = Connection.getSession();
+		UserDto param = new UserDto();
 		
-		sqlSession.commit();
+		if(select.equals("name")) {
+			param.setName("%" + str + "%");
+		} else if(select.equals("fakeName")) {
+			param.setFakeName("%" + str + "%");
+		} else if(select.equals("sex")) {
+			param.setSex("%" + str + "%");
+		} else if(select.equals("id")) {
+			param.setId("%" + str + "%");
+		} else if(select.equals("userType")) {
+			param.setUserType("%" + str + "%");
+		}
+		
+		List<UserDto> member = sqlSession.selectList("UserInfoMapper.search", param);
+		
 		sqlSession.close();
-		return affectedRows > 0;
+		return member;
 	}
+	
+
 
 	/**
 	 * 싱글톤 패턴

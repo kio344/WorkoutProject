@@ -10,19 +10,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.admin.ProductSearchService;
+import dto.UserDto;
 import models.admin.UserManageService;
-import models.seller.ProductDto;
 
 @WebServlet("/admin/user")
 public class AdminMemberController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		UserManageService service = new UserManageService();
+		List<UserDto> userList= service.memberGets();
+		req.setAttribute("userList", userList);
+		
+		String[] addCss = { "admin/list" };
+		String[] addJs = { "admin/list" };
+
+		req.setAttribute("addCss", addCss);
+		req.setAttribute("addJs", addJs);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/admin/adminUserManage.jsp");
 		rd.forward(req, resp);
-		
 	}
 	
 	@Override
