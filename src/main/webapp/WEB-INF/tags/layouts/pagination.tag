@@ -21,7 +21,7 @@
 <div class="pagination">
 <!-- 페이지네이션 설정 -->
 	<%
-	ArrayList<Integer> pageList = new ArrayList();
+	ArrayList<Integer> pageList = new ArrayList<>();
 
 	pageList.add(pageCount);
 

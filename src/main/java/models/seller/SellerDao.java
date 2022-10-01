@@ -192,6 +192,16 @@ public class SellerDao {
 		return total;
 		
 	}
+	
+	public void delete(ProductDto product) {
+		SqlSession session = Connection.getSession();
+		
+		session.delete("RequestProductMap.delete", product);
+		
+		session.commit();
+		session.close();
+
+	}
 	 
 
 	public static SellerDao getInstance() {

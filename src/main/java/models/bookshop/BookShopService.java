@@ -27,4 +27,8 @@ public class BookShopService {
 		
 		req.setAttribute("list", list);
 	}
+	
+	public void payment(HttpServletRequest req) {
+		
+	}
 }

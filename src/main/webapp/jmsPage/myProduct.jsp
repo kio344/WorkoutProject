@@ -52,7 +52,7 @@
 				<td>${product.price }</td>
 				<td>${product.kategorie }</td>
 				<td>${product.publisher }</td>
-				<td><a href="<c:url value="/seller/ReqRemove?abnum=${product.abnum}" />" >삭제</a></td>
+				<td><a target="ifrmProcess" href="<c:url value="/seller/ReqRemove?abnum=${product.abnum}" />" >삭제</a></td>
 			</tr>
  		
  		</c:forEach>

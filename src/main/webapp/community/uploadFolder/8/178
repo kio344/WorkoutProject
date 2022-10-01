@@ -1,0 +1,25 @@
+# 회원
+member.join=회원가입
+member.memId=아이디
+member.memPw=비밀번호
+member.memPwRe=비밀번호 확인
+member.memNm=회원명
+member.email=이메일
+member.mobile=휴대전화번호
+member.agreeTerms=회원가입 약관에 동의합니다.
+
+member.loginMessage={0}({1})님 로그인.
+
+# 회원가입 유효성 검사
+required.memId=아이디를 입력하세요.
+required.memPw=비밀번호를 입력하세요.
+required.memPwRe=비밀번호를 확인하세요.
+required.memNm=회원명을 입력하세요.
+required.agreeTerms=회원가입 약관에 동의하세요.
+required=필수항목입니다.
+
+pattern.wrong.email=이메일 형식이 아닙니다.
+pattern.wrong.mobile=휴대전화번호 형식이 아닙니다.
+password.confirm.incorrect=비밀번호를 확인하세요.
+
+
