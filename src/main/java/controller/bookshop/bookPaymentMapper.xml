@@ -8,11 +8,46 @@
 		<result property="count" column="count" />
 		<result property="regDt" column="regDt" />
 		<result property="destination" column="destination" />
+		<result property="progress" column="progress"  />
 	</resultMap>
 	
 	<insert id="insertInfo" parameterType="models.bookshop.BookPaymentDto" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO payment (userId, productNum, count, destination, progress)
 			VALUES (#{userId}, #{productNum}, #{count}, #{destination}, #{progress});
 	</insert>
+	
+	<!-- 
+	판매자별 주문내역 확인  
+	@author 5563a
+	-->
+	<select id="gets" parameterType="models.seller.BookPaymentLimitDto" resultMap="BookPayment">
+		SELECT * FROM WorkOut.payment pay left join RequestProduct product on pay.productNum=product.abnum 
+		<where>
+			 seller=#{seller} 
+			<if test="progress != null">
+				AND progress=#{progress}
+			</if>
+		</where>
+		order by pay.num desc
+		<if test="offset!=null">
+			limit ${start},${offset}
+		</if>
+		
+	</select>
+	
+		<select id="getsCount" parameterType="models.seller.BookPaymentLimitDto" resultType="int">
+		SELECT COUNT(*) FROM WorkOut.payment pay left join RequestProduct product on pay.productNum=product.abnum 
+		<where>
+			 seller=#{seller} 
+			<if test="progress != null">
+				AND progress=#{progress}
+			</if>
+		</where>
+
+	</select>
+	
+	<update id="update" parameterType="models.bookshop.BookPaymentDto"  >
+		UPDATE payment set progress=#{progress} WHERE num=${num};
+	</update>
 	
 </mapper>

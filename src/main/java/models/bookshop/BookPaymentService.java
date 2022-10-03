@@ -22,7 +22,7 @@ public class BookPaymentService {
 		dto.setProductNum(abnum);
 		dto.setCount(count);
 		dto.setDestination(address);
-		dto.setProgress(BookProgress.PAYMENT);
+		dto.setProgress(BookProgress.PAYMENT.toString());
 		
 		SqlSession session = Connection.getSession();
 		
