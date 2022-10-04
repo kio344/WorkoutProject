@@ -15,6 +15,8 @@ public class AdminController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		req.setAttribute("addCss", new String[] {"admin/admin"});
+		
 		RequestDispatcher rd = req.getRequestDispatcher("/admin/admin.jsp");
 		rd.forward(req, resp);
 	}

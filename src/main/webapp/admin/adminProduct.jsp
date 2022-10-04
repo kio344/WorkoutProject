@@ -4,6 +4,7 @@
 <%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils"%>
 
 <layout:admin>
+<div class="pt-50">
 	<h1>${test}</h1>
 	<div class="search_wrap">
 		<form method="get" action="<c:url value="/admin/product" />" autocomplete="off">
@@ -111,4 +112,5 @@
 	<c:if test="${total != 0}">
 		<util:pagination page="${page}" limit="${limit}" url="admin/product?select=${select}&str=${str}" total="${total}" pageCnt="5" />
 	</c:if>
+	</div>
 </layout:admin>
