@@ -23,7 +23,7 @@ public class AdminProductController extends HttpServlet {
 		List<ProductDto> products = service.search(req);
 		req.setAttribute("products", products);
 
-		String[] addCss = { "admin/product" };
+		String[] addCss = { "admin/product", "admin/admin" };
 		String[] addJs = { "admin/product" };
 
 		req.setAttribute("addCss", addCss);

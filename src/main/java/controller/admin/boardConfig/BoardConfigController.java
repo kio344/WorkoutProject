@@ -26,7 +26,7 @@ public class BoardConfigController extends HttpServlet{
 		
 		req.setAttribute("list", list);
 		
-		req.setAttribute("addCss", new String[] {"admin/list"});
+		req.setAttribute("addCss", new String[] {"admin/list", "admin/admin"});
 		req.setAttribute("addJs", new String[] {"admin/list"});
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/admin/board/board.jsp");

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts/admintag"%>
 <layout:admin>
-
+<div class="pt-50">
 		<form method="get" action="<c:url value="/admin/user" />" autocomplete="off">
 			<select id="select" name="select">
 				<option ${(param.select == "name") ? "selected" : "" } value="name">성명</option>
@@ -14,5 +14,5 @@
 			<input type="text" name="str" placeholder="검색할 단어를 입력해주세요." value="${param.str}">
 			<button type="submit">검색</button>
 		</form>
-
+</div>
 </layout:admin>
