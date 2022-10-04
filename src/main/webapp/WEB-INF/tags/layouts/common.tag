@@ -26,7 +26,6 @@
 	</c:forEach>
 </c:if>
 
-<script src="<c:url value="/static/js/common.js" />" ></script>
 <c:if test="${!empty addJs}">
 	<c:forEach var="js" items="${addJs}">
 		<script src="<c:url value="/static/js/" />${js}.js"></script>
