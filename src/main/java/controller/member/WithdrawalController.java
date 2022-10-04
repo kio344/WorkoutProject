@@ -20,6 +20,8 @@ public class WithdrawalController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("addCss", new String[] {"member/mypage/withdrawal"});
+		
 		RequestDispatcher rd = req.getRequestDispatcher("/member/withdrawal.jsp");
 		rd.forward(req, resp);
 	}

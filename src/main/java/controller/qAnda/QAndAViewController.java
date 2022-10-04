@@ -20,6 +20,7 @@ public class QAndAViewController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("addCss", new String[] {"qAnda/style"});
 		resp.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 		try {

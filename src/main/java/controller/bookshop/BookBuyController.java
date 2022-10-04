@@ -22,6 +22,8 @@ public class BookBuyController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("addCss", new String[] {"bookshop/payment"});
+		
 		BookProductService service = new BookProductService();
 		int abnum = Integer.parseInt(req.getParameter("abnum"));
 		service.product(abnum, req);

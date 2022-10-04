@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts"%>
-<link rel="stylesheet" href="<c:url value="/static/css/bookshop/store.css" />"/>
 
 <layout:main title="구매페이지">
 <form action="<c:url value="/bookshop/payment" />" method="get">

@@ -49,6 +49,8 @@ nav > div { display: flex; width: 100%; justify-content: space-around; flex-dire
 nav a {  text-align: center; font-size: 1.5rem; padding: 15px 20px;  }
 .layout_width a:hover {
 	border:solid 1px black;
+	border-radius:20px;
+	padding:8px;
 }
 .layer{position:fixed; top:50px; left:-200px; width:100%; height:100%; background-color:rgba(0,0,0,0.5); display:none;  transition: all 1s;}
 .layer.on { display: block; transition: all 1s; left:0;}

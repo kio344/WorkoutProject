@@ -35,7 +35,7 @@ button{border:none; background-color:white;}
 /**북 목록*/
 .books{display: flex;
     align-items: flex-start;
-    padding: 50 100 50 100px;
+    padding: 50px 100px 50px 100px;
     flex-direction: row;
     justify-content: space-around;}
     
