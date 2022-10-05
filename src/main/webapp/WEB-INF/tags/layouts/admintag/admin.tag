@@ -4,14 +4,14 @@
 <layout:adcommon>
 	<jsp:attribute name="header">
 		<header>
-			<section class="join-menu">
+			<div class="join-menu">
 				<div class="logo ml">
 					<button id="btn">
 						<i class="xi-bars"></i>
 					</button>
 					<a href="<c:url value="/admin" /> ">관리자 페이지</a>
 				</div>
-				</section>
+				</div>
 		</header>
 	</jsp:attribute>
 	<jsp:attribute name="menu">
