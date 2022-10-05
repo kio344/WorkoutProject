@@ -89,6 +89,11 @@
 	</where>
 </select>
 
+<!-- 미승인 상품 총 개수 -->
+<select id="reqCount" resultType="int">
+	SELECT COUNT(*) FROM RequestProduct WHERE status="req";
+</select>
+
 <!-- 상품 status 상태 업데이트 -->
 <update id="statusUp" parameterType="models.seller.ProductDto" >
 	UPDATE RequestProduct

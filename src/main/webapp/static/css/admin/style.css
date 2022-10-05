@@ -1,1 +1,5 @@
 .header-wrap { text-align: center; display: flex; justify-content: center; align-items: center; height: 220px; }
+.content { width: 1300px; margin: 0 auto; }
+.admin_main { border: 1px solid #dadada; }
+.admin_main .QnA,
+.admin_main .product_count { display: flex; flex-direction: row; }
