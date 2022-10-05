@@ -4,7 +4,7 @@
 <%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils"%>
 
 <layout:admin>
-<div class="pt-50">
+<div class="pt-50 content">
 	<h1>${test}</h1>
 	<div class="search_wrap">
 		<form method="get" action="<c:url value="/admin/product" />" autocomplete="off">

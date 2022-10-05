@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <layout:admin>
-<div class="pt-50">
+<div class="pt-50 content">
 	<h1>게시판 작성</h1>
 	<div>
 		<form method="post" action="<c:url value="/admin/board" />"

@@ -45,6 +45,11 @@
 		SELECT COUNT(*) FROM QAndA;
 	</select>
 	
+	<!-- QnA 답변 미등록 개수 -->
+	<select id="reqCount" resultType="int">
+		SELECT COUNT(*) FROM QAndA WHERE isAnswer=0;
+	</select>
+	
 	<!-- QnA 관리자권한 삭제 -->
 	<delete id="delete" parameterType="models.qAnda.QAndADto">
 		DELETE FROM QAndA WHERE id=#{id};

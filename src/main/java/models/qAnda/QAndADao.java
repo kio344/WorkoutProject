@@ -109,6 +109,14 @@ public class QAndADao {
 		sqlSession.close();
 		return affectedRows > 0;
 	}
+	
+	public int count() {
+		SqlSession sqlSession = Connection.getSession();
+		
+		int count = sqlSession.selectOne("QAndAMapper.reqCount");
+		
+		return count;
+	}
 
 	public static QAndADao getInstance() {
 		if (instance == null) {
