@@ -28,14 +28,15 @@
 				
 				<div>휴대폰 번호 : ${member.mobile }</div>
 				<br>
-				
+			<hr>	
 					<div class="pt-10"><input  type="text" name="postcode" id="sample6_postcode" placeholder="우편번호" readonly></div>
 					<div class="pt-10"><input class="searchBtn" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></div>
 					<div class="pt-10"><input type="text" name="addr" id="sample6_address" placeholder="주소" readonly></div>
 					<div class="pt-10"><input type="text" name="datiladdr" id="sample6_detailAddress" placeholder="상세주소"></div>
 					<div class="pt-10"><input type="text" name="extraaddr" id="sample6_extraAddress" placeholder="참고항목" readonly></div>
-				
+		<hr>
 		<h3>배송 수량 및 가격</h3>
+		<hr>
 			<div class="pt-10">상품명 : ${dto.name }</div>
 			<br>
 			<div class="pt-10">상품 수량 : ${param.count }</div>
