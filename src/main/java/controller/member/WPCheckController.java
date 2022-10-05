@@ -21,6 +21,8 @@ public class WPCheckController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("addCss", new String[] {"member/mypage/mypage"});
+		
 		RequestDispatcher rd = req.getRequestDispatcher("/member/wpc.jsp");
 		rd.forward(req, resp);
 		

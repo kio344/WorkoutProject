@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils" %>
-<link rel="stylesheet" href="<c:url value="/static/css/member/join.css" />"/>
 
 <layout:main title="회원가입">
 	<div class="content">

@@ -1,12 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts"%>
-<link rel="stylesheet" href="<c:url value="/static/css/bookshop/payment.css" />"/>
 
 <layout:main title="구매/결제 페이지">
-	<div class="pt-50">
+	<div class="content">
 		<form action="<c:url value="/bookshop/payment"/>" method="post">
-	
 		<h1>주문/결제</h1>
 			<hr>
 		<h2>구매자 정보</h2>
@@ -22,29 +20,29 @@
 				
 				휴대폰 번호 : ${member.mobile }
 				<br> 
+				<hr>
 		<h2>받는사람정보</h2>
+		<hr>
 				이름 : ${member.name }
 				<br>
 				 <p>
-					<input type="text" name="postcode" id="sample6_postcode" placeholder="우편번호" readonly>
-					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-						<br>
-					<input type="text" name="addr" id="sample6_address" placeholder="주소" readonly>
-						<br>
-					<input type="text" name="datiladdr" id="sample6_detailAddress" placeholder="상세주소">
-					<input type="text" name="extraaddr" id="sample6_extraAddress" placeholder="참고항목" readonly>
+					<div class="pt-10"><input  type="text" name="postcode" id="sample6_postcode" placeholder="우편번호" readonly></div>
+					<div class="pt-10"><input class="searchBtn" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></div>
+					<div class="pt-10"><input type="text" name="addr" id="sample6_address" placeholder="주소" readonly></div>
+					<div class="pt-10"><input type="text" name="datiladdr" id="sample6_detailAddress" placeholder="상세주소"></div>
+					<div class="pt-10"><input type="text" name="extraaddr" id="sample6_extraAddress" placeholder="참고항목" readonly></div>
 				</p>
 				
 		<h3>배송 수량 및 가격</h3>
-			상품명 : ${dto.name }
+			<div class="pt-10">상품명 : ${dto.name }</div>
 			<br>
-			상품 수량 : ${param.count }
+			<div class="pt-10">상품 수량 : ${param.count }</div>
 			<br>
-			상품 총 가격 : ${dto.price * param.count }
+			<div class="pt-10">상품 총 가격 : ${dto.price * param.count }</div>
 			<br>
-		<h3>결제하기</h3>
-		
-		<button>결제하기</button>
+		<div class="payment">
+		<button class="paymentBtn">결제하기</button>
+		</div>
 		</form>
 	</div>
 </layout:main>

@@ -8,14 +8,14 @@
 }
 
 .content {
-	padding: 100 300 100 300px;
+	padding: 100px 300px 100px 300px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .mybasic {
-	padding: 45 60 60 60px;
+	padding: 45px 60px 60px 60px;
 	border: 2px solid #6c6c6c;
 	border-radius: 30px;
 	width: 500px;
@@ -23,10 +23,10 @@
 }
 
 .text {
-	padding: 20 10 10 10px;
+	padding: 20px 10px 10px 10px;
 }
 .textLast{
-	padding: 20 10 10 10px;
+	padding: 20px 10px 10px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,4 +86,3 @@ select {
 	margin-left: 5px;
 }
 
-.

@@ -193,6 +193,15 @@ public class SellerDao {
 		
 	}
 	
+	public int count() {
+		
+		SqlSession sqlSession = Connection.getSession();
+		
+		int count = sqlSession.selectOne("RequestProductMap.reqCount");
+		
+		return count;
+	}
+	
 	public void delete(ProductDto product) {
 		SqlSession session = Connection.getSession();
 		

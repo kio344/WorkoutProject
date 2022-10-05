@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts"%>
 <%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils" %>
-<link rel="stylesheet" href="<c:url value="/static/css/member/mypage/mypage.css" />"/>
 
 <layout:main title="마이페이지">
 	<div class="content">

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts/admintag"%>
 <layout:admin>
-<div class="pt-50">
+<div class="pt-50 content">
 		<form method="get" action="<c:url value="/admin/user" />" autocomplete="off">
 			<select id="select" name="select">
 				<option ${(param.select == "name") ? "selected" : "" } value="name">성명</option>
