@@ -16,7 +16,7 @@
 		</div>
 		<br>
 		<div class="search">
-			<input type="text" name="search" placeholder="검색하실 책 이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='검색하실 책 이름을 입력해 주세요.'"> 
+			<input class="width100" type="text" name="search" placeholder="검색하실 책 이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='검색하실 책 이름을 입력해 주세요.'"> 
 			<input type="hidden" name="page" value="1" />
 			<button type="submit" class="searchBtn">검색</button>
 		</div>
