@@ -1,1 +1,18 @@
-.pt-50{padding-top:50px;}
+.pt-10{padding-top:10px;}
+.content{padding: 80px 300px 100px 300px;
+    justify-content: center;
+    width: 100%;}
+ .searchBtn{border-radius: 20px;
+    background-color: lightgoldenrodyellow;
+    border: 1px solid black;}
+ .payment{padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+ .paymentBtn{background-color: #e8fad2;
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 170px;
+    height: 45px;}
+    
+ 
