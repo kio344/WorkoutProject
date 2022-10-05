@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.bookshop.BookPaymentService;
 import models.bookshop.BookProductService;
 
 @WebServlet("/bookshop/product")
@@ -27,12 +26,11 @@ public class BookProductController extends HttpServlet{
 		RequestDispatcher rd = req.getRequestDispatcher("/book/store.jsp");
 		
 		rd.forward(req, resp);
-		
-		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 	}
 
 	

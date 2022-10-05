@@ -30,7 +30,7 @@ public class BookSearchService {
 		}
 
 		if (searchType.equals("name")) {
-			dto.setName(search);
+			dto.setName(search); 
 		} else if (searchType.equals("kategorie")) {
 			dto.setKategorie(search);
 		} else if (searchType.equals("publisher")) {

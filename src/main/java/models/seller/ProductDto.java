@@ -7,11 +7,11 @@ public class ProductDto {
 	private int abnum;
 	private String seller;
 	private String serialnum;
-	private String name;
+	private String name; 
 	private String writer;
 	private int price;
-	private String kategorie;
-	private String publisher;
+	private String kategorie; 
+	private String publisher; 
 	private String img;
 	private String status;
 	private LocalDateTime regDt;
