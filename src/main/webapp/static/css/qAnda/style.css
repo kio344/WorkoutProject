@@ -1,5 +1,9 @@
 /**기본 설정*/
-.content{padding-top:50px;}
+.content{    padding: 50px 70px 50px 70px;}
+.flex{display:flex;
+align-items: center;}
+.displayNone{display:none;}
+.pt-50{padding-top:50px;}
 
 /** 페이지네이션 */
 .pagination { text-align: center; padding: 15px 0; }
@@ -9,9 +13,25 @@
     border-radius: 50%;
     border: 1.2px solid #212121;}
 
-.content {
-	width: 1100px;
-	margin: 0 auto;
+.content1 {
+	padding-top: 50px;
+width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+}
+.content2 {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+    background-color: lightgoldenrodyellow;
+    height: 400px;
+    margin-top: 30px;
+    padding-top: 30px;
 }
 
 .list_title {
@@ -57,3 +77,56 @@
     justify-content: center;
     align-items: center;
 }
+
+/**QnA view*/
+.QnA{    width: 100px;
+    border-bottom: 2px solid #50975087;
+    padding-bottom: 10px;
+    text-align: center;}
+.Q{width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;}
+    
+.A{    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    padding: 0px 30px 30px 30px;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;}
+    
+.Qtext{margin-right: 12px;
+    font-size: 40px;
+    color: #70e970;}
+.Atext{margin-right: 12px;
+    font-size: 40px;
+    color: #70e970;}
+
+/**QnA write*/
+.writeContent{padding: 0px 200px 0px 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgoldenrodyellow;}
+.write{display: flex;
+    flex-direction: column;}
+.white{background-color: white;
+    text-align: center;
+    padding: 20px 40px 20px 40px;
+    width: 100%;
+    height: 600px;}
+.writeBtn{border: 1px solid;
+    padding: 15px;
+    border-radius: 20px;
+    background-color:#e8fad2;
+    cursor: pointer;
+    margin: 10px;}
+.subjectInput{margin: 15px 10px 15px 10px;}
+.textarea{border-style: none;
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 20px;
+    margin: 10px 15px;}
