@@ -1,10 +1,26 @@
 .pt-10{padding-top:10px;}
-.content{padding: 80px 300px 100px 300px;
+.bb{border-bottom:1px solid rgb(178, 178, 178);}
+.flex{display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    border-top: 1px solid rgb(178, 178, 178);}
+.content{padding: 60px 300px 100px 300px;
     justify-content: center;
     width: 100%;}
- .searchBtn{border-radius: 20px;
+.text{display: flex;
+    width: 100px;
+    height: 50px;
     background-color: lightgoldenrodyellow;
-    border: 1px solid black;}
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-right:10px;}
+ .searchBtn{    border-radius: 20px;
+    background-color: #f0fad2;
+    border: 1px solid #d5d5d5;
+    height: 33px;
+    margin-left: 10px;}
  .payment{padding-top: 40px;
     display: flex;
     align-items: center;
@@ -13,6 +29,8 @@
     border: 1px solid black;
     border-radius: 50px;
     width: 170px;
-    height: 45px;}
+    height: 45px;
+    cursor: pointer;}
+.inputBtn{width:400px;}
     
  

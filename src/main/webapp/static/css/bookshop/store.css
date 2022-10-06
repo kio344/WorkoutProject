@@ -1,3 +1,9 @@
+.width{width:150px;}
+.flex{display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /**화면에서 안보이게*/
 .displayNone{display:none;}
 
@@ -20,7 +26,15 @@ display: flex;
 }
 .bookimage{width: 250px;
     height: 350px;}
-.bookCount{    padding-bottom: 5px;}
+.bookCount{padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;}
+.book_price{padding-bottom:10px; display: flex;
+    justify-content: space-between;}
+.book_publisher{padding-bottom:10px; display: flex;
+    justify-content: space-between;}
 .paymentBtn{border: 1px solid;
     display: flex;
     padding: 15px;

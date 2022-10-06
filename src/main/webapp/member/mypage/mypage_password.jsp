@@ -8,11 +8,11 @@
 			target="ifrmProcess">
 			<div class="mybasic">
 				<div class="text">현재 비밀번호</div>
-				<input type="password" name="pw">
+				<input class="width100" type="password" name="pw">
 				<div class="text">변경할 비밀번호</div>
-				<input type="password" name="pwRe">
+				<input class="width100" type="password" name="pwRe">
 				<div class="text">변경 비밀번호 확인</div>
-				<input type="password" name="pwReCheck">
+				<input class="width100" type="password" name="pwReCheck">
 
 				<div class="basicbox">
 					<button class="basicBtn1" type="reset">다시 입력</button>
