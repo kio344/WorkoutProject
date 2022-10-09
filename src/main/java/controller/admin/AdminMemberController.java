@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.UserDto;
 import models.admin.ProductSearchService;
 import models.admin.UserManageService;
 import models.seller.ProductDto;
@@ -20,7 +21,12 @@ public class AdminMemberController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		req.setAttribute("addCss", new String[] {"admin/admin"});
+		UserManageService service = new UserManageService();
+		List<UserDto> members = service.service(req);
+		
+		req.setAttribute("userInfoList", members);
+		
+		req.setAttribute("addCss", new String[] { "admin/product", "admin/admin"});
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/admin/adminUserManage.jsp");
 		rd.forward(req, resp);
@@ -30,13 +36,7 @@ public class AdminMemberController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		UserManageService service = new UserManageService();
-		try {
-			service.memberGet(req);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		doGet(req, resp);
 		
 	}
 }

@@ -30,6 +30,19 @@
 		SELECT * FROM WorkOutUser
 	</select>
 	
+	<!-- 어드민 유저 리스트 검색 -->
+	<select id="adminUser" parameterType="dto.UserDto" resultMap="userInfoMap">
+		SELECT * FROM WorkOutUser
+		<where>
+			<if test="name != null">AND name LIKE #{name}</if>
+			<if test="fakeName != null">AND fakeName LIKE #{fakeName}</if>
+			<if test="sex != null">AND sex LIKE #{sex}</if>
+			<if test="id != null">AND id LIKE #{id}</if>
+			<if test="userType != null">AND userType LIKE #{userType}</if>
+		</where>
+		ORDER BY num DESC;
+	</select>
+	
 	<!-- 유저 정보 추가 -->
 	<insert id="insert" parameterType="dto.UserDto" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO WorkOutUser (id, password, name, fakeName, email, mobile, address, birthDay, sex)
