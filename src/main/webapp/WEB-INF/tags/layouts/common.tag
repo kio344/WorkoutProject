@@ -20,13 +20,12 @@
 <script defer type="text/javascript" src="<c:url value="/static/js/common.js" />"></script>
 
 <c:if test="${!empty addCss }">
-	<c:forEach var="css" items="${addCss }">
+	<c:forEach var="css" items="${addCss}">
 		<link rel="stylesheet" type="text/css"
-			href="<c:url value="/static/css/" />${css}.css ">
+			href="<c:url value="/static/css/" />${css}.css">
 	</c:forEach>
 </c:if>
 
-<script src="<c:url value="/static/js/common.js" />" ></script>
 <c:if test="${!empty addJs}">
 	<c:forEach var="js" items="${addJs}">
 		<script src="<c:url value="/static/js/" />${js}.js"></script>

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <layout:admin>
+<div class="pt-50 content">
 	<h1>게시판 작성</h1>
 	<div>
 		<form method="post" action="<c:url value="/admin/board" />"
@@ -165,4 +166,5 @@
 			<button type="submit" onclick="return confirm('정말 처리하시겠습니까?');">처리하기</button>
 		</div>
 	</form>
+	</div>
 </layout:admin>

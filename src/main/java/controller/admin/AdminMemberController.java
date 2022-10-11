@@ -18,30 +18,23 @@ public class AdminMemberController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		UserManageService service = new UserManageService();
-		List<UserDto> userList= service.memberGets();
-		req.setAttribute("userList", userList);
 		
-		String[] addCss = { "admin/list" };
-		String[] addJs = { "admin/list" };
-
-		req.setAttribute("addCss", addCss);
-		req.setAttribute("addJs", addJs);
+		UserManageService service = new UserManageService();
+		List<UserDto> members = service.service(req);
+		
+		req.setAttribute("userInfoList", members);
+		
+		req.setAttribute("addCss", new String[] { "admin/product", "admin/admin"});
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/admin/adminUserManage.jsp");
 		rd.forward(req, resp);
+		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		UserManageService service = new UserManageService();
-		try {
-			service.memberGet(req);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		doGet(req, resp);
 		
 	}
 }

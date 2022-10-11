@@ -1,8 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts"%>
-<link rel="stylesheet"
-	href="<c:url value="/static/css/member/mypage/mypage.css" />" />
+<link rel="stylesheet" href="<c:url value="/static/css/member/mypage/mypage.css" />" />
 
 <layout:main title="마이페이지">
 	<div class="content">
@@ -10,11 +9,11 @@
 			target="ifmProcess">
 			<div class="mybasic">
 				<div class="text">이름</div>
-				<input type="text" disabled value="${member.name}">
+				<input class="width100" type="text" disabled value="${member.name}">
 				<div class="text">별명</div>
-				<input type="text" value="${member.fakeName}">
+				<input class="width100" type="text" value="${member.fakeName}">
 				<div class="text">이메일</div>
-				<input type="email" value="${member.email}">
+				<input class="width100" type="email" value="${member.email}">
 				<div class="basicbox">
 					<button class="basicBtn1">
 						<a href="<c:url value="/mypage/basics"/> ">인적사항 변경</a>

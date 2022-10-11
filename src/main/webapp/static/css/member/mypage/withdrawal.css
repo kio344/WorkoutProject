@@ -1,11 +1,8 @@
 .content {
-	padding: 100 300 100 300px;
+	padding: 100px 300px 100px 300px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-.text{
-	
 }
 .withdrawal{    display: flex;
     justify-content: center;

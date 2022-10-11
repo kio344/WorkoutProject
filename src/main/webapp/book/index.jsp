@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts"%>
-<link rel="stylesheet" href="<c:url value="/static/css/bookshop/bookMain.css" />"/>
 
 <layout:main title="상점">
 	<form action="<c:url value="/bookshop" />" method="get" class="bookSearch">
@@ -17,7 +16,7 @@
 		</div>
 		<br>
 		<div class="search">
-			<input type="text" name="search" placeholder="검색하실 책 이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='검색하실 책 이름을 입력해 주세요.'"> 
+			<input class="width100" type="text" name="search" placeholder="검색하실 책 이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='검색하실 책 이름을 입력해 주세요.'"> 
 			<input type="hidden" name="page" value="1" />
 			<button type="submit" class="searchBtn">검색</button>
 		</div>
@@ -63,7 +62,7 @@
 	<div class="booksPageNum">
 		
 		<a href="<c:url value="/bookshop?type=${type }&search=${search }&page=1" />">
-			<button >&lt;&lt;</button>&nbsp;&nbsp;
+			<button>&lt;&lt;</button>&nbsp;&nbsp;
 		</a>
 		   
 		
@@ -72,7 +71,8 @@
 				&lt;
 			</a>
 		</c:if>
-		<c:if test="${param.page - 2 > 0 }">
+		
+		<c:if test="${param.page - 2 > 0}">
 			<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page -2 }" />" class="bookPageNum">
 				${param.page - 2} </a>
 		</c:if>
@@ -84,7 +84,7 @@
 
 		<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page}" />" class="bookPageNum">
 			${param.page} </a>
-
+			
 		<c:if test="${totalPage >= param.page + 1 }">
 			<a href="<c:url value="/bookshop?type=${type }&search=${search}&page=${param.page + 1}" />" class="bookPageNum">
 				${param.page + 1} </a>

@@ -8,7 +8,7 @@
 <layout:common title="${title}">
 	<jsp:attribute name="header">
 		<header>
-			<section class="join-menu" >
+			<div class="join-menu" >
 				<div class="logo ml">
 					<button id="btn"><i class="xi-bars"></i></button>
 					<a href="<c:url value="/" /> ">로고 부분</a>
@@ -31,7 +31,7 @@
 						</c:if>
 					</c:if>
 				</div>
-			</section>
+			</div>
 		</header>
 	</jsp:attribute>
 	

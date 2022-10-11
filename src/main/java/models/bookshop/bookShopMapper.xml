@@ -27,8 +27,8 @@
 	
 	<!-- 상품 검색하기 -->
 	<select id="search" resultMap="BookShopMap" parameterType="models.bookshop.BookShopDto">
-	SELECT * FROM RequestProduct
-	<where>
+	SELECT * FROM RequestProduct  
+	<where>											
 		<if test="name != null ">name LIKE CONCAT('%', #{name}, '%')</if>
 		<if test="kategorie != null ">kategorie LIKE CONCAT('%', #{kategorie}, '%')</if>
 		<if test="publisher != null ">publisher LIKE CONCAT('%', #{publisher}, '%')</if>
@@ -54,6 +54,7 @@
 	SELECT * FROM RequestProduct limit ${start}, ${count};
 	</select>
 	
+	<!-- 검색했을때 카테고리별 갯수 -->
 	<select id="searchProduct" resultType="int" parameterType="models.bookshop.BookShopDto">
 	SELECT COUNT(*) FROM RequestProduct
 	<where>
