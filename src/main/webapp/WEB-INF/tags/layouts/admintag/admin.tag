@@ -15,15 +15,14 @@
 		</header>
 	</jsp:attribute>
 	<jsp:attribute name="menu">
-	<div id="layer" class="layer">
-		<nav>
+		<nav id="slide_menu">
 			<div class="layout_width">
 				<a href="<c:url value="/admin/user" />">유저 관리</a>
 				<a href="<c:url value="/admin/product" />">판매 신청 목록</a>
 				<a href="<c:url value="/admin/board" />">게시판 관리</a>
 			</div>
 		</nav>
-		</div>
+	<div id="layer" class="dn"></div>
 	</jsp:attribute>
 	<jsp:body>
 		<jsp:doBody />

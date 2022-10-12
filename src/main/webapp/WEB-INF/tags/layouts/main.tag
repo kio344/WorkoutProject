@@ -37,18 +37,15 @@
 	
 	<jsp:attribute name="menu">
 		<c:if test="${!empty member}">
-			<div id="layer" class="layer">
-			<nav>
+			<nav id="slide_menu">
 				<div class="layout_width">
 					<a href="#">운동 기록</a>
 					<a href="<c:url value="/Q&A" /> ">Q&A</a>
-
 					<a href="<c:url value="/board/main" /> ">커뮤니티</a>
 					<a href="<c:url value="/bookshop?type=name&search=&page=1" />">Book Shop</a>
-
 				</div>
 			</nav>
-			</div>
+			<div id="layer" class="dn"></div>
 		</c:if>
 	</jsp:attribute>
 	<jsp:attribute name="footer">
