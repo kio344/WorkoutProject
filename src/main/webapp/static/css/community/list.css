@@ -10,6 +10,17 @@
 	padding-top: 100px;
 	padding-bottom: 100px;
 }
+#title_area{
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items:center;
+	width: 70%;
+}
+#title_area > a{
+	display: inline-flex;
+	font-size: 15px;
+}
 
 .board_List_Area{
 	width:80%;
