@@ -6,8 +6,10 @@
 <layout:main>
 
 	<div class="center">
-	<div>
+	<div id="title_area">
+		<a></a>
 		<h1>${param.boardId } 게시판</h1> 
+		<a href="<c:url value="/board/write?boardId=${param.boardId}" />" id="write">글쓰기</a>
 	</div>
 	
 	<div class="board_List_Area">
@@ -25,6 +27,7 @@
 		
 		</div>
 	</c:forEach>
+	
 	</div>
 	<layout:pagination paginationCount="4" pageCount="${!empty param.num ? param.num:1}" link="/board/list?boardId=${param.boardId }&" total="${totalPage }"/>
 	</div>

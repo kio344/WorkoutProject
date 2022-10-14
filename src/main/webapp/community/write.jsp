@@ -8,14 +8,14 @@
 
 <layout:main>
 
-	<form id="writearea" action="<c:url value="/board/write" />" method="post">
+	<form  id="writearea" action="<c:url value="/board/write" />" method="post">
 		<h1>${param.boardId } 글쓰기</h1>
 		<input name="boardId" type="hidden" value="${param.boardId }">
 		<input name="gid" type="hidden" value="${gid }">
 		<dl>
 			<dt>제목</dt>
-			<dd>
-				<input name="subject" type="text">
+			<dd style="padding: 10px;width:100%;" >
+				<input style="width:100%;" name="subject" type="text">
 			</dd>
 		</dl>
 		<div class="upload-grp">
@@ -29,13 +29,13 @@
 
 		</ul>
 		<dl>
-			<dt>내용</dt>
+			
 			<dd id="drop_content">
 				<textarea name="content" id="content"></textarea>
 			</dd>
 		</dl>
 
-		<div class="btn-grp">
+		<div style="margin-top: 50px;" class="btn-grp">
 			<button>작성하기</button>
 		</div>
 		
