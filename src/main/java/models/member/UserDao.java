@@ -3,6 +3,8 @@ package models.member;
 import java.net.ConnectException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 
 import dto.UserDto;
@@ -44,6 +46,20 @@ public class UserDao {
 		sqlSession.close();
 		
 	}
+	/**
+	 * 회원 타입정보 수정
+	 * @param dto
+	 */
+	public void typeUpdate(UserDto dto) {
+		SqlSession sqlSession = Connection.getSession();
+		
+		sqlSession.update("userInfoMapper.typeUpdate", dto);
+		
+		sqlSession.commit();
+		sqlSession.close();
+		
+	}
+
 	
 	/**
 	 * 유저(판매자) 정보 추가
@@ -109,7 +125,30 @@ public class UserDao {
 		return member;
 	}
 	
-
+	/**
+	 * 회원 삭제
+	 */
+	public boolean delete(UserDto userDto) {
+		SqlSession sqlSession = Connection.getSession();
+		
+		int affectedRows = sqlSession.delete("userInfoMapper.delete", userDto);
+		
+		sqlSession.commit();
+		sqlSession.close();
+		return affectedRows > 0;
+	}
+	/**
+	 * 관리자가 회원 삭제
+	 */
+	public boolean userDelete(int num) {
+		SqlSession sqlSession = Connection.getSession();
+		
+		int affectedRows = sqlSession.delete("userInfoMapper.userDelete", num);
+		
+		sqlSession.commit();
+		sqlSession.close();
+		return affectedRows > 0;
+	}
 
 	/**
 	 * 싱글톤 패턴

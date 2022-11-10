@@ -20,6 +20,11 @@
 		SELECT * FROM WorkOutUser WHERE id=#{id}
 	</select>
 	
+	<!-- 유저 num으로 검색 -->
+	<select id="userNum" parameterType="dto.UserDto" resultMap="userInfoMap">
+		SELECT * FROM WorkOutUser WHERE num=#{num}
+	</select>
+	
 	<!-- 유저 별명으로 검색 -->
 	<select id="fakeName" parameterType="dto.UserDto" resultMap="userInfoMap">
 		SELECT * FROM WorkOutUser WHERE fakeName=#{fakeName}
@@ -52,6 +57,10 @@
 	<delete id="delete" parameterType="dto.UserDto" >
 		DELETE FROM WorkOutUser WHERE id=#{id}
 	</delete>
+	<!-- 유저 num 검색 후 삭제 -->
+	<delete id="userDelete" parameterType="dto.UserDto" >
+		DELETE FROM WorkOutUser WHERE num=#{num}
+	</delete>
 	<!-- 유저 정보 변경사항 업데이트 -->
 	<update id="update" parameterType="dto.UserDto">
 		UPDATE WorkOutUser
@@ -65,6 +74,13 @@
 				birthDay=#{birthDay},
 				sex=#{sex}
 			WHERE id=#{id}
+	</update>
+	<!-- 유저 타입정보 변경사항 업데이트 -->
+	<update id="typeUpdate" parameterType="dto.UserDto">
+		UPDATE WorkOutUser
+			SET
+				userType=#{userType}
+			WHERE num=#{num}
 	</update>
 	<!-- 추가 기능  -->
 	

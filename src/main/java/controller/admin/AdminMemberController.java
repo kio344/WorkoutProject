@@ -1,5 +1,8 @@
 package controller.admin;
 
+import static jmsUtil.Utils.reloadPage;
+import static jmsUtil.Utils.showAlertException;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -33,8 +36,23 @@ public class AdminMemberController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		UserManageService service = new UserManageService();
 		
-		doGet(req, resp);
+		req.setCharacterEncoding("utf-8");
+		
+		try {
+			String mode = req.getParameter("mode");
+			if(mode.equals("update")) {
+				service.userUpdate(req);
+			} else {
+				service.delete(req);
+			}
+			
+			reloadPage(resp, "parent");
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			showAlertException(resp, e);
+		}
 		
 	}
 }
