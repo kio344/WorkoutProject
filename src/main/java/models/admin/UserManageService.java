@@ -8,10 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 
 import dto.UserDto;
+import models.member.UserDao;
 import mybatis.Connection;
 
 public class UserManageService {
 
+	UserDao dao = UserDao.getInstance();
+	
 	public List<UserDto> service(HttpServletRequest request) {
 
 		String select = request.getParameter("select");
@@ -29,24 +32,24 @@ public class UserManageService {
 
 		switch (select) {
 		case "name":
-				param.setName("%" + text + "%");
+			param.setName("%" + text + "%");
 			break;
 		case "fakeName":
-				param.setFakeName("%" + text + "%");
+			param.setFakeName("%" + text + "%");
 			break;
 		case "sex":
-				param.setSex("%" + text + "%");
+			param.setSex("%" + text + "%");
 			break;
 		case "id":
-				param.setId("%" + text + "%");
+			param.setId("%" + text + "%");
 			break;
 		case "userType":
-				param.setUserType("%" + text + "%");
+			param.setUserType("%" + text + "%");
 			break;
 		}
-		
+
 		List<UserDto> members = adminUserGets(param);
-		
+
 		return members;
 
 	}
@@ -67,20 +70,41 @@ public class UserManageService {
 
 		System.out.println(list);
 
-//		sqlSession.close();
-
-//		System.out.println(list);
+		sqlSession.close();
 
 	}
 
-	public void memberGet(HttpServletRequest req) {
+	public UserDto memberGet(HttpServletRequest req) {
 		SqlSession sqlSession = Connection.getSession();
 
-		UserDto user = sqlSession.selectOne("UserInfoMapper.user", req);
+		UserDto user = sqlSession.selectOne("userInfoMapper.user", req);
 
 		System.out.println(user);
 
 		sqlSession.close();
+
+		return user;
+	}
+
+	public void userUpdate(HttpServletRequest req) {
+		String[] userIds = req.getParameterValues("userNo");
+
+		for (String userId : userIds) {
+			UserDto dto = new UserDto();
+
+			dto.setNum(Integer.parseInt(userId));
+			dto.setUserType(req.getParameter("userType_" + userId));
+
+			dao.typeUpdate(dto);
+		}
+	}
+
+	public void delete(HttpServletRequest req) {
+		String[] userIds = req.getParameterValues("userNo");
+		for (String userId : userIds) {
+			dao.userDelete(Integer.parseInt(userId));
+		}
+
 	}
 
 }

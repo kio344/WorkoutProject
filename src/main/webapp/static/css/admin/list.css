@@ -15,12 +15,18 @@
 	justify-content: space-between;
 	align-content: center;
 }
-.list_title .list_wrap .list_sub:first-child {
-	border-top: 1px solid red;
-}
 .list_title .list_wrap .list_sub div {
-	border-bottom: 1px solid red;
+	border: 1px solid blue;
 	width: 100%;
 	text-align: center;
 	height: auto;
+}
+.search_wrap form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.search_wrap form input {
+	width: 50%;
+	margin: 10px;
 }

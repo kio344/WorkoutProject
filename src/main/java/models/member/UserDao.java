@@ -1,10 +1,15 @@
 package models.member;
 
 import java.net.ConnectException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 
 import dto.UserDto;
+import models.seller.ProductDto;
+import models.seller.ProductListDto;
 import mybatis.Connection;
 
 public class UserDao {
@@ -41,6 +46,20 @@ public class UserDao {
 		sqlSession.close();
 		
 	}
+	/**
+	 * 회원 타입정보 수정
+	 * @param dto
+	 */
+	public void typeUpdate(UserDto dto) {
+		SqlSession sqlSession = Connection.getSession();
+		
+		sqlSession.update("userInfoMapper.typeUpdate", dto);
+		
+		sqlSession.commit();
+		sqlSession.close();
+		
+	}
+
 	
 	/**
 	 * 유저(판매자) 정보 추가
@@ -78,9 +97,53 @@ public class UserDao {
 		return member;
 	}
 	
-	public boolean bmiUpdate(UserDto dto) {
-		SqlSession sqlSession = mybatis.Connection.getSession();
-		int affectedRows = sqlSession.update("userInfoMapper.bmiUpdate", dto);
+	/**
+	 * 유저 관리자에서 유저 검색
+	 * @param select
+	 * @param str
+	 * @return
+	 */
+	public List<UserDto> searchMember(String select, String str) {
+		SqlSession sqlSession = Connection.getSession();
+		UserDto param = new UserDto();
+		
+		if(select.equals("name")) {
+			param.setName("%" + str + "%");
+		} else if(select.equals("fakeName")) {
+			param.setFakeName("%" + str + "%");
+		} else if(select.equals("sex")) {
+			param.setSex("%" + str + "%");
+		} else if(select.equals("id")) {
+			param.setId("%" + str + "%");
+		} else if(select.equals("userType")) {
+			param.setUserType("%" + str + "%");
+		}
+		
+		List<UserDto> member = sqlSession.selectList("UserInfoMapper.search", param);
+		
+		sqlSession.close();
+		return member;
+	}
+	
+	/**
+	 * 회원 삭제
+	 */
+	public boolean delete(UserDto userDto) {
+		SqlSession sqlSession = Connection.getSession();
+		
+		int affectedRows = sqlSession.delete("userInfoMapper.delete", userDto);
+		
+		sqlSession.commit();
+		sqlSession.close();
+		return affectedRows > 0;
+	}
+	/**
+	 * 관리자가 회원 삭제
+	 */
+	public boolean userDelete(int num) {
+		SqlSession sqlSession = Connection.getSession();
+		
+		int affectedRows = sqlSession.delete("userInfoMapper.userDelete", num);
 		
 		sqlSession.commit();
 		sqlSession.close();
