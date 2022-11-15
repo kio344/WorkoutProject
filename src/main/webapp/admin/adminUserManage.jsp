@@ -72,9 +72,9 @@
 						<div>
 
 							<select name="userType_${userInfo.num}">
-								<option value="member">member</option>
-								<option value="admin">admin</option>
-								<option value="seller">seller</option>
+								<option value="member"${userInfo.userType == 'member' ? " selected" : ""}>member</option>
+								<option value="admin"${userInfo.userType == 'admin' ? " selected" : ""}>admin</option>
+								<option value="seller"${userInfo.userType == 'seller' ? " selected" : ""}>seller</option>
 							</select>
 							
 						</div>
